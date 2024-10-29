@@ -1,4 +1,9 @@
+'use client';
+
+import { useState } from 'react';
+
 import GenerationDropdown from './_components/GenerationDropdown';
+import type { OPlatform } from './_components/PlatformDropdown';
 import PlatformDropdown from './_components/PlatformDropdown';
 
 import ProjectCard from '@/app/project/_components/ProjectCard';
@@ -11,7 +16,7 @@ const releasedTestData: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 1,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -35,7 +40,7 @@ const releasedTestData2: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 2,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -58,7 +63,7 @@ const releasedTestData3: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 3,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -82,7 +87,7 @@ const unReleasedTestData: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 1,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -105,7 +110,7 @@ const unReleasedTestData2: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 2,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -129,7 +134,7 @@ const unReleasedTestData3: TProectDetailDTO = {
   projectLogoImageUrl: 'string',
   projectLandingImageUrl:
     'https://images.unsplash.com/photo-1730058304300-fa684086e87d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw0fHx8ZW58MHx8fHx8',
-  generation: 0,
+  generation: 3,
   projectSchoolList: ['string'],
   startDate: '2024-10-28',
   endDate: '2024-10-28',
@@ -147,6 +152,9 @@ const unReleasedTestData3: TProectDetailDTO = {
 };
 
 function ProjectPage() {
+  const [selectedGeneration, setSelectedGeneration] = useState('ALL');
+  const [selectedPlatform, setSelectedPlatform] = useState<keyof typeof OPlatform>('ALL');
+
   return (
     <Container className="flex flex-col gap-20">
       <div className="flex flex-col gap-6 p-3">
@@ -160,8 +168,10 @@ function ProjectPage() {
 
       <div className="flex flex-col gap-6 p-3">
         <h1 className="text-title-smd text-[#ECECEC]">UMC 프로젝트 살펴보기</h1>
-        <GenerationDropdown />
-        <PlatformDropdown />
+        <div className="flex flex-row gap-5">
+          <GenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
+          <PlatformDropdown selected={selectedPlatform} setSelected={setSelectedPlatform} />
+        </div>
         <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-10 lg:grid-cols-3">
           <ProjectCard projectData={unReleasedTestData} />
           <ProjectCard projectData={unReleasedTestData2} />

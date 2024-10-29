@@ -6,10 +6,10 @@ import { useDropdownContext } from '../dropdown-context';
 
 import cn from '@/shared/utils/style';
 
-const DropdownTriggerVariants = cva('', {
+const DropdownTriggerVariants = cva('flex flex-row items-center gap-2 bg-[#2F2F2F] px-[24px] py-[12px] rounded-[116px]', {
   variants: {
     variant: {
-      bordered: '',
+      bordered: 'border border-solid border-[#3A3A3A]',
     },
   },
   defaultVariants: {},
@@ -27,9 +27,9 @@ interface IDropdownTriggerProps {
  * @param variant DropdownTrigger 컴포넌트의 스타일을 결정합니다.
  */
 function DropdownTrigger({ children, variant = 'bordered' }: IDropdownTriggerProps) {
-  const { toggleDropdown } = useDropdownContext();
+  const { toggleDropdown, isOpen } = useDropdownContext();
   return (
-    <button className={cn(DropdownTriggerVariants({ variant }))} type="button" onClick={toggleDropdown}>
+    <button className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-main-green' : 'border-[#3A3A3A]')} type="button" onClick={toggleDropdown}>
       {children}
     </button>
   );

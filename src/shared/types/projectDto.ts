@@ -22,3 +22,12 @@ export type TProectDetailDTO = {
   projectSchoolList: string[];
   startDate: string;
 };
+
+export type TProjectDTO = {
+  description: string;
+  platFormNameList: TPlatformName[];
+  projectId: number;
+  projectLandingImageUrl: string;
+  projectLogoImageUrl: string;
+  projectName: string;
+};

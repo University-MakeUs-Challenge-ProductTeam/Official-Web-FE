@@ -160,12 +160,13 @@ function ProjectPage() {
       <div className="flex flex-col gap-6 p-3">
         <h1 className="text-title-smd text-[#ECECEC]">실출시된 프로젝트</h1>
         <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-10 lg:grid-cols-2">
-          <ProjectCard projectData={releasedTestData} />
-          <ProjectCard projectData={releasedTestData2} />
-          <ProjectCard projectData={releasedTestData3} />
+          <ProjectCard projectData={releasedTestData} type="released" />
+          <ProjectCard projectData={releasedTestData2} type="released" />
+          <ProjectCard projectData={releasedTestData3} type="released" />
         </div>
       </div>
 
+      {/* TODO: 이후에 상태랑 같이 따로 분리 */}
       <div className="flex flex-col gap-6 p-3">
         <h1 className="text-title-smd text-[#ECECEC]">UMC 프로젝트 살펴보기</h1>
         <div className="flex flex-row gap-5">

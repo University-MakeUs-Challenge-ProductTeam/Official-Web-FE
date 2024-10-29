@@ -4,7 +4,7 @@ import { TbWorld } from 'react-icons/tb';
 import { cva } from 'class-variance-authority';
 import Image from 'next/image';
 
-import Typography from '../Typography';
+import Typography from '../../../../shared/components/Typography';
 
 import { PLATFORM_NAME } from '@/shared/constants/Platforms';
 import type { TProectDetailDTO } from '@/shared/types/projectDto';

@@ -1,5 +1,8 @@
+import GenerationDropdown from './_components/GenerationDropdown';
+import PlatformDropdown from './_components/PlatformDropdown';
+
+import ProjectCard from '@/app/project/_components/ProjectCard';
 import Container from '@/shared/components/Container';
-import ProjectCard from '@/shared/components/ProjectCard';
 import type { TProectDetailDTO } from '@/shared/types/projectDto';
 
 const releasedTestData: TProectDetailDTO = {
@@ -157,6 +160,8 @@ function ProjectPage() {
 
       <div className="flex flex-col gap-6 p-3">
         <h1 className="text-title-smd text-[#ECECEC]">UMC 프로젝트 살펴보기</h1>
+        <GenerationDropdown />
+        <PlatformDropdown />
         <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-10 lg:grid-cols-3">
           <ProjectCard projectData={unReleasedTestData} />
           <ProjectCard projectData={unReleasedTestData2} />

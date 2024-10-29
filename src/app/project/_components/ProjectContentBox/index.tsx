@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Typography from '@/shared/components/Typography';
+import { PLATFORM_NAME } from '@/shared/constants/Platforms';
 import type { TProectDetailDTO } from '@/shared/types/projectDto';
 import { formatDateRange } from '@/shared/utils/date';
 
@@ -12,11 +13,7 @@ function ProjectContentBox({ projectData }: IProjectContentBoxProps) {
   const { generation, projectSchoolList, startDate, endDate, platFormNameList, isReleased } = projectData;
 
   const projectPeriod = formatDateRange(startDate, endDate);
-  const platformList = platFormNameList.map((item) => {
-    if (item === 'WEB') return 'Web';
-    if (item === 'AOS') return 'Android';
-    return 'iOS';
-  });
+  const platformList = platFormNameList.map((item) => PLATFORM_NAME[item]);
 
   return (
     <div className="flex flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8">
@@ -27,7 +24,7 @@ function ProjectContentBox({ projectData }: IProjectContentBoxProps) {
         <Typography size="text-lg" className="w-[70px] text-[#818181]">
           기수
         </Typography>
-        <Typography size="text-lg" className="text-[#CFCFCF]">
+        <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
           {generation}기
         </Typography>
       </div>
@@ -47,7 +44,7 @@ function ProjectContentBox({ projectData }: IProjectContentBoxProps) {
         <Typography size="text-lg" className="w-[70px] text-[#818181]">
           기간
         </Typography>
-        <Typography size="text-lg" className="text-[#CFCFCF]">
+        <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
           {projectPeriod}
         </Typography>
       </div>
@@ -55,7 +52,7 @@ function ProjectContentBox({ projectData }: IProjectContentBoxProps) {
         <Typography size="text-lg" className="w-[70px] text-[#818181]">
           플랫폼
         </Typography>
-        <Typography size="text-lg" className="text-[#CFCFCF]">
+        <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
           {platformList.join(', ')}
         </Typography>
       </div>
@@ -63,7 +60,7 @@ function ProjectContentBox({ projectData }: IProjectContentBoxProps) {
         <Typography size="text-lg" className="w-[70px] text-[#818181]">
           출시여부
         </Typography>
-        <Typography size="text-lg" className="text-[#CFCFCF]">
+        <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
           {isReleased ? '출시 완료' : '출시 예정'}
         </Typography>
       </div>

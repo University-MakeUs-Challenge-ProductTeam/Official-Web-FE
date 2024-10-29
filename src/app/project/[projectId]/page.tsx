@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import ProjectContentBox from '../_components/ProjectContentBox';
+import ProjectMemberBox from '../_components/ProjectMemberBox';
 
 import Container from '@/shared/components/Container';
 import Typography from '@/shared/components/Typography';
@@ -23,9 +24,39 @@ const testData: TProectDetailDTO = {
   projectMemberDTOList: [
     {
       projectMemberId: 0,
-      nickname: 'string',
-      name: 'string',
+      nickname: 'string1',
+      name: 'string1',
       part: 'PLAN',
+    },
+    {
+      projectMemberId: 0,
+      nickname: 'string2',
+      name: 'string2',
+      part: 'PLAN',
+    },
+    {
+      projectMemberId: 0,
+      nickname: 'string3',
+      name: 'string3',
+      part: 'PLAN',
+    },
+    {
+      projectMemberId: 0,
+      nickname: 'string1',
+      name: 'string1',
+      part: 'WEB',
+    },
+    {
+      projectMemberId: 0,
+      nickname: 'string2',
+      name: 'string2',
+      part: 'WEB',
+    },
+    {
+      projectMemberId: 0,
+      nickname: 'string2',
+      name: 'string2',
+      part: 'AOS',
     },
   ],
 };
@@ -48,7 +79,7 @@ function ProjectDetailPage() {
             <Image src={testData.projectLogoImageUrl} fill layout="contain" alt="ProjectLogoImage" className="rounded-lg" />
           </div>
           <ProjectContentBox projectData={testData} />
-          <div className="flex flex-1 rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8" />
+          <ProjectMemberBox projectMember={testData.projectMemberDTOList} />
         </div>
         <div className="flex-3 flex w-full rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8" />
       </div>

@@ -1,5 +1,5 @@
 export enum PLATFORM_NAME {
-  'AOS' = 'Andrdroid',
+  'AOS' = 'Android',
   'IOS' = 'iOS',
   'WEB' = 'Web',
 }

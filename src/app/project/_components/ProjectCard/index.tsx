@@ -46,7 +46,7 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
   return (
     <div className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
       <div className={cn('relative size-full min-h-[195px] min-w-[195px]', type === 'released' && 'sm:max-w-[195px]')}>
-        <Image fill src={projectLandingImageUrl} alt="ProjectImage" className="rounded-[14px]" />
+        <Image fill src={`${process.env.NEXT_PUBLIC_BASE_URL}${projectLandingImageUrl}`} alt="ProjectImage" className="rounded-[14px]" />
       </div>
       {type === 'default' && <h5 className="mt-1 text-main-disable">{platFormNameList.map((item) => PLATFORM_NAME[item]).join(' | ')}</h5>}
       <div className="flex flex-1 flex-col gap-[8px]">

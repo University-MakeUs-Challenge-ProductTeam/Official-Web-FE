@@ -11,18 +11,20 @@ import Typography from '@/shared/components/Typography';
 
 const OGeneration = {
   ALL: '전체',
-  1: 1,
-  2: 2,
   3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
 } as const;
 
 interface IGenerationDropdownProps {
-  selected: string;
-  setSelected: React.Dispatch<React.SetStateAction<string>>;
+  selected: 'ALL' | number;
+  setSelected: React.Dispatch<React.SetStateAction<'ALL' | number>>;
 }
 
 function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps) {
-  const generationList = Object.keys(OGeneration);
+  const generationList = Object.keys(OGeneration) as Array<'ALL' | `${number}`>;
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -40,8 +42,8 @@ function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps)
         {generationList
           .filter((gen) => gen !== 'ALL')
           .map((gen) => (
-            <DropdownItem key={gen} onClick={() => setSelected(gen)}>
-              <Typography size="text-lg" className={gen === selected ? 'text-main-green' : 'text-[#CCCCCC]'}>
+            <DropdownItem key={gen} onClick={() => setSelected(Number(gen))}>
+              <Typography size="text-lg" className={Number(gen) === selected ? 'text-main-green' : 'text-[#CCCCCC]'}>
                 {`${gen}기`}
               </Typography>
             </DropdownItem>

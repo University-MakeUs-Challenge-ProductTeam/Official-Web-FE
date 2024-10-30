@@ -1,5 +1,5 @@
-type TPlatformName = 'IOS' | 'AOS' | 'WEB';
-type TProjectPart = 'PLAN' | 'DESIGN' | 'SPRING' | 'NODE' | 'AOS' | 'IOS' | 'WEB';
+export type TPlatformName = 'IOS' | 'AOS' | 'WEB';
+export type TProjectPart = 'PLAN' | 'DESIGN' | 'SPRING' | 'NODE' | 'AOS' | 'IOS' | 'WEB';
 
 export type TProjectMemberDTO = {
   name: string;

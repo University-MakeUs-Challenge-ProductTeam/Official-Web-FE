@@ -1,4 +1,4 @@
-import type { TPlatformName } from '../types/projectDto';
+import type { TPlatformName, TProectDetailDTO } from '../types/projectDto';
 
 import type { TApiResponseType, TProjectListResultType } from '@/shared/types/api/projectTypes';
 
@@ -23,10 +23,16 @@ export async function getProjectList({
   return data.result;
 }
 
-// export async function getProjectDetail() {
-//   const res = await fetch('');
-// }
+export async function getProjectDetail({ id }: { id: number }) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/projects/${id}`);
 
-// export async function getReleasedProjectList() {
-//   const res = await fetch('');
-// }
+  const data: TApiResponseType<TProectDetailDTO> = await res.json();
+  return data.result;
+}
+
+export async function getReleasedProjectList({ cursor }: { cursor: number }) {
+  const res = await fetch(`/api/projects/umc?cursor=${cursor}&take=10`);
+
+  const data: TApiResponseType<TProjectListResultType> = await res.json();
+  return data.result;
+}

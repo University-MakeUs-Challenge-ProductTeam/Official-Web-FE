@@ -1,4 +1,6 @@
-function ReleasedProjectPage() {
+import React from 'react';
+
+function ReleasedProjectView() {
   return (
     <div className="flex flex-col gap-6 p-3">
       <h1 className="text-title-smd text-[#ECECEC]">실출시된 프로젝트</h1>
@@ -7,4 +9,4 @@ function ReleasedProjectPage() {
   );
 }
 
-export default ReleasedProjectPage;
+export default ReleasedProjectView;

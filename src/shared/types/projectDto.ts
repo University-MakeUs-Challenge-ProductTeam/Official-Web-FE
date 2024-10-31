@@ -31,3 +31,7 @@ export type TProjectDTO = {
   projectName: string;
   slogan: string;
 };
+
+export type TGenerationsDTO = {
+  generationList: number[];
+};

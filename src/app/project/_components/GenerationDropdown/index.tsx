@@ -2,21 +2,14 @@
 
 import React from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useQuery } from '@tanstack/react-query';
 
+import { getGenerations } from '@/shared/api/project';
 import Dropdown from '@/shared/components/Dropdown';
 import DropdownItem from '@/shared/components/Dropdown/DropdownItem';
 import DropdownMenu from '@/shared/components/Dropdown/DropdownMenu';
 import DropdownTrigger from '@/shared/components/Dropdown/DropdownTrigger';
 import Typography from '@/shared/components/Typography';
-
-const OGeneration = {
-  ALL: '전체',
-  3: 3,
-  4: 4,
-  5: 5,
-  6: 6,
-  7: 7,
-} as const;
 
 interface IGenerationDropdownProps {
   selected: 'ALL' | number;
@@ -24,7 +17,12 @@ interface IGenerationDropdownProps {
 }
 
 function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps) {
-  const generationList = Object.keys(OGeneration) as Array<'ALL' | `${number}`>;
+  const { data } = useQuery({
+    queryKey: ['generations'],
+    queryFn: () => getGenerations(),
+  });
+  const generationList = ['ALL', ...(data?.generationList ?? [])] as Array<'ALL' | number>;
+
   return (
     <Dropdown>
       <DropdownTrigger>

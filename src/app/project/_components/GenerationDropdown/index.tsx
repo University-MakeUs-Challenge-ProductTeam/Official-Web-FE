@@ -10,6 +10,7 @@ import DropdownItem from '@/shared/components/Dropdown/DropdownItem';
 import DropdownMenu from '@/shared/components/Dropdown/DropdownMenu';
 import DropdownTrigger from '@/shared/components/Dropdown/DropdownTrigger';
 import Typography from '@/shared/components/Typography';
+import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
 
 interface IGenerationDropdownProps {
   selected: 'ALL' | number;
@@ -18,7 +19,7 @@ interface IGenerationDropdownProps {
 
 function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps) {
   const { data } = useQuery({
-    queryKey: ['generations'],
+    queryKey: [QUERY_KEYS.generations],
     queryFn: () => getGenerations(),
   });
   const generationList = ['ALL', ...(data?.generationList ?? [])] as Array<'ALL' | number>;

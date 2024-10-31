@@ -6,6 +6,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import ProjectCard from '../ProjectCard';
 
 import { getReleasedProjectList } from '@/shared/api/project';
+import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
 
 function ReleasedProjectView() {
   const {
@@ -14,7 +15,7 @@ function ReleasedProjectView() {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ['projects', 0],
+    queryKey: [QUERY_KEYS.projects],
     queryFn: ({ pageParam }) => getReleasedProjectList({ cursor: pageParam }),
     initialPageParam: 0,
     getNextPageParam: (lastPage) => lastPage.nextCursor,

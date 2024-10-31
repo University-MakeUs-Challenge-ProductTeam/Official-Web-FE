@@ -11,6 +11,7 @@ import ProjectCard from '../ProjectCard';
 
 import { getProjectList } from '@/shared/api/project';
 import Typography from '@/shared/components/Typography';
+import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
 import useDebounce from '@/shared/hooks/useDebounce';
 
 function UMCProjectView() {
@@ -25,7 +26,7 @@ function UMCProjectView() {
     isFetchingNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    queryKey: ['projects', selectedGeneration, selectedPlatform, debouncedSearchTerm],
+    queryKey: [QUERY_KEYS.projects, selectedGeneration, selectedPlatform, debouncedSearchTerm],
     queryFn: ({ pageParam }) =>
       getProjectList({ cursor: pageParam, generation: selectedGeneration, platformName: selectedPlatform, searchTerm: debouncedSearchTerm }),
     initialPageParam: 0,

@@ -6,17 +6,18 @@ export async function getProjectList({
   cursor,
   generation,
   platformName,
+  searchTerm,
 }: {
   cursor: number;
   generation?: number | 'ALL';
   platformName?: TPlatformName | 'ALL';
+  searchTerm?: string;
 }): Promise<TProjectListResultType> {
   let url = `/api/projects/umc?cursor=${cursor}&take=10`;
-  if (generation !== 'ALL') {
-    url += `&generation=${generation}`;
-  } else if (platformName !== 'ALL') {
-    url += `&platformName=${platformName}`;
-  }
+  if (generation !== 'ALL') url += `&generation=${generation}`;
+  if (platformName !== 'ALL') url += `&platformName=${platformName}`;
+  if (searchTerm) url += `&searchTerm=${searchTerm}`;
+
   const res = await fetch(url);
 
   const data: TApiResponseType<TProjectListResultType> = await res.json();

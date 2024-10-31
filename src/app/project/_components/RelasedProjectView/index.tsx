@@ -32,7 +32,7 @@ function ReleasedProjectView() {
           type="button"
           onClick={() => fetchNextPage()}
           disabled={isFetchingNextPage}
-          className="self-center text-text-sm text-white hover:text-neutral-500"
+          className="self-center border-b py-2 text-text-sm text-white hover:border-neutral-500 hover:text-neutral-500"
         >
           {!isFetchingNextPage && '더 불러오기'}
         </button>

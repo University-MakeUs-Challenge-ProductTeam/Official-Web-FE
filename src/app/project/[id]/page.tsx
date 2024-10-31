@@ -27,7 +27,7 @@ async function ProjectDetailPage({ params }: { params: { id: number } }) {
           {projectData.projectName}
         </Typography>
         <Typography as="h5" size="text-lg" className="text-[#818181]">
-          {projectData.description}
+          {projectData.slogan}
         </Typography>
       </div>
       <div className="flex w-full flex-col place-items-center gap-7 px-[50px] lg:flex-row lg:place-items-stretch lg:px-[90px]">

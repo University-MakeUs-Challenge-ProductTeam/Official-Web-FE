@@ -18,7 +18,7 @@ const ProjectCardVariants = cva(
   {
     variants: {
       type: {
-        default: 'flex-col max-w-[400px] min-h-[380px]',
+        default: 'flex-col max-w-[400px] min-h-[370px]',
         released: 'flex-col gap-[24px] max-w-[750px] sm:flex-row',
       },
     },
@@ -41,12 +41,12 @@ interface IProjectCardProps {
  */
 function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
   const router = useRouter();
-  const { projectId, projectLandingImageUrl, projectName, platFormNameList, description } = projectData;
+  const { projectId, projectLogoImageUrl, projectName, platFormNameList, slogan } = projectData;
 
   return (
     <div className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
-      <div className={cn('relative size-full min-h-[195px] min-w-[195px]', type === 'released' && 'sm:max-w-[195px]')}>
-        <Image fill src={`${process.env.NEXT_PUBLIC_BASE_URL}${projectLandingImageUrl}`} alt="ProjectImage" className="rounded-[14px]" />
+      <div className={cn('relative size-full min-h-[175px] min-w-[165px]', type === 'released' && 'sm:max-w-[165px]')}>
+        <Image fill src={`${process.env.NEXT_PUBLIC_BASE_URL}${projectLogoImageUrl}`} alt="ProjectImage" className="rounded-[14px]" />
       </div>
       {type === 'default' && <h5 className="mt-1 text-main-disable">{platFormNameList.map((item) => PLATFORM_NAME[item]).join(' | ')}</h5>}
       <div className="flex flex-1 flex-col gap-[8px]">
@@ -54,7 +54,7 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
           {projectName}
         </Typography>
         <Typography as="p" size="text-lg" className="line-clamp-2 text-[#CFCFCF]">
-          {description}
+          {slogan}
         </Typography>
         {type === 'released' && (
           <div className="flex w-full flex-1 flex-row items-end gap-4">

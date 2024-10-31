@@ -20,14 +20,14 @@ export type TProectDetailDTO = {
   projectMemberDTOList: TProjectMemberDTO[];
   projectName: string;
   projectSchoolList: string[];
+  slogan: string;
   startDate: string;
 };
 
 export type TProjectDTO = {
-  description: string;
   platFormNameList: TPlatformName[];
   projectId: number;
-  projectLandingImageUrl: string;
   projectLogoImageUrl: string;
   projectName: string;
+  slogan: string;
 };

@@ -12,6 +12,7 @@ export const TypographyVariants = cva<{
 }>('', {
   variants: {
     size: {
+      'title-xl': 'text-title-xl',
       'title-lg': 'text-title-lg',
       'title-md': 'text-title-md',
       'title-smd': 'text-title-smd',

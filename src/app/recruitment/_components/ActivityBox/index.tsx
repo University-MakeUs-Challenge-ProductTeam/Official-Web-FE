@@ -23,7 +23,9 @@ async function ActivityBox() {
   if (!activities) {
     return (
       <div className="flex flex-col gap-5">
-        <h1 className="text-title-smd text-[#ECECEC]">활동정보</h1>
+        <Typography as="h1" size="title-smd" className="text-[#ECECEC]">
+          활동정보
+        </Typography>
         <div className="flex flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8">
           <div className="flex flex-row gap-2">
             <Typography size="text-lg" className="text-[#818181]">

@@ -1,5 +1,6 @@
 import ActivityBox from './_components/ActivityBox';
 import FaqAccordions from './_components/FaqAccordions';
+import ScheduleBox from './_components/ScheduleBox';
 
 import Container from '@/shared/components/Container';
 import Typography from '@/shared/components/Typography';
@@ -8,8 +9,11 @@ function RecruitmentPage() {
   return (
     <Container className="my-10 flex flex-col gap-20">
       <ActivityBox />
+      <ScheduleBox />
       <div className="flex flex-col">
-        <h1 className="text-title-smd text-[#ECECEC]">FAQ</h1>
+        <Typography as="h1" size="title-smd" className="text-[#ECECEC]">
+          FAQ
+        </Typography>
         <FaqAccordions />
       </div>
       <div className="mt-20 flex flex-row flex-wrap items-center justify-between gap-5">

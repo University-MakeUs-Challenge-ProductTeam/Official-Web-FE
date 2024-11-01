@@ -21,7 +21,7 @@ function DropdownMenu({ children, position = 'top-[55px] right-0 left-0' }: IDro
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className={`${position} absolute z-10 overflow-hidden rounded-xl border border-solid border-[#3A3A3A] bg-[#2F2F2F] text-[#CFCFCF]`}
+          className={`${position} absolute z-10 max-h-[450px] overflow-y-auto rounded-xl border border-solid border-[#3A3A3A] bg-[#2F2F2F] text-[#CFCFCF] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-neutral-700 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1`}
           initial={{ opacity: 0, scale: 0.5, x: 0, y: -100 }}
           animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, x: 0, y: -30 }}

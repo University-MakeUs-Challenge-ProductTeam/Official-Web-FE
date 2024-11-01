@@ -1,17 +1,15 @@
 import Banner from '@/app/_components/Banner';
-import Container from '@/shared/components/Container';
+import SecondBanner from '@/app/_components/SecondBanner';
 import Spacing from '@/shared/components/Spacing';
-import Typography from '@/shared/components/Typography';
 
 function Home() {
   return (
-    <div>
+    <>
       <Banner />
-      <Spacing direction="vertical" size={16} />
-      <Typography size="text-lg" color="main-white">
-        HomePage
-      </Typography>
-    </div>
+      <Spacing direction="vertical" size={160} />
+      <SecondBanner />
+      <Spacing direction="vertical" size={160} />
+    </>
   );
 }
 

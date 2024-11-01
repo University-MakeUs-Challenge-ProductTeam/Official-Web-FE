@@ -41,7 +41,7 @@ export default async function RootLayout({
 
   return (
     <html lang="ko" className={`${pretendard.variable} ${roboto.variable} scroll-pt-14 antialiased`} suppressHydrationWarning>
-      <body className="min-h-screen bg-[#191919] font-pretendard">
+      <body className="min-h-screen bg-[#121212] font-pretendard">
         <MSWProvider>
           <QueryProvider>
             <div className="relative flex min-h-dvh flex-col">

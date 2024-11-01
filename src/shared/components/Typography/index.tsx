@@ -75,7 +75,7 @@ export const TypographyVariants = cva<{
 interface ITypographyProps extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType;
   color?: ColorKey;
-  size: FontKey;
+  size?: FontKey;
 }
 
 /**

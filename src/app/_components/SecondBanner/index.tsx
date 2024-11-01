@@ -5,7 +5,7 @@ import Typography from '@/shared/components/Typography';
 
 function SecondBanner() {
   return (
-    <Flex direction="column" align="center" className="bg-main-black">
+    <Flex direction="column" align="center">
       <Typography color="main-disable" className="text-center font-roboto text-[75px] font-bold md:text-[100px] lg:text-[150px]">
         Break The Rules!
       </Typography>

@@ -2,8 +2,13 @@
 
 import type { ReactNode } from 'react';
 import React from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
+import { AnimatePresence, motion } from 'framer-motion';
 
+import Typography from '../../Typography';
 import { useAccordionContext } from '../accordion-context';
+
+import cn from '@/shared/utils/style';
 
 interface IAccordionItemProps {
   ariaLabel?: string;
@@ -28,11 +33,31 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
   };
 
   return (
-    <div aria-label={ariaLabel}>
-      <button type="button" onClick={handleClick}>
-        {title}
+    <div aria-label={ariaLabel} className="mt-8 w-full border-b-2 border-solid border-[#3A3A3A]">
+      <button className="w-full py-3" type="button" onClick={handleClick}>
+        <div className="flex flex-row">
+          <Typography as="h3" size="title-sm" className={cn(isActive ? 'text-main-green' : 'text-[#9D9D9D]', 'mr-3 font-bold')}>
+            {title}
+          </Typography>
+          <motion.div className="ml-auto" initial={{ rotate: 0 }} animate={{ rotate: isActive ? 180 : 0 }} transition={{ duration: 0.3 }}>
+            <IoIosArrowDown size={20} color="#9D9D9D" />
+          </motion.div>
+        </div>
       </button>
-      {isActive && <div>{children}</div>}
+      <AnimatePresence>
+        {isActive && (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, x: 0, y: -10 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, x: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="py-3"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

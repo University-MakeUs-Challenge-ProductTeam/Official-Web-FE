@@ -2,22 +2,21 @@ import React from 'react';
 
 import Accordion from '@/shared/components/Accordion';
 import AccordionItem from '@/shared/components/Accordion/AccordionItem';
+import Typography from '@/shared/components/Typography';
+import { FAQ_TITLE } from '@/shared/constants/FaqTitle';
 
 function FaqAccordions() {
+  const defaultContent =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
   return (
     <Accordion>
-      <AccordionItem index={1} title="제목 1">
-        <p>내용 1</p>
-      </AccordionItem>
-      <AccordionItem index={2} title="제목 2">
-        <p>내용 2</p>
-      </AccordionItem>
-      <AccordionItem index={3} title="제목 3">
-        <p>내용 3</p>
-      </AccordionItem>
-      <AccordionItem index={4} title="제목 4">
-        <p>내용 4</p>
-      </AccordionItem>
+      {FAQ_TITLE.map((item) => (
+        <AccordionItem key={item.id} index={item.id} title={item.question}>
+          <Typography size="text-sm" className="text-[#9D9D9D]">
+            {item.answer || defaultContent}
+          </Typography>
+        </AccordionItem>
+      ))}
     </Accordion>
   );
 }

@@ -49,7 +49,7 @@ export default async function RootLayout({
           <QueryProvider>
             <div className="relative flex min-h-dvh flex-col">
               <Navbar />
-              <main className="flex-1 pb-20 pt-28">{children}</main>
+              <main className="flex-1 pt-28">{children}</main>
               <Footer />
             </div>
           </QueryProvider>

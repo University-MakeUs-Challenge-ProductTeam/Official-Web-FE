@@ -10,6 +10,7 @@ const ButtonVariants = cva('flex w-full items-center justify-center rounded-lg t
     variant: {
       main: 'border-2 border-main-green bg-main-green',
       outline: 'border-main-green bg-main-black text-main-green',
+      disabled: 'border-main-disable bg-main-black text-main-disable',
     },
     size: {
       sm: 'border py-1',

@@ -22,7 +22,7 @@ function ThirdBanner() {
       <Flex className="flex flex-col gap-10 md:flex-row">
         {coreValues.map((value) => (
           <Flex key={value.id} direction="column" justify="center" align="center">
-            <div className="size-[230px] rounded-full bg-main-white">123</div>
+            <div className="size-[230px] rounded-full bg-main-white" />
             <Spacing direction="vertical" size={20} />
             <Typography size="text-lg" color="main-white">
               {value.label}

@@ -5855,6 +5855,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"swiper@npm:^11.1.14":
+  version: 11.1.14
+  resolution: "swiper@npm:11.1.14"
+  checksum: 87bf4c42d893c76d3545d42ad664b78b032f7768c99f3d90d8340c035d661e10e7805c3270df704f8da99508304e8ca87cab61d3c863586d9d231c9f718ae785
+  languageName: node
+  linkType: hard
+
 "synckit@npm:^0.9.0, synckit@npm:^0.9.1":
   version: 0.9.2
   resolution: "synckit@npm:0.9.2"
@@ -6201,6 +6208,7 @@ __metadata:
     react: ^18
     react-dom: ^18
     react-icons: ^5.3.0
+    swiper: ^11.1.14
     tailwind-merge: ^2.5.3
     tailwindcss: ^3.4.1
     typescript: ^5

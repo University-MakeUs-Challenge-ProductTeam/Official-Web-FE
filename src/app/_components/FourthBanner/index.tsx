@@ -3,11 +3,11 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import useGetMainActivity from '@/shared/api/queries/useGetMainActivity';
 import Button from '@/shared/components/Button';
 import Flex from '@/shared/components/Flex';
 import Spacing from '@/shared/components/Spacing';
 import Typography from '@/shared/components/Typography';
+import useGetMainActivity from '@/shared/hooks/queries/useGetMainActivity';
 import type { EventKRList, EventList } from '@/shared/types/dtos/academy';
 import { EventType } from '@/shared/types/dtos/academy';
 
@@ -24,6 +24,17 @@ function FourthBanner() {
 
   return (
     <Flex direction="column" justify="center" align="center">
+      <Typography size="title-sm" color="main-disable">
+        주요활동
+      </Typography>
+      <Spacing direction="vertical" size={10} />
+      <Typography size="title-smd" color="main-white">
+        UMC는 끊임없이
+      </Typography>
+      <Typography size="title-smd" color="main-white">
+        소통하고 성장합니다.
+      </Typography>
+      <Spacing direction="vertical" size={128} />
       <Flex direction="row" justify="center" align="center" className="w-[90%] flex-wrap gap-4">
         {eventKeys.map((eventKey) => (
           <Button

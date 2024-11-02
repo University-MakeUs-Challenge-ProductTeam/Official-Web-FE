@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from '@/shared/components/Typography';
 import { SCHEDULE_CONTENT } from '@/shared/constants/recruitment';
 import type { TRecruitmentScheduleDTO, TShcoolScheduleType } from '@/shared/types/recruitmentDto';
-import { formatDateRange } from '@/shared/utils/date';
+import { formatDateWithDays } from '@/shared/utils/date';
 
 interface IRecruitmentScheduleProps {
   scheduleData?: TRecruitmentScheduleDTO;
@@ -14,21 +14,23 @@ function RecruitmentSchedule({ scheduleData }: IRecruitmentScheduleProps) {
     if (scheduleData) {
       switch (label) {
         case '서류 접수': {
-          const formmatedContent = formatDateRange(scheduleData?.submissionStart, scheduleData?.submissionEnd);
-          return formmatedContent;
+          const formmatedStart = formatDateWithDays(scheduleData.submissionStart);
+          const formmatedEnd = formatDateWithDays(scheduleData.submissionEnd);
+          return `${formmatedStart} ~ ${formmatedEnd}`;
         }
         case '1차 합격자 발표': {
-          return scheduleData?.firstResultDate;
+          return formatDateWithDays(scheduleData?.firstResultDate);
         }
         case '면접 평가': {
-          const formmatedContent = formatDateRange(scheduleData?.interviewStartDate, scheduleData?.interviewEndDate);
-          return formmatedContent;
+          const formmatedStart = formatDateWithDays(scheduleData.interviewStartDate);
+          const formmatedEnd = formatDateWithDays(scheduleData.interviewEndDate);
+          return `${formmatedStart} ~ ${formmatedEnd}`;
         }
         case '최종 합격자 발표': {
-          return scheduleData.finalResultDate;
+          return formatDateWithDays(scheduleData.finalResultDate);
         }
         case '연합 & 학교 OT': {
-          return scheduleData.schoolOTDate;
+          return formatDateWithDays(scheduleData.schoolOTDate);
         }
         default:
           return null;

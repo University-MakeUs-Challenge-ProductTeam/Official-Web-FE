@@ -5,17 +5,50 @@ import { useForm } from 'react-hook-form';
 
 import Button from '@/shared/components/Button';
 import Input from '@/shared/components/Input';
+import LoadingSpinner from '@/shared/components/LoadingSpinner';
 import TextArea from '@/shared/components/TextArea';
+import usePostSponsorResponse from '@/shared/hooks/queries/usePostSponsorResponse';
 
 function Form() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<FieldValues>();
+  } = useForm<FieldValues>({
+    defaultValues: {
+      applicationName: null,
+      contactInfo: null,
+      email: null,
+      organizationName: null,
+      logoImage: null,
+      description: null,
+      link: null,
+    },
+  });
+
+  const { mutate: applySponsor, isPending } = usePostSponsorResponse();
 
   const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues, event) => {
     event?.preventDefault();
+    applySponsor(
+      {
+        applicationName: data.applicationName,
+        contactInfo: data.contactInfo,
+        description: data.description,
+        email: data.email,
+        link: data.link,
+        logoImage: data.logoImage,
+        organizationName: data.organizationName,
+      },
+      {
+        onSuccess: () => {
+          // eslint-disable-next-line no-alert
+          alert('후원신청 해주셔서 감사합니다.');
+          reset();
+        },
+      },
+    );
   };
 
   return (
@@ -28,8 +61,8 @@ function Form() {
       <TextArea id="description" label="기관설명" register={register} errors={errors} required />
       <Input id="link" label="기관링크" register={register} errors={errors} required />
       <div className="my-10 w-[160px]">
-        <Button type="submit" variant="outline">
-          제출하기
+        <Button disabled={isPending} type="submit" variant="outline">
+          {isPending ? <LoadingSpinner /> : '제출하기'}
         </Button>
       </div>
     </form>

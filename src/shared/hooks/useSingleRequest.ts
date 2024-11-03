@@ -1,20 +1,24 @@
-import { useRef } from 'react';
+const noop = () => {};
 
-const useSingleRequest = () => {
-  const apiRequests = useRef<Set<string>>(new Set());
+type CallbackFunctionType = (...args: any[]) => any;
 
-  const startRequest = (requestId: string) => {
-    if (apiRequests.current.has(requestId)) {
-      // eslint-disable-next-line no-alert
-      alert('이미 요청이 진행 중 입니다.');
-      return false;
+const useSingleRequest = <F extends CallbackFunctionType>(callback: F) => {
+  const promiseByKey = new Map<string, Promise<ReturnType<F>>>();
+  return ((...args: Parameters<F>) => {
+    const key = JSON.stringify(args);
+
+    if (promiseByKey.has(key)) {
+      return promiseByKey.get(key)!;
     }
-    apiRequests.current.add(requestId);
 
-    return true;
-  };
+    const promise = callback(...args);
+    promise.then(() => {
+      promiseByKey.delete(key);
+    }, noop);
 
-  return { startRequest };
+    promiseByKey.set(key, promise);
+    return promise;
+  }) as F;
 };
 
 export default useSingleRequest;

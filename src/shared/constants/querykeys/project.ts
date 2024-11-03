@@ -3,4 +3,6 @@ export const QUERY_KEYS = {
   generations: 'generations',
   shcools: 'schools',
   requirements: 'requirements',
+  mainActivity: 'mainActivity',
+  allProjects: 'allProjects',
 };

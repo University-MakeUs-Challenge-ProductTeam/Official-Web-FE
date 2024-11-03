@@ -1,4 +1,7 @@
 import '@/shared/styles';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import React from 'react';
 import type { Metadata } from 'next';
@@ -41,12 +44,12 @@ export default async function RootLayout({
 
   return (
     <html lang="ko" className={`${pretendard.variable} ${roboto.variable} scroll-pt-14 antialiased`} suppressHydrationWarning>
-      <body className="min-h-screen bg-[#191919] font-pretendard">
+      <body className="min-h-screen bg-[#121212] font-pretendard">
         <MSWProvider>
           <QueryProvider>
             <div className="relative flex min-h-dvh flex-col">
               <Navbar />
-              <main className="flex-1 pb-20 pt-28">{children}</main>
+              <main className="flex-1 pt-28">{children}</main>
               <Footer />
             </div>
           </QueryProvider>

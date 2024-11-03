@@ -17,6 +17,14 @@ const config: Config = {
         roboto: ['var(--font-roboto)', 'sans-serif'],
       },
       fontSize: {
+        'title-xl': [
+          '62px',
+          {
+            lineHeight: '1.4',
+            letterSpacing: '-0.002em',
+            fontWeight: 600,
+          },
+        ],
         'title-lg': [
           '48px',
           {

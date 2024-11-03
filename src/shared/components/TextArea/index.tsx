@@ -14,14 +14,15 @@ interface ITextAreaProps {
   label: string;
   register: UseFormRegister<FieldValues>;
   required?: boolean;
+  rows?: number;
 }
 
-function TextArea({ className, formatPrice, disabled, errors, icon: Icon, id, label, register, required }: ITextAreaProps) {
+function TextArea({ className, rows = 20, formatPrice, disabled, errors, icon: Icon, id, label, register, required }: ITextAreaProps) {
   return (
     <div className={cn(`relative w-full`, className)}>
       {Icon && <Icon size={24} className="absolute left-2 top-5 text-neutral-700" />}
       <textarea
-        rows={15}
+        rows={rows}
         id={id}
         disabled={disabled}
         {...register(id, { required })}

@@ -9,34 +9,6 @@ import { formatDateRange } from '@/shared/utils/date';
 async function ActivityBox() {
   const activities = await getActivities();
 
-  //   const activities = {
-  //     activityInfoId: 0,
-  //     generation: 0,
-  //     activityStartDate: '2024-11-01',
-  //     activityEndDate: '2024-11-01',
-  //     unionOTDate: '2024-11-01',
-  //     clubFee: 0,
-  //     projectFee: 0,
-  //     projectPaybackFee: 0,
-  //   };
-
-  if (!activities) {
-    return (
-      <div className="flex flex-col gap-5">
-        <Typography as="h1" size="title-smd" className="text-[#ECECEC]">
-          활동정보
-        </Typography>
-        <div className="flex flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8">
-          <div className="flex flex-row gap-2">
-            <Typography size="text-lg" className="text-[#818181]">
-              활동 정보가 없습니다.
-            </Typography>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   function activityContent(label: TActivity): string | null {
     switch (label) {
       case '활동기간': {
@@ -65,16 +37,26 @@ async function ActivityBox() {
     <div className="flex flex-col gap-5">
       <h1 className="text-title-smd text-[#ECECEC]">활동정보</h1>
       <div className="flex flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] bg-[#1B1B1B] p-8">
-        {ACTIVITY_CONTENT.map((item) => (
-          <div className="flex flex-row gap-4" key={item.label}>
+        {activities ? (
+          <>
+            {ACTIVITY_CONTENT.map((item) => (
+              <div className="flex flex-row gap-4" key={item.label}>
+                <Typography size="text-lg" className="text-[#818181]">
+                  {item.label}
+                </Typography>
+                <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
+                  {activityContent(item.label)}
+                </Typography>
+              </div>
+            ))}
+          </>
+        ) : (
+          <div className="flex flex-row gap-2">
             <Typography size="text-lg" className="text-[#818181]">
-              {item.label}
-            </Typography>
-            <Typography size="text-lg" className="flex-1 text-[#CFCFCF]">
-              {activityContent(item.label)}
+              활동 정보가 없습니다.
             </Typography>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

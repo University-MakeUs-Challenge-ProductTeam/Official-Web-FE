@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   requirements: 'requirements',
   mainActivity: 'mainActivity',
   allProjects: 'allProjects',
+  curriculum: 'curriculum',
 };

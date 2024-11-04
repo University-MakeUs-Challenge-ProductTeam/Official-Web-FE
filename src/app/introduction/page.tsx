@@ -1,5 +1,6 @@
 import FirstBanner from './_components/FirstBanner';
 import SecondBanner from './_components/SecondBanner';
+import ThirdBanner from './_components/ThirdBanner';
 
 import Container from '@/shared/components/Container';
 
@@ -8,6 +9,7 @@ function IntroductionPage() {
     <Container className="mt-5 flex flex-col gap-60">
       <FirstBanner />
       <SecondBanner />
+      <ThirdBanner />
     </Container>
   );
 }

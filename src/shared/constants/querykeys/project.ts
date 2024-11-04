@@ -6,4 +6,5 @@ export const QUERY_KEYS = {
   mainActivity: 'mainActivity',
   allProjects: 'allProjects',
   curriculum: 'curriculum',
+  events: 'events',
 };

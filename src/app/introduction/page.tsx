@@ -1,4 +1,5 @@
 import FirstBanner from './_components/FirstBanner';
+import FourthBanner from './_components/FourthBanner';
 import SecondBanner from './_components/SecondBanner';
 import ThirdBanner from './_components/ThirdBanner';
 
@@ -10,6 +11,7 @@ function IntroductionPage() {
       <FirstBanner />
       <SecondBanner />
       <ThirdBanner />
+      <FourthBanner />
     </Container>
   );
 }

@@ -5,7 +5,7 @@ import Container from '@/shared/components/Container';
 
 function ProjectPage() {
   return (
-    <Container className="flex flex-col gap-20">
+    <Container className="my-10 flex flex-col gap-20">
       <ReleasedProjectView />
       <UMCProjectView />
     </Container>

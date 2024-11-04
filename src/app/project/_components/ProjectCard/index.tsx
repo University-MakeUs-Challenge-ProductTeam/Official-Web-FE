@@ -45,9 +45,14 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
 
   return (
     <div className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
-      <div className={cn('relative size-full min-h-[175px] min-w-[165px]', type === 'released' && 'sm:max-w-[165px]')}>
-        <Image fill src={`${process.env.NEXT_PUBLIC_BASE_URL}${projectLogoImageUrl}`} alt="ProjectImage" className="rounded-[14px]" />
-      </div>
+      {projectLogoImageUrl ? (
+        <div className={cn('relative size-full min-h-[175px] min-w-[165px]', type === 'released' && 'sm:max-w-[165px]')}>
+          <Image fill src={projectLogoImageUrl} alt="ProjectImage" className="rounded-[14px]" />
+        </div>
+      ) : (
+        <div className={`rounde-lg min-h-[175px] min-w-[165px] bg-neutral-700 ${type === 'released' && 'sm:max-w-[165px]'}`} />
+      )}
+
       {type === 'default' && <h5 className="mt-1 text-main-disable">{platFormNameList.map((item) => PLATFORM_NAME[item]).join(' | ')}</h5>}
       <div className="flex flex-1 flex-col gap-[8px]">
         <Typography as="h1" size="title-smd" className="line-clamp-1 text-[#ECECEC]">

@@ -15,6 +15,8 @@ function SecondBanner() {
     queryFn: () => getShcoolListData(),
   });
 
+  const sliderIndex = data?.participateSchoolList ? Math.ceil(data.participateSchoolList.length / 2) : 13;
+
   return (
     <div className="flex flex-col items-center">
       <Typography as="h3" size="title-smd" color="main-white">
@@ -30,7 +32,10 @@ function SecondBanner() {
       </div>
 
       <div className="mt-12 w-full">
-        <SchoolSlider schoolList={data?.participateSchoolList} />
+        <SchoolSlider schoolList={data?.participateSchoolList.slice(0, sliderIndex)} />
+      </div>
+      <div className="mt-3 w-full">
+        <SchoolSlider schoolList={data?.participateSchoolList.slice(sliderIndex, data?.participateSchoolList.length)} />
       </div>
     </div>
   );

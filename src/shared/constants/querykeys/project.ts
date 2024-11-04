@@ -7,4 +7,5 @@ export const QUERY_KEYS = {
   allProjects: 'allProjects',
   curriculum: 'curriculum',
   events: 'events',
+  staffs: 'staffs',
 };

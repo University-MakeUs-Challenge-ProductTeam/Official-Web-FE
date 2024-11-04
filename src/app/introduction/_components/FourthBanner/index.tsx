@@ -18,6 +18,7 @@ function FourthBanner() {
     queryKey: [QUERY_KEYS.events, selectedEvent],
     queryFn: () => getCentralEvent({ eventType: selectedEvent }),
   });
+
   return (
     <div className="flex flex-col items-center gap-9">
       <Typography as="h3" size="title-smd" color="main-white">
@@ -45,12 +46,12 @@ function FourthBanner() {
           width={2000}
           height={700}
           layout="contain"
-          alt="ProjectLogoImage"
+          alt="EventImage"
         />
       ) : (
         <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
       )}
-      <Typography as="p" size="text-sm" className="text-[#B8B8B8]">
+      <Typography as="p" size="text-sm" className="w-full whitespace-pre-wrap text-[#B8B8B8]">
         {data?.description}
       </Typography>
     </div>

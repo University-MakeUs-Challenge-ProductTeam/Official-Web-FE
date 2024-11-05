@@ -12,14 +12,14 @@ import DropdownTrigger from '@/shared/components/Dropdown/DropdownTrigger';
 import Typography from '@/shared/components/Typography';
 import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
 
-interface IGenerationDropdownProps {
+interface IProjectGenerationDropdownProps {
   selected: 'ALL' | number;
   setSelected: React.Dispatch<React.SetStateAction<'ALL' | number>>;
 }
 
-function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps) {
+function ProjectGenerationDropdown({ selected, setSelected }: IProjectGenerationDropdownProps) {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.generations],
+    queryKey: [QUERY_KEYS.projectGenerations],
     queryFn: () => getGenerations(),
   });
   const generationList = ['ALL', ...(data?.generationList ?? [])] as Array<'ALL' | number>;
@@ -52,4 +52,4 @@ function GenerationDropdown({ selected, setSelected }: IGenerationDropdownProps)
   );
 }
 
-export default GenerationDropdown;
+export default ProjectGenerationDropdown;

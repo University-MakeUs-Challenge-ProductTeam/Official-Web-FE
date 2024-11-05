@@ -10,7 +10,7 @@ export const getMajorActivity = async ({ eventType }: { eventType: EventList }):
 };
 
 export const getAllProject = async (): Promise<TProjectListResponse> => {
-  const { data } = await axiosInstance.get<TProjectListResponse>(`/api/projects/total`);
+  const { data } = await axiosInstance.get<TProjectListResponse>(`/api/projects`);
 
   return data;
 };

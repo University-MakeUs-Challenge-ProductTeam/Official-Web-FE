@@ -12,3 +12,7 @@ export type TProjectListResultType = {
   nextCursor: number;
   umcProjectList: TProjectDTO[];
 };
+
+export type TGenerationsDTO = {
+  generationList: number[];
+};

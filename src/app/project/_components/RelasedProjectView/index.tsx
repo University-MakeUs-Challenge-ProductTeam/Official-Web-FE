@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import ProjectCard from '../ProjectCard';

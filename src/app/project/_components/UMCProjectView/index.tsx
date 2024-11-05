@@ -4,10 +4,11 @@ import { useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import GenerationDropdown from '../GenerationDropdown';
 import type { OPlatform } from '../PlatformDropdown';
 import PlatformDropdown from '../PlatformDropdown';
 import ProjectCard from '../ProjectCard';
+import ProjectGenerationDropdown from '../ProjectGenerationDropdown';
+import StaffGenerationDropdown from '../StaffGenerationDropdown';
 
 import { getProjectList } from '@/shared/api/project';
 import Typography from '@/shared/components/Typography';
@@ -38,7 +39,7 @@ function UMCProjectView() {
       <div className="flex flex-col gap-6 p-3">
         <h1 className="text-title-smd text-[#ECECEC]">UMC 프로젝트 살펴보기</h1>
         <div className="flex flex-row gap-5">
-          <GenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
+          <ProjectGenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
           <PlatformDropdown selected={selectedPlatform} setSelected={setSelectedPlatform} />
           <div className="flex min-w-[280px] flex-row items-center gap-2 rounded-[116px] border border-solid border-[#3A3A3A] bg-[#2F2F2F] px-[24px] py-[12px]">
             <input
@@ -63,7 +64,7 @@ function UMCProjectView() {
     <div className="flex flex-col gap-6 p-3">
       <h1 className="text-title-smd text-[#ECECEC]">UMC 프로젝트 살펴보기</h1>
       <div className="flex flex-row flex-wrap gap-5">
-        <GenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
+        <StaffGenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
         <PlatformDropdown selected={selectedPlatform} setSelected={setSelectedPlatform} />
         <div className="flex min-w-[280px] flex-row items-center gap-2 rounded-[116px] border border-solid border-[#3A3A3A] bg-[#2F2F2F] px-[24px] py-[12px]">
           <input

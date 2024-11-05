@@ -1,9 +1,12 @@
+import Link from 'next/link';
+
 import ActivityBox from './_components/ActivityBox';
 import FaqAccordions from './_components/FaqAccordions';
 import ScheduleBox from './_components/ScheduleBox';
 
 import Container from '@/shared/components/Container';
 import Typography from '@/shared/components/Typography';
+import { KAKAO_CHAT_LINK } from '@/shared/constants/link';
 
 function RecruitmentPage() {
   return (
@@ -21,11 +24,13 @@ function RecruitmentPage() {
           UMC에 대해
           <br />더 궁금한 챌린저라면?
         </Typography>
-        <button type="button" className="h-[50px] rounded-[100px] border-2 border-solid border-main-green bg-[#1F1F1F] px-[24px]">
-          <Typography size="title-sm" color="main-green" className="font-bold">
-            문의하러 가기
-          </Typography>
-        </button>
+        <Link
+          target="_blank"
+          href={KAKAO_CHAT_LINK}
+          className="flex h-[50px] items-center justify-center rounded-[100px] border-2 border-solid border-main-green bg-[#1F1F1F] px-[24px] text-text-sm font-bold text-main-green transition-colors hover:bg-main-green hover:text-[#1F1F1F]"
+        >
+          문의하러 가기
+        </Link>
       </div>
     </Container>
   );

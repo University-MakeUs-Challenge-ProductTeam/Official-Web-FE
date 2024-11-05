@@ -1,6 +1,7 @@
 export const QUERY_KEYS = {
   projects: 'projects',
-  generations: 'generations',
+  staffGenerations: 'staffGenerations',
+  projectGenerations: 'projectGenerations',
   shcools: 'schools',
   requirements: 'requirements',
   mainActivity: 'mainActivity',

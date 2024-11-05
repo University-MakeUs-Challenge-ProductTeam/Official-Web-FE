@@ -1,14 +1,12 @@
 'use client';
 
-import React from 'react';
 import { FaAndroid, FaApple } from 'react-icons/fa';
 import { TbWorld } from 'react-icons/tb';
 import { cva } from 'class-variance-authority';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import Typography from '../../../../shared/components/Typography';
-
+import Typography from '@/shared/components/Typography';
 import { PLATFORM_NAME } from '@/shared/constants/Platforms';
 import type { TProjectDTO } from '@/shared/types/projectDto';
 import cn from '@/shared/utils/style';

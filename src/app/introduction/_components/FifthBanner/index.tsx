@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 import StaffProfile from './_components/StaffProfile';
 
-import GenerationDropdown from '@/app/project/_components/GenerationDropdown';
+import StaffGenerationDropdown from '@/app/project/_components/StaffGenerationDropdown';
 import { getCentralStaff } from '@/shared/api/staff';
 import Typography from '@/shared/components/Typography';
 import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
@@ -27,7 +27,7 @@ function FifthBanner() {
       </Typography>
 
       <div className="self-start">
-        <GenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
+        <StaffGenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
       </div>
 
       <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-20 lg:grid-cols-2 xl:grid-cols-3">

@@ -27,7 +27,7 @@ function RecruitmentPage() {
         <Link
           target="_blank"
           href={KAKAO_CHAT_LINK}
-          className="flex h-[50px] items-center justify-center rounded-[100px] border-2 border-solid border-main-green bg-[#1F1F1F] px-[24px] text-text-sm font-bold text-main-green transition-colors hover:bg-main-green hover:text-[#1F1F1F]"
+          className="flex h-[50px] items-center justify-center rounded-[100px] border-2 border-solid border-main-green bg-[#1F1F1F] px-[24px] text-text-sm font-bold text-main-green transition-colors duration-500 hover:bg-main-green hover:text-[#1F1F1F]"
         >
           문의하러 가기
         </Link>

@@ -7,7 +7,7 @@ function Logo() {
   return (
     <Flex direction="column">
       <Link href="/">
-        <Image src="/images/nav_logo.png" alt="logo" width={100} height={100} />
+        <Image src="/images/Logo.svg" alt="logo" width={100} height={100} />
       </Link>
     </Flex>
   );

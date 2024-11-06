@@ -40,7 +40,7 @@ interface IProjectCardProps {
 function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
   const router = useRouter();
   const { projectId, projectName, platFormNameList, slogan } = projectData;
-  const projectImage = type === 'released' ? projectData.projectLogoImageUrl : projectData.projectLogoImageUrl;
+  const projectImage = type === 'released' ? projectData.projectLogoImageUrl : projectData.projectLandingImageUrl;
 
   return (
     <div className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>

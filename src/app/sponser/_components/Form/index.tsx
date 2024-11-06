@@ -57,7 +57,7 @@ function Form() {
       },
       {
         onSuccess: () => {
-          alert('후원신청 해주셔서 감사합니다.');
+          // alert('후원신청 해주셔서 감사합니다.');
           reset();
         },
       },

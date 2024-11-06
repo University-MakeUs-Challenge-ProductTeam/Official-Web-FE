@@ -2,8 +2,8 @@ import type { TApiResponseType } from '../types/api/projectTypes';
 import type { TCentralStaffType } from '../types/api/staff';
 import type { TGenerationsDTO } from '../types/projectDto';
 
-export async function getCentralStaff({ generation, cursor }: { cursor: number; generation: number | 'ALL' }) {
-  let url = `/api/central-staffs?cursor=${cursor}&take=9`;
+export async function getCentralStaff({ generation, page, size = 9 }: { generation: number | 'ALL'; page: number; size: number }) {
+  let url = `/api/central-staffs?page=${page}&size=${size}`;
   if (generation !== 'ALL') url += `&generation=${generation}`;
   const res = await fetch(url);
 

@@ -8,8 +8,12 @@ export type TApiResponseType<T = unknown> = {
 };
 
 export type TProjectListResultType = {
+  currentPage: number;
   hasNext: boolean;
-  nextCursor: number;
+  isFirst: boolean;
+  pageSize: number;
+  totalElements: number;
+  totalPages: number;
   umcProjectList: TProjectDTO[];
 };
 

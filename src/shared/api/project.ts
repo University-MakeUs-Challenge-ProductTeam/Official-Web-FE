@@ -3,17 +3,19 @@ import type { TGenerationsDTO, TPlatformName, TProectDetailDTO } from '../types/
 import type { TApiResponseType, TProjectListResultType } from '@/shared/types/api/projectTypes';
 
 export async function getProjectList({
-  cursor,
+  page,
   generation,
   platformName,
   searchTerm,
+  size = 9,
 }: {
-  cursor: number;
   generation?: number | 'ALL';
+  page: number;
   platformName?: TPlatformName | 'ALL';
   searchTerm?: string;
+  size?: number;
 }): Promise<TProjectListResultType> {
-  let url = `/api/projects/umc?cursor=${cursor}&take=9`;
+  let url = `/api/projects/umc?page=${page}&size=${size}`;
   if (generation !== 'ALL') url += `&generation=${generation}`;
   if (platformName !== 'ALL') url += `&platformName=${platformName}`;
   if (searchTerm) url += `&searchTerm=${searchTerm}`;

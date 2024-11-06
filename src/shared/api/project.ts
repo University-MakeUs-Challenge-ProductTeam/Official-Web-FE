@@ -1,6 +1,6 @@
 import type { TGenerationsDTO, TPlatformName, TProectDetailDTO } from '../types/projectDto';
 
-import type { TApiResponseType, TProjectListResultType } from '@/shared/types/api/projectTypes';
+import type { TApiResponseType, TProjectListResultType, TReleasedProjectListResultType } from '@/shared/types/api/projectTypes';
 
 export async function getProjectList({
   page,
@@ -33,10 +33,10 @@ export async function getProjectDetail({ id }: { id: number }) {
   return data.result;
 }
 
-export async function getReleasedProjectList({ cursor }: { cursor: number }) {
-  const res = await fetch(`/api/projects/umc?cursor=${cursor}&take=10`);
+export async function getReleasedProjectList({ page, size }: { page: number; size: number }) {
+  const res = await fetch(`/api/projects/released?page=${page}&size=${size}`);
 
-  const data: TApiResponseType<TProjectListResultType> = await res.json();
+  const data: TApiResponseType<TReleasedProjectListResultType> = await res.json();
   return data.result;
 }
 

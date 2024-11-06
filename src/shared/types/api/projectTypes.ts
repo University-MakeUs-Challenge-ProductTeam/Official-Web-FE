@@ -17,6 +17,16 @@ export type TProjectListResultType = {
   umcProjectList: TProjectDTO[];
 };
 
+export type TReleasedProjectListResultType = {
+  currentPage: number;
+  hasNext: boolean;
+  isFirst: boolean;
+  pageSize: number;
+  releasedProjectDTOList: TProjectDTO[];
+  totalElements: number;
+  totalPages: number;
+};
+
 export type TGenerationsDTO = {
   generationList: number[];
 };

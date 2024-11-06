@@ -27,7 +27,8 @@ export type TProectDetailDTO = {
 export type TProjectDTO = {
   platFormNameList: TPlatformName[];
   projectId: number;
-  projectLandingImageUrl: string;
+  projectLandingImageUrl?: string;
+  projectLogoImageUrl?: string;
   projectName: string;
   slogan: string;
 };

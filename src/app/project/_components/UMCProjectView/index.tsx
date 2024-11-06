@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { IoIosSearch } from 'react-icons/io';
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import type { OPlatform } from '../PlatformDropdown';
 import PlatformDropdown from '../PlatformDropdown';
@@ -38,7 +38,6 @@ function UMCProjectView() {
   const { data: projectData } = useQuery({
     queryKey: ['projects', page, selectedGeneration, selectedPlatform, debouncedSearchTerm],
     queryFn: () => getProjectList({ page, size: pageSize, generation: selectedGeneration, platformName: selectedPlatform, searchTerm: debouncedSearchTerm }),
-    placeholderData: keepPreviousData,
   });
   const totalPages = projectData?.totalPages || 1;
 

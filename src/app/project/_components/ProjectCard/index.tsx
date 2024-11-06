@@ -16,7 +16,7 @@ const ProjectCardVariants = cva(
   {
     variants: {
       type: {
-        default: 'flex-col max-w-[400px] min-h-[370px]',
+        default: 'flex-col max-w-[400px] min-h-[440px]',
         released: 'flex-col gap-[24px] max-w-[750px] sm:flex-row',
       },
     },
@@ -39,16 +39,17 @@ interface IProjectCardProps {
  */
 function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
   const router = useRouter();
-  const { projectId, projectLandingImageUrl, projectName, platFormNameList, slogan } = projectData;
+  const { projectId, projectName, platFormNameList, slogan } = projectData;
+  const projectImage = type === 'released' ? projectData.projectLogoImageUrl : projectData.projectLogoImageUrl;
 
   return (
     <div className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
-      {projectLandingImageUrl ? (
-        <div className={cn('relative size-full min-h-[250px] min-w-[165px]', type === 'released' && 'sm:max-w-[165px]')}>
-          <Image fill src={projectLandingImageUrl} alt="ProjectImage" className="rounded-[14px]" />
+      {projectImage ? (
+        <div className={cn('relative size-full min-h-[250px] min-w-[165px]', type === 'released' && 'min-h-[175px] sm:max-w-[165px]')}>
+          <Image fill src={projectImage} alt="ProjectImage" className="rounded-[14px]" />
         </div>
       ) : (
-        <div className={`rounde-lg min-h-[250px] min-w-[165px] bg-neutral-700 ${type === 'released' && 'sm:max-w-[165px]'}`} />
+        <div className={cn('rounde-lg min-h-[250px] min-w-[165px] bg-neutral-700', type === 'released' && 'min-h-[175px] sm:max-w-[165px]')} />
       )}
 
       {type === 'default' && <h5 className="mt-1 text-main-disable">{platFormNameList.map((item) => PLATFORM_NAME[item]).join(' | ')}</h5>}

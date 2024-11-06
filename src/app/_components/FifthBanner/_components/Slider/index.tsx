@@ -7,7 +7,6 @@ import { Swiper } from 'swiper/react';
 function Slider({ children }: { children: ReactNode }) {
   return (
     <Swiper
-      style={{ width: '100%' }}
       slidesPerView={10}
       centeredSlides
       spaceBetween={10}

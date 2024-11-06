@@ -12,15 +12,16 @@ function SliderList() {
     <Slider>
       {projects?.result?.projectList.map((project, idx) => (
         <SwiperSlide key={idx}>
-          <Image
-            className="rounded-lg"
-            src={project?.projectLandingImageUrl ?? '/images/logo.png'}
-            alt={`${project?.projectName} 사진`}
-            width={128}
-            height={128}
-            priority
-            loading="eager"
-          />
+          <div className="size-[128px]">
+            <Image
+              className="rounded-lg"
+              src={project?.projectLandingImageUrl ?? '/images/logo.png'}
+              alt={`${project?.projectName} 사진`}
+              fill
+              priority
+              loading="eager"
+            />
+          </div>
         </SwiperSlide>
       ))}
     </Slider>

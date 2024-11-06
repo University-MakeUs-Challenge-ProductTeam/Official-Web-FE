@@ -45,34 +45,44 @@ function FifthBanner() {
         <StaffGenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
       </div>
 
-      <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-20 lg:grid-cols-2 xl:grid-cols-3">
-        {data?.centralStaffList.map((item) => <StaffProfile profileData={item} key={item.centralStaffId} />)}
-      </div>
+      {data?.centralStaffList.length === 0 ? (
+        <div className="flex h-[200px] w-full items-center justify-center">
+          <Typography size="text-sm" color="neutral-500">
+            운영진 정보가 없습니다.
+          </Typography>
+        </div>
+      ) : (
+        <>
+          <div className="mx-auto grid w-full grid-cols-1 place-items-center gap-x-7 gap-y-20 lg:grid-cols-2 xl:grid-cols-3">
+            {data?.centralStaffList.map((item) => <StaffProfile profileData={item} key={item.centralStaffId} />)}
+          </div>
 
-      <div className="mt-4 flex items-center justify-center gap-2">
-        <button type="button" onClick={() => handlePageChange(Math.max(page - 1, 0))} disabled={page === 0}>
-          <FaAngleLeft color={page === 0 ? '#1d1d1d' : '#3A3A3A'} />
-        </button>
-
-        {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, i) => {
-          const pageIndex = startPage + i;
-          return (
-            <button key={pageIndex} type="button" className="mx-3" onClick={() => handlePageChange(pageIndex)} disabled={pageIndex >= totalPages}>
-              <Typography size="text-sm" className={pageIndex === page ? 'font-bold text-main-green' : 'text-[#3A3A3A]'}>
-                {pageIndex + 1}
-              </Typography>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            <button type="button" onClick={() => handlePageChange(Math.max(page - 1, 0))} disabled={page === 0}>
+              <FaAngleLeft color={page === 0 ? '#1d1d1d' : '#3A3A3A'} />
             </button>
-          );
-        })}
 
-        <button
-          type="button"
-          onClick={() => setPageGroup((prev) => (startPage + pagesPerGroup < totalPages ? prev + 1 : prev))}
-          disabled={startPage + pagesPerGroup >= totalPages}
-        >
-          <FaAngleRight color={startPage + pagesPerGroup >= totalPages ? '#1d1d1d' : '#3A3A3A'} />
-        </button>
-      </div>
+            {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, i) => {
+              const pageIndex = startPage + i;
+              return (
+                <button key={pageIndex} type="button" className="mx-3" onClick={() => handlePageChange(pageIndex)} disabled={pageIndex >= totalPages}>
+                  <Typography size="text-sm" className={pageIndex === page ? 'font-bold text-main-green' : 'text-[#3A3A3A]'}>
+                    {pageIndex + 1}
+                  </Typography>
+                </button>
+              );
+            })}
+
+            <button
+              type="button"
+              onClick={() => setPageGroup((prev) => (startPage + pagesPerGroup < totalPages ? prev + 1 : prev))}
+              disabled={startPage + pagesPerGroup >= totalPages}
+            >
+              <FaAngleRight color={startPage + pagesPerGroup >= totalPages ? '#1d1d1d' : '#3A3A3A'} />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

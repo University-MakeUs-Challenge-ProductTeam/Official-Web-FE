@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 import Button from '@/shared/components/Button';
@@ -13,7 +13,6 @@ import { EventType } from '@/shared/types/dtos/academy';
 
 function FourthBanner() {
   const [selectedEventType, setSelectedEventType] = useState<EventList>('SCHOOL_OT');
-
   const { data: activities, isPending } = useGetMainActivity({ eventType: selectedEventType });
   const eventKeys = Object.keys(EventType) as EventKRList[];
 
@@ -39,7 +38,7 @@ function FourthBanner() {
         {eventKeys.map((eventKey) => (
           <Button
             key={eventKey}
-            variant={selectedEventType === EventType[eventKey] ? 'outline' : 'disabled'} // Change variant based on selection
+            variant={selectedEventType === EventType[eventKey] ? 'outline' : 'disabled'}
             onClick={() => handleEventTypeClick(eventKey)}
             className="min-w-[100px] flex-1 text-center"
           >
@@ -50,25 +49,18 @@ function FourthBanner() {
         ))}
       </Flex>
       <Spacing direction="vertical" size={42} />
-      <div className="w-4/5 rounded-md bg-[#323232] p-8">
+      <div className="mb-10 w-4/5 rounded">
         {isPending ? (
           <FourthBannerSkeleton />
-        ) : (
+        ) : activities?.result.eventImageUrl ? (
           <>
-            <Typography size="text-lg" color="main-white">
-              {activities?.result.description}
+            <Image className="rounded-lg bg-neutral-800" src={activities.result.eventImageUrl} width={2000} height={700} layout="contain" alt="EventImage" />
+            <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-[#B8B8B8]">
+              {activities.result.description}
             </Typography>
-            {activities?.result.eventImageUrl ? (
-              <Image
-                src={activities?.result.eventImageUrl}
-                alt={`${activities?.result.eventType} 이미지`}
-                layout="responsive"
-                width={1000}
-                height={500}
-                className="mt-10 rounded-xl"
-              />
-            ) : null}
           </>
+        ) : (
+          <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
         )}
       </div>
     </Flex>
@@ -78,8 +70,8 @@ function FourthBanner() {
 function FourthBannerSkeleton() {
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="mb-4 h-8 w-full animate-pulse rounded-md bg-slate-300" />
       <div className="h-[600px] w-full animate-pulse rounded-md bg-slate-300" />
+      <div className="mt-5 h-20 w-full animate-pulse rounded-md bg-slate-300" />
     </div>
   );
 }

@@ -37,7 +37,7 @@ function Form() {
       organizationName: '',
       logoImage: '',
       description: '',
-      link: '',
+      link: null,
     },
   });
 
@@ -98,14 +98,14 @@ function Form() {
           </Typography>
         )}
       </div>
-      <div className="w-full">
-        <Input id="logoImage" label="기관로고" register={register} errors={errors} required />
-        {errors.logoImage && (
-          <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.logoImage.message)}
-          </Typography>
-        )}
-      </div>
+      {/* <div className="w-full"> */}
+      {/*  <Input id="logoImage" label="기관로고" register={register} errors={errors} required /> */}
+      {/*  {errors.logoImage && ( */}
+      {/*    <Typography size="caption" className="mt-2 text-red-500"> */}
+      {/*      * {String(errors.logoImage.message)} */}
+      {/*    </Typography> */}
+      {/*  )} */}
+      {/* </div> */}
       <div className="w-full">
         <TextArea id="description" label="기관설명" register={register} errors={errors} required />
         {errors.description && (

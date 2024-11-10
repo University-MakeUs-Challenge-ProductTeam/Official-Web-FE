@@ -54,7 +54,14 @@ function FourthBanner() {
           <FourthBannerSkeleton />
         ) : activities?.result.eventImageUrl ? (
           <>
-            <Image className="rounded-lg bg-neutral-800" src={activities.result.eventImageUrl} width={2000} height={700} layout="contain" alt="EventImage" />
+            <Image
+              className="rounded-lg bg-neutral-800"
+              src={activities.result.eventImageUrl}
+              width={2000}
+              height={700}
+              layout="contain"
+              alt={`${activities.result.eventType}의 이미지`}
+            />
             <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-[#B8B8B8]">
               {activities.result.description}
             </Typography>

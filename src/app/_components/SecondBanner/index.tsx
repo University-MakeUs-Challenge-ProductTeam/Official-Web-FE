@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 import Button from '@/shared/components/Button';
-import Flex from '@/shared/components/Flex';
 import Spacing from '@/shared/components/Spacing';
 import Typography from '@/shared/components/Typography';
 

@@ -35,9 +35,8 @@ function Form() {
       contactInfo: '',
       email: '',
       organizationName: '',
-      logoImage: '',
       description: '',
-      link: null,
+      link: '',
     },
   });
 
@@ -52,7 +51,6 @@ function Form() {
         description: data.description,
         email: data.email,
         link: data.link,
-        logoImage: data.logoImage,
         organizationName: data.organizationName,
       },
       {

@@ -6,7 +6,6 @@ export type TSponsorDTO = {
   description: string;
   email: string;
   link: string;
-  logoImage: string;
   organizationName: string;
 };
 

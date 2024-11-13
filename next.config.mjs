@@ -1,13 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  rewrites: async () => ({
-    afterFiles: [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_BASE_URL}/api/:path*`,
-      },
-    ],
-  }),
   logging: {
     fetches: {
       fullUrl: true,

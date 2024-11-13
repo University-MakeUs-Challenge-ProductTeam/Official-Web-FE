@@ -1,3 +1,4 @@
+import { axiosInstance } from './axios-instance';
 import type { TGenerationsDTO, TPlatformName, TProectDetailDTO } from '../types/projectDto';
 
 import type { TApiResponseType, TProjectListResultType, TReleasedProjectListResultType } from '@/shared/types/api/projectTypes';
@@ -20,29 +21,25 @@ export async function getProjectList({
   if (platformName !== 'ALL') url += `&platformName=${platformName}`;
   if (searchTerm) url += `&searchTerm=${searchTerm}`;
 
-  const res = await fetch(url);
+  const { data } = await axiosInstance.get<TApiResponseType<TProjectListResultType>>(url);
 
-  const data: TApiResponseType<TProjectListResultType> = await res.json();
   return data.result;
 }
 
 export async function getProjectDetail({ id }: { id: number }) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/projects/${id}`);
+  const { data } = await axiosInstance.get<TApiResponseType<TProectDetailDTO>>(`/api/projects/${id}`);
 
-  const data: TApiResponseType<TProectDetailDTO> = await res.json();
   return data.result;
 }
 
 export async function getReleasedProjectList({ page, size }: { page: number; size: number }) {
-  const res = await fetch(`/api/projects/released?page=${page}&size=${size}`);
+  const { data } = await axiosInstance.get<TApiResponseType<TReleasedProjectListResultType>>(`/api/projects/released?page=${page}&size=${size}`);
 
-  const data: TApiResponseType<TReleasedProjectListResultType> = await res.json();
   return data.result;
 }
 
 export async function getGenerations() {
-  const res = await fetch(`/api/projects/generations`);
+  const { data } = await axiosInstance.get<TApiResponseType<TGenerationsDTO>>(`/api/projects/generations`);
 
-  const data: TApiResponseType<TGenerationsDTO> = await res.json();
   return data.result;
 }

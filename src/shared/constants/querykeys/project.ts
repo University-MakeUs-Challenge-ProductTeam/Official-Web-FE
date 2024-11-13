@@ -9,4 +9,5 @@ export const QUERY_KEYS = {
   curriculum: 'curriculum',
   events: 'events',
   staffs: 'staffs',
+  activity: 'activity',
 };

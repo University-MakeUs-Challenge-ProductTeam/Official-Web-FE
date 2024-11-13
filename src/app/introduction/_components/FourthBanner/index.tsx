@@ -21,17 +21,17 @@ function FourthBanner() {
 
   return (
     <div className="flex flex-col items-center gap-9">
-      <Typography as="h3" size="title-smd" color="main-white">
+      <Typography as="h3" size="title-sm" color="main-white" className="text-[20px] font-bold sm:text-title-smd">
         주요활동
       </Typography>
 
-      <div className="mt-4 flex w-3/5 flex-row flex-wrap justify-around gap-10">
+      <div className="grid grid-cols-3 justify-between gap-4 gap-y-8 sm:grid-cols-4 sm:gap-10 lg:grid-cols-5">
         {eventList.map((item) => (
           <Typography
             as="button"
             key={item}
-            size="text-lg"
-            className={`cursor-pointer ${selectedEvent === item ? 'border-t-2 border-solid border-main-green font-bold text-main-green' : 'text-[#6D6D6D]'}`}
+            size="text-sm"
+            className={`cursor-pointer pt-2 sm:text-text-lg ${selectedEvent === item ? 'border-t-2 border-solid border-main-green font-bold text-main-green' : 'text-[#6D6D6D]'}`}
             onClick={() => setSelectedEvent(item)}
           >
             {CENTRAL_EVENT_CONTENT[item]}

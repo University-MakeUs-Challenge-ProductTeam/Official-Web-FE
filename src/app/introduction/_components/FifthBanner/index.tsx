@@ -37,7 +37,7 @@ function FifthBanner() {
 
   return (
     <div className="mb-20 flex flex-col items-center gap-9">
-      <Typography as="h3" size="title-smd" color="main-white">
+      <Typography as="h3" size="title-sm" color="main-white" className="text-[20px] font-bold sm:text-title-smd">
         운영진 소개
       </Typography>
 

@@ -1,36 +1,46 @@
+'use client';
+
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 import { getActivities } from '@/shared/api/recruitment';
 import Typography from '@/shared/components/Typography';
 import { ACTIVITY_CONTENT } from '@/shared/constants/activityContent';
+import { QUERY_KEYS } from '@/shared/constants/querykeys/project';
 import type { TActivity } from '@/shared/types/recruitmentDto';
 import { formatDateRange } from '@/shared/utils/date';
 
-async function ActivityBox() {
-  const activities = await getActivities();
+function ActivityBox() {
+  const { data: activities } = useQuery({
+    queryKey: [QUERY_KEYS.activity],
+    queryFn: () => getActivities(),
+  });
 
   function activityContent(label: TActivity): string | null {
-    switch (label) {
-      case '활동기간': {
-        const formattedDate = formatDateRange(activities.activityStartDate, activities.activityEndDate);
-        return formattedDate;
-      }
-      case '모집기간':
-        return '학교별 상이';
-      case '연합 & 학교 OT':
-        return '디자인과 개발 Overall';
-      case '연합 OT':
-        return activities.unionOTDate;
-      case '학교 OT':
-        return '학교별 상이';
-      case '동아리 회비':
-        return `${activities.clubFee}원`;
-      case '프로젝트 참가비':
-        return `${activities.projectFee}원 (${activities.projectPaybackFee}원 페이백)`;
+    if (activities) {
+      switch (label) {
+        case '활동기간': {
+          const formattedDate = formatDateRange(activities.activityStartDate, activities.activityEndDate);
+          return formattedDate;
+        }
+        case '모집기간':
+          return '학교별 상이';
+        case '연합 & 학교 OT':
+          return '디자인과 개발 Overall';
+        case '연합 OT':
+          return activities.unionOTDate;
+        case '학교 OT':
+          return '학교별 상이';
+        case '동아리 회비':
+          return `${activities.clubFee}원`;
+        case '프로젝트 참가비':
+          return `${activities.projectFee}원 (${activities.projectPaybackFee}원 페이백)`;
 
-      default:
-        return null;
+        default:
+          return null;
+      }
     }
+    return null;
   }
 
   return (

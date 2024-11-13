@@ -28,6 +28,9 @@ function Slider({ children }: { children: ReactNode }) {
         380: {
           slidesPerView: 3,
         },
+        240: {
+          slidesPerView: 2,
+        },
       }}
     >
       {children}

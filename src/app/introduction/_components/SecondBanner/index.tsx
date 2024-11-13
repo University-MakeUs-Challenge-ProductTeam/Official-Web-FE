@@ -19,14 +19,14 @@ function SecondBanner() {
 
   return (
     <div className="flex flex-col items-center">
-      <Typography as="h3" size="title-smd" color="main-white">
+      <Typography as="h3" size="title-sm" color="main-white" className="text-[20px] font-bold sm:text-title-smd">
         UMC는
       </Typography>
       <div className="flex flex-row">
-        <Typography as="h3" size="title-smd" color="main-green">
+        <Typography as="h3" size="title-sm" color="main-green" className="mt-3 text-[20px] font-bold sm:text-title-smd">
           {data?.totalSchoolCount}
         </Typography>
-        <Typography as="h3" size="title-smd" color="main-white">
+        <Typography as="h3" size="title-sm" color="main-white" className="mt-3 text-[20px] font-bold sm:text-title-smd">
           개의 학교와 함께합니다.
         </Typography>
       </div>

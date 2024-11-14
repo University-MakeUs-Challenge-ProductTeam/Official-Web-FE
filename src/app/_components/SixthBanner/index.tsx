@@ -1,11 +1,13 @@
+import Image from 'next/image';
+
 import Flex from '@/shared/components/Flex';
 import Spacing from '@/shared/components/Spacing';
 import Typography from '@/shared/components/Typography';
 
 const coreValues = [
-  { id: 1, name: '컴공선배' },
-  { id: 2, name: '그릿지' },
-  { id: 3, name: '너디너리' },
+  { id: 1, name: '컴공선배', path: '/images/컴공선배.jpg' },
+  { id: 2, name: '그릿지', path: '/images/그릿지.jpg' },
+  { id: 3, name: '너디너리', path: '/images/너디너리.png' },
 ];
 
 function SixthBanner() {
@@ -25,7 +27,8 @@ function SixthBanner() {
       <Flex className="flex flex-col gap-10 md:flex-row">
         {coreValues.map((value) => (
           <Flex key={value.id} direction="column" justify="center" align="center">
-            <div className="size-[230px] rounded-full bg-main-white" />
+            {/* <div className="size-[230px] rounded-full bg-main-white" /> */}
+            <Image src={value.path} width={230} height={230} alt={value.name} className="flex items-center justify-center rounded-full" />
             <Spacing direction="vertical" size={20} />
             <Typography size="text-lg" color="main-disable">
               {value.name}

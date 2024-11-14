@@ -10,7 +10,7 @@ function Navbar() {
   const scrolled = useScrollTop();
 
   return (
-    <div className={cn('fixed top-0 z-50 w-full p-7', scrolled && 'border-b shadow-sm')}>
+    <div className={cn('bg-dark fixed top-0 z-50 w-full', scrolled && 'border-b shadow-sm')}>
       <Container>
         <div className="flex items-center justify-between gap-3 md:gap-0">
           <Logo />

@@ -9,7 +9,7 @@ import { DEVELOPER_MAIL, INSTAGRAM_LINK, LINK_TREE } from '@/shared/constants/li
 
 function Footer() {
   return (
-    <div className="z-50 flex w-full items-center bg-main-gray p-6 py-11">
+    <div className="z-50 flex w-full items-center bg-main-gray p-6">
       <div className="flex w-full flex-col items-center justify-center gap-x-2 gap-y-8 text-main-white md:ml-auto">
         <Image src="/images/UMC_LOGO.png" alt="UMC로고" width={50} height={50} className="transition-transform duration-300" />
         <div className="flex flex-row items-center gap-7">

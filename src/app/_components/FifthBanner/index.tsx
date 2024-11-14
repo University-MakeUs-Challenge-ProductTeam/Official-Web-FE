@@ -14,7 +14,7 @@ function FifthBanner() {
         세상의 틀을 깬
       </Typography>
       <Typography size="title-smd" color="main-white">
-        챌린저들의 프로젝트를 만나보세요
+        프로젝트를 만나보세요
       </Typography>
       <Spacing direction="vertical" size={100} />
       <div className="w-full">

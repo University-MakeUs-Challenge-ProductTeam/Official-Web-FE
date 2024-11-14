@@ -14,9 +14,13 @@ function ThirdBanner() {
       <Typography size="title-sm" color="main-disable">
         핵심가치
       </Typography>
+      <Spacing direction="vertical" size={22} />
+      <Typography size="title-smd" color="main-white">
+        UMC는 이러한
+      </Typography>
       <Spacing direction="vertical" size={10} />
       <Typography size="title-smd" color="main-white">
-        UMC는 이러한 방향성을 추구해요
+        방향성을 추구해요
       </Typography>
       <Spacing direction="vertical" size={128} />
       <Flex className="flex flex-col gap-10 md:flex-row">

@@ -14,9 +14,9 @@ function SixthBanner() {
       <Typography size="title-sm" color="main-disable">
         후원사
       </Typography>
-      <Spacing direction="vertical" size={10} />
+      <Spacing direction="vertical" size={20} />
       <Typography size="title-smd" color="main-white">
-        UMC가 세상의 틀 깰 수 있도록
+        세상의 틀 깰 수 있도록
       </Typography>
       <Typography size="title-smd" color="main-white">
         함께해주시는 분들이에요

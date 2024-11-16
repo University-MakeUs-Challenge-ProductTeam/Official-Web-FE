@@ -8,4 +8,5 @@ export type TCentralEventDTO =
   | 'UMC_HACKATHON'
   | 'SCHOOL_HACKATHON'
   | 'UMC_DEMO_DAY'
-  | 'NEORDINARY_DEMO_DAY';
+  | 'NEORDINARY_DEMO_DAY'
+  | 'PM_DAY';

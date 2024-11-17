@@ -3,7 +3,6 @@ import type { TActivity } from '../types/recruitmentDto';
 export const ACTIVITY_CONTENT: { label: TActivity }[] = [
   { label: '활동기간' },
   { label: '모집기간' },
-  { label: '연합 & 학교 OT' },
   { label: '연합 OT' },
   { label: '학교 OT' },
   { label: '동아리 회비' },
@@ -14,7 +13,7 @@ export const CENTRAL_EVENT_CONTENT = {
   UNION_OT: '연합 OT',
   SCHOOL_OT: '학교 OT',
   CORE_DAY: 'Core Day',
-  UNION_NETWORKING_DAY: '연합 네트워킹 데이', 
+  UNION_NETWORKING_DAY: '연합 네트워킹 데이',
   NEORDINARY_HACKATHON: '너디너리 해커톤',
   PM_DAY: 'PM 데이',
   UMC_HACKATHON: 'UMC 해커톤',

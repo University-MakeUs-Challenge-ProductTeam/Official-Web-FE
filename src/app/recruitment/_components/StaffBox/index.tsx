@@ -15,16 +15,20 @@ function StaffBox({ staffList }: IStaffBoxProps) {
         운영진
       </Typography>
       {STAFF_ROLE_CONTENT.map(({ label }) => {
-        const staffMember = staffList?.find((member) => member.role === label);
+        const staffMembers = staffList?.filter((member) => member.role === label) || [];
 
         return (
           <div className="flex flex-row gap-3" key={label}>
             <Typography size="text-lg" className="text-[#818181]">
               {label}
             </Typography>
-            <Typography size="text-lg" className="flex-1 whitespace-pre-wrap text-[#CFCFCF]">
-              {staffMember && `${staffMember.nickname}/${staffMember.name}`}
-            </Typography>
+            <div className="flex flex-1 gap-x-2 whitespace-pre-wrap text-[#CFCFCF]">
+              {staffMembers.map((staffMember, index) => (
+                <Typography size="text-lg" color="main-white" key={index}>
+                  {`${staffMember.nickname}/${staffMember.name}`}
+                </Typography>
+              ))}
+            </div>
           </div>
         );
       })}

@@ -3,9 +3,9 @@ import Spacing from '@/shared/components/Spacing';
 import Typography from '@/shared/components/Typography';
 
 const coreValues = [
-  { id: 1, label: '열정' },
-  { id: 2, label: '성실' },
-  { id: 3, label: '협동' },
+  { id: 1, label: '도전' },
+  { id: 2, label: '평등' },
+  { id: 3, label: '자신감' },
 ];
 
 function ThirdBanner() {

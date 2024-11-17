@@ -1,7 +1,7 @@
 import React from 'react';
+import { FaGithub } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Typography from '@/shared/components/Typography';
 import type { TcentralStaffDTO } from '@/shared/types/staffDto';
@@ -39,11 +39,17 @@ function StaffProfile({ profileData }: IStaffProfileProps) {
         {profileData.introduction}
       </Typography>
       <div className="flex flex-row gap-3">
-        {profileData.profileLinkList.map((link) => (
-          <Link href={`mailto:${link.linkUrl}`} className="rounded-full bg-[#D9D9D9] p-2" key={link.profileLinkId}>
-            <MdAlternateEmail size={23} color="#000000" />
-          </Link>
-        ))}
+        {profileData.profileLinkList.map((link) =>
+          link.linkType === 'EMAIL' ? (
+            <a target="_top" href={`mailto:${link.linkUrl}`} className="rounded-full bg-[#D9D9D9] p-2" key={link.profileLinkId}>
+              <MdAlternateEmail size={23} color="#000000" />
+            </a>
+          ) : (
+            <a target="_blank" type="button" href={`https://github.com/${link.linkUrl}`} className="rounded-full bg-[#D9D9D9] p-2" key={link.profileLinkId}>
+              <FaGithub size={23} color="#000000" />
+            </a>
+          ),
+        )}
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ import type { EventKRList, EventList } from '@/shared/types/dtos/academy';
 import { EventType } from '@/shared/types/dtos/academy';
 
 function FourthBanner() {
-  const [selectedEventType, setSelectedEventType] = useState<EventList>('SCHOOL_OT');
+  const [selectedEventType, setSelectedEventType] = useState<EventList>('PM_DAY');
   const { data: activities, isPending } = useGetMainActivity({ eventType: selectedEventType });
   const eventKeys = Object.keys(EventType) as EventKRList[];
 
@@ -52,22 +52,24 @@ function FourthBanner() {
       <div className="mb-10 w-4/5 rounded">
         {isPending ? (
           <FourthBannerSkeleton />
-        ) : activities?.result.eventImageUrl ? (
+        ) : (
           <>
-            <Image
-              className="rounded-lg bg-neutral-800"
-              src={activities.result.eventImageUrl}
-              width={2000}
-              height={700}
-              layout="contain"
-              alt={`${activities.result.eventType}의 이미지`}
-            />
+            {activities?.result.eventImageUrl ? (
+              <Image
+                className="rounded-lg bg-neutral-800"
+                src={activities.result.eventImageUrl}
+                width={2000}
+                height={700}
+                layout="contain"
+                alt={`${activities.result.eventType}의 이미지`}
+              />
+            ) : (
+              <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
+            )}
             <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-[#B8B8B8]">
-              {activities.result.description}
+              {activities?.result.description}
             </Typography>
           </>
-        ) : (
-          <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
         )}
       </div>
     </Flex>

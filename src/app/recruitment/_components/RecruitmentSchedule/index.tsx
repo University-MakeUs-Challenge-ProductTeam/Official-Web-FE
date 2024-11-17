@@ -29,9 +29,6 @@ function RecruitmentSchedule({ scheduleData }: IRecruitmentScheduleProps) {
         case '최종 합격자 발표': {
           return formatDateWithDays(scheduleData.finalResultDate);
         }
-        case '연합 & 학교 OT': {
-          return formatDateWithDays(scheduleData.schoolOTDate);
-        }
         default:
           return null;
       }

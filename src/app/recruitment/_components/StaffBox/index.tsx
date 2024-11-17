@@ -17,6 +17,8 @@ function StaffBox({ staffList }: IStaffBoxProps) {
       {STAFF_ROLE_CONTENT.map(({ label }) => {
         const staffMember = staffList?.find((member) => member.role === label);
 
+        console.log(staffMember);
+
         return (
           <div className="flex flex-row gap-3" key={label}>
             <Typography size="text-lg" className="text-[#818181]">

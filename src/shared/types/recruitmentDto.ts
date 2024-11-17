@@ -1,7 +1,7 @@
 import type { TProjectPart } from './projectDto';
 
-export type TActivity = '활동기간' | '모집기간' | '연합 & 학교 OT' | '연합 OT' | '학교 OT' | '동아리 회비' | '프로젝트 참가비';
-export type TShcoolScheduleType = '서류 접수' | '1차 합격자 발표' | '면접 평가' | '최종 합격자 발표' | '연합 & 학교 OT';
+export type TActivity = '활동기간' | '모집기간' | '연합 OT' | '학교 OT' | '동아리 회비' | '프로젝트 참가비';
+export type TShcoolScheduleType = '서류 접수' | '1차 합격자 발표' | '면접 평가' | '최종 합격자 발표';
 export type TStaffRoleType =
   | '회장'
   | '부회장'

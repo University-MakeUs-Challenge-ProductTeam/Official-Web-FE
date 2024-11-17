@@ -25,8 +25,6 @@ function ActivityBox() {
         }
         case '모집기간':
           return '학교별 상이';
-        case '연합 & 학교 OT':
-          return '디자인과 개발 Overall';
         case '연합 OT':
           return activities.unionOTDate;
         case '학교 OT':

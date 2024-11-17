@@ -5,7 +5,6 @@ export const SCHEDULE_CONTENT: { label: TShcoolScheduleType }[] = [
   { label: '1차 합격자 발표' },
   { label: '면접 평가' },
   { label: '최종 합격자 발표' },
-  { label: '연합 & 학교 OT' },
 ];
 
 export const STAFF_ROLE_CONTENT: { label: TStaffRoleType }[] = [

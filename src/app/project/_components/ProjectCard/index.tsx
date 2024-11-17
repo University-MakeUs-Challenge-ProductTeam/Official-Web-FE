@@ -49,7 +49,12 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
           <Image fill src={projectImage} alt="ProjectImage" className="rounded-[14px]" />
         </div>
       ) : (
-        <div className={cn('rounde-lg min-h-[250px] min-w-[165px] bg-neutral-700', type === 'released' && 'min-h-[175px] sm:max-w-[165px]')} />
+        // <div className={cn('rounde-lg min-h-[250px] min-w-[165px] bg-neutral-700', type === 'released' && 'min-h-[175px] sm:max-w-[165px]')} />
+        <div
+          className={cn('relative size-full min-h-[250px] min-w-[165px] rounded-lg bg-neutral-700', type === 'released' && 'min-h-[175px] sm:max-w-[165px]')}
+        >
+          <Image fill src="/images/logo.png" alt="ProjectImage" className="rounded-[14px]" />
+        </div>
       )}
 
       {type === 'default' && <h5 className="mt-1 text-main-disable">{platFormNameList.map((item) => PLATFORM_NAME[item]).join(' | ')}</h5>}

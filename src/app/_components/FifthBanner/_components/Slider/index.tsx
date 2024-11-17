@@ -10,7 +10,7 @@ function Slider({ children }: { children: ReactNode }) {
       slidesPerView={10}
       centeredSlides
       spaceBetween={10}
-      autoplay={{ delay: 2500, disableOnInteraction: false }}
+      autoplay={{ delay: 0, disableOnInteraction: false }}
       modules={[Autoplay]}
       loop
       loopAdditionalSlides={1}

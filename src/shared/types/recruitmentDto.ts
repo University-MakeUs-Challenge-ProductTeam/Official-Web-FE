@@ -5,13 +5,18 @@ export type TShcoolScheduleType = '서류 접수' | '1차 합격자 발표' | '�
 export type TStaffRoleType =
   | '회장'
   | '부회장'
-  | 'Plan 파트장'
-  | 'Design 파트장'
-  | 'Node.js 파트장'
-  | 'Spring 파트장'
   | 'Web 파트장'
   | 'Android 파트장'
-  | 'iOS 파트장';
+  | 'iOS 파트장'
+  | 'Node.js 파트장'
+  | 'Spring 파트장'
+  | 'Plan 파트장'
+  | 'Design 파트장'
+  | '교육팀장'
+  | '운영팀장'
+  | '홍보팀장'
+  | '기획팀장'
+  | '교내 운영진';
 
 export type TRequirementPartDTO = {
   part: TProjectPart;

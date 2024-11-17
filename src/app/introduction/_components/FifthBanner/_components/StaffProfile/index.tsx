@@ -2,8 +2,6 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { MdAlternateEmail } from 'react-icons/md';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import Typography from '@/shared/components/Typography';
 import type { TcentralStaffDTO } from '@/shared/types/staffDto';
@@ -13,8 +11,6 @@ interface IStaffProfileProps {
 }
 
 function StaffProfile({ profileData }: IStaffProfileProps) {
-  console.log(profileData);
-  const router = useRouter();
   return (
     <div className="flex max-w-[350px] flex-col items-center justify-start gap-5" key={profileData.centralStaffId}>
       {profileData.profileImageUrl ? (

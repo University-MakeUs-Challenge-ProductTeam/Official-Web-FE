@@ -1,5 +1,6 @@
 export const EventType = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   '교내 OT': 'SCHOOL_OT',
   '교내 해커톤': 'SCHOOL_HACKATHON',
@@ -8,6 +9,8 @@ export const EventType = {
   '데모데이': 'UMC_DEMO_DAY',
   '너디너리 해커톤': 'NEORDINARY_HACKATHON',
 >>>>>>> 4418acd (feature/#37 추가 요구사항 반영  (#40))
+=======
+>>>>>>> 9b89e4e (feature/#42 추가 요구사항 반영 및 기타 버그 fix (#45))
   '연합 OT': 'UNION_OT',
   '학교 OT': 'SCHOOL_OT',
   'Core Day': 'CORE_DAY',

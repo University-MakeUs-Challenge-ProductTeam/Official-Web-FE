@@ -17,7 +17,7 @@ function Slider({ children }: { children: ReactNode }) {
       speed={2000}
       breakpoints={{
         1024: {
-          slidesPerView: 10,
+          slidesPerView: 9,
         },
         768: {
           slidesPerView: 7,

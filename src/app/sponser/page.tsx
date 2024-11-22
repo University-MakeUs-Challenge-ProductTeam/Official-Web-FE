@@ -6,7 +6,7 @@ import Container from '@/shared/components/Container';
 
 function SponserPage() {
   return (
-    <Container className="mb-32 flex flex-col gap-24">
+    <Container className="mb-32 flex flex-col gap-36">
       <FirstBanner />
       <SecondBanner />
       <ThirdBanner />

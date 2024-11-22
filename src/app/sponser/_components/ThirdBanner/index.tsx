@@ -6,9 +6,10 @@ import Typography from '@/shared/components/Typography';
 function ThirdBanner() {
   return (
     <div className="mt-20 flex flex-row flex-wrap items-center justify-between gap-5">
-      <Typography as="h1" size="title-smd" className="mr-5 text-[#ECECEC]">
+      <Typography as="h1" size="title-sm" className="mr-5 text-[20px] font-bold text-[#ECECEC] sm:text-title-smd">
         UMC가 틀을 깨고 나아가기 위해서는
         <br />
+        <div className="h-3 sm:h-0" />
         후원자님의 도움이 필요해요.
       </Typography>
       <Link

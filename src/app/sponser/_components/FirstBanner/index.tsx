@@ -14,10 +14,10 @@ const coreValues = [
 function FirstBanner() {
   return (
     <Flex direction="column" justify="center" align="center">
-      <Typography size="title-smd" color="main-white">
+      <Typography size="title-sm" color="main-white" className="text-[20px] font-bold sm:text-title-smd">
         UMC 챌린저들이
       </Typography>
-      <Typography size="title-smd" color="main-white">
+      <Typography size="title-sm" color="main-white" className="mt-3 text-[20px] font-bold sm:mt-0 sm:text-title-smd">
         세상의 틀을 깰 수 있도록 도와주시는 분들이에요
       </Typography>
       <Spacing direction="vertical" size={128} />

@@ -1,3 +1,6 @@
+import type { TApiResponseType } from '../types/api/projectTypes';
+import type { TSponsorType } from '../types/api/sponsor';
+
 import { axiosInstance } from '@/shared/api/axios-instance';
 import type { TPostSponsorResponse, TSponsorDTO } from '@/shared/types/dtos/sponsor';
 
@@ -12,4 +15,10 @@ export const postSponsor = async ({ applicationName, contactInfo, description, e
   });
 
   return data;
+};
+
+export const getSponsor = async () => {
+  const { data } = await axiosInstance.get<TApiResponseType<TSponsorType>>(`/api/sponsors`);
+
+  return data.result;
 };

@@ -10,4 +10,5 @@ export const QUERY_KEYS = {
   events: 'events',
   staffs: 'staffs',
   activity: 'activity',
+  sponsors: 'sponsors',
 };

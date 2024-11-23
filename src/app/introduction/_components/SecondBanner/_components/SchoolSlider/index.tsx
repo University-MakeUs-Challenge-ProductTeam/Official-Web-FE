@@ -18,7 +18,8 @@ function SchoolSlider({ schoolList }: ISchoolSliderProps) {
       {schoolList?.map((item) => (
         <SwiperSlide key={item.participateSchoolId}>
           <div className="flex min-h-[50px] flex-row items-center justify-center gap-1 whitespace-nowrap rounded-3xl border-2 border-solid border-[#303030] bg-[#1F1F1F] py-3">
-            <Image src={item.logoImageUrl} width={20} height={10} alt="ShoolLogo" />
+            {item.logoImageUrl && <Image src={item.logoImageUrl} width={20} height={10} alt="ShoolLogo" />}
+
             <Typography size="text-sm" className="text-[13px] font-bold text-[#A7A7A7]">
               {item.schoolName}
             </Typography>

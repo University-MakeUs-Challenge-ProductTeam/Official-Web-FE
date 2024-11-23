@@ -17,8 +17,6 @@ function SecondBanner() {
 
   const sliderIndex = data?.participateSchoolList ? Math.ceil(data.participateSchoolList.length / 2) : 13;
 
-  console.log(data?.participateSchoolList.slice(0, sliderIndex));
-
   return (
     <div className="flex flex-col items-center">
       <Typography as="h3" size="title-sm" color="main-white" className="text-[20px] font-bold sm:text-title-smd">

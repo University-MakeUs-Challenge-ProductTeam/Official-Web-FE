@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import Flex from '@/shared/components/Flex';
 import Spacing from '@/shared/components/Spacing';
 import Typography from '@/shared/components/Typography';

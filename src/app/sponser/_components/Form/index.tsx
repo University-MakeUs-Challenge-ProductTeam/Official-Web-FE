@@ -66,33 +66,33 @@ function Form() {
     <form className="flex flex-col items-end gap-8" onSubmit={handleSubmit(onSubmit)}>
       <div className="w-full">
         <Input id="applicationName" label="성함" register={register} errors={errors} required />
-        {errors.applicationName && (
+        {errors.applicationName?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.applicationName.message)}
+            * {typeof errors.applicationName.message === 'string' ? errors.applicationName.message : ''}
           </Typography>
         )}
       </div>
       <div className="w-full">
         <Input id="contactInfo" label="연락처" register={register} errors={errors} required />
-        {errors.contactInfo && (
+        {errors.contactInfo?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.contactInfo.message)}
+            * {typeof errors.contactInfo.message === 'string' ? errors.contactInfo.message : ''}
           </Typography>
         )}
       </div>
       <div className="w-full">
         <Input id="email" label="이메일" type="email" register={register} errors={errors} required />
-        {errors.email && (
+        {errors.email?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.email.message)}
+            * {typeof errors.email.message === 'string' ? errors.email.message : ''}
           </Typography>
         )}
       </div>
       <div className="w-full">
         <Input id="organizationName" label="기관명" register={register} errors={errors} required />
-        {errors.organizationName && (
+        {errors.organizationName?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.organizationName.message)}
+            * {typeof errors.organizationName.message === 'string' ? errors.organizationName.message : ''}
           </Typography>
         )}
       </div>
@@ -106,17 +106,17 @@ function Form() {
       {/* </div> */}
       <div className="w-full">
         <TextArea id="description" label="기관설명" register={register} errors={errors} required />
-        {errors.description && (
+        {errors.description?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.description.message)}
+            * {typeof errors.description.message === 'string' ? errors.description.message : ''}
           </Typography>
         )}
       </div>
       <div className="w-full">
         <Input id="link" label="기관링크" register={register} errors={errors} required />
-        {errors.link && (
+        {errors.link?.message && (
           <Typography size="caption" className="mt-2 text-red-500">
-            * {String(errors.link.message)}
+            * {typeof errors.link.message === 'string' ? errors.link.message : ''}
           </Typography>
         )}
       </div>

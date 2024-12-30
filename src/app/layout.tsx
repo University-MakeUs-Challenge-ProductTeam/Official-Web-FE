@@ -29,12 +29,16 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'UMC - University MakeUs Challenge',
+  title: {
+    default: 'UMC - 대학생 개발 연합 동아리  University MakeUs Challenge',
+    template: '%s - 대학생 개발 연합 동아리  University MakeUs Challenge',
+  },
   description: '대학생 개발 연합 동아리 University Make Us Challenge',
   openGraph: {
     title: 'UMC - University MakeUs Challenge',
     description: '대학생 개발 연합 동아리 University Make Us Challenge',
     images: ['/nav_logo.png'],
+    url: 'https://umc.makeus.in/',
   },
 };
 

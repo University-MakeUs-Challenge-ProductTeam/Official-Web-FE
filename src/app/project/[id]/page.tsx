@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import DescriptionBox from '../_components/DescriptionBox';
@@ -7,6 +8,29 @@ import ProjectMemberBox from '../_components/ProjectMemberBox';
 import { getProjectDetail } from '@/shared/api/project';
 import Container from '@/shared/components/Container';
 import Typography from '@/shared/components/Typography';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    id: number;
+  };
+}): Promise<Metadata> {
+  const { id } = params;
+  const projectData = await getProjectDetail({ id });
+
+  return {
+    title: projectData.projectName ? projectData.projectName : 'UMC 프로젝트',
+    description: projectData.slogan ? projectData.slogan : 'UMC 프로젝트 설명',
+    openGraph: {
+      images: [
+        {
+          url: projectData.projectLandingImageUrl ? projectData.projectLandingImageUrl : '/nav_logo.png',
+        },
+      ],
+    },
+  };
+}
 
 async function ProjectDetailPage({ params }: { params: { id: number } }) {
   const { id } = params;

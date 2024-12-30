@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import ActivityBox from './_components/ActivityBox';
@@ -7,6 +8,11 @@ import ScheduleBox from './_components/ScheduleBox';
 import Container from '@/shared/components/Container';
 import Typography from '@/shared/components/Typography';
 import { KAKAO_CHAT_LINK } from '@/shared/constants/link';
+
+export const metadata: Metadata = {
+  title: 'UMC - 모집 안내',
+  description: 'UMC 모집 안내 페이지',
+};
 
 function RecruitmentPage() {
   return (

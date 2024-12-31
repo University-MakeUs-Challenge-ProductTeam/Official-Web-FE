@@ -23,10 +23,10 @@ function ThirdBanner() {
         방향성을 추구해요
       </Typography>
       <Spacing direction="vertical" size={128} />
-      <Flex className="flex-co6 flex gap-24 md:flex-row">
+      <Flex className="flex flex-col gap-24 md:flex-row">
         {coreValues.map((value) => (
-          <Flex key={value.id} direction="column" justify="center" align="center">
-            <Typography size="title-lg" color="main-disable">
+          <Flex key={value.id} direction="column" justify="center" align="center" className="px-2">
+            <Typography size="title-lg" color="main-disable" className="sm:title-md">
               {value.label}
             </Typography>
             <Spacing direction="vertical" size={20} />

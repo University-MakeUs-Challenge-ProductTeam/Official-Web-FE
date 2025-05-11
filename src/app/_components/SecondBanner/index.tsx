@@ -99,7 +99,7 @@ function SecondBanner() {
       <div className="m-auto w-60">
         <Button variant="outline" className="rounded-4xl">
           <Typography size="text-md" color="main-green">
-            7번째 여정에 참여하기
+            8번째 여정에 참여하기
           </Typography>
         </Button>
       </div>

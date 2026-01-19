@@ -1,7 +1,7 @@
-import type { TcentralStaffDTO } from '../staffDto';
+import type { TCentralStaffDTO } from '../staffDto';
 
 export type TCentralStaffType = {
-  centralStaffList: TcentralStaffDTO[];
+  centralStaffList: TCentralStaffDTO[];
   currentPage: number;
   hasNext: boolean;
   isFirst: boolean;

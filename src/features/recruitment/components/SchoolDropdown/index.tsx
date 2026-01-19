@@ -13,7 +13,7 @@ import DropdownMenu from '@/components/common/Dropdown/DropdownMenu';
 import DropdownTrigger from '@/components/common/Dropdown/DropdownTrigger';
 import Typography from '@/components/common/Typography';
 
-import { getShcoolListData } from '@/lib/api/shcool';
+import { getSchoolListData } from '@/lib/api/school';
 
 interface IScheduleDropdownProps {
   selectedSchool: string;
@@ -22,8 +22,8 @@ interface IScheduleDropdownProps {
 
 function ScheduleDropdown({ selectedSchool, setSelectedSchool }: IScheduleDropdownProps) {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.shcools],
-    queryFn: () => getShcoolListData(),
+    queryKey: [QUERY_KEYS.schools],
+    queryFn: () => getSchoolListData(),
   });
   return (
     <Dropdown>

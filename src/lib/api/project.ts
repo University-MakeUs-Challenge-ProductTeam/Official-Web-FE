@@ -1,5 +1,5 @@
 import type { TApiResponseType, TProjectListResultType, TReleasedProjectListResultType } from '@/types/api/projectTypes';
-import type { TGenerationsDTO, TPlatformName, TProectDetailDTO } from '@/types/projectDto';
+import type { TGenerationsDTO, TPlatformName, TProjectDetailDTO } from '@/types/projectDto';
 
 import { axiosInstance } from './axios-instance';
 
@@ -27,7 +27,7 @@ export async function getProjectList({
 }
 
 export async function getProjectDetail({ id }: { id: number }) {
-  const { data } = await axiosInstance.get<TApiResponseType<TProectDetailDTO>>(`/api/projects/${id}`);
+  const { data } = await axiosInstance.get<TApiResponseType<TProjectDetailDTO>>(`/api/projects/${id}`);
 
   return data.result;
 }

@@ -15,9 +15,12 @@ export default function Preloader() {
       return undefined;
     }
 
-    const timer = setTimeout(() => {
-      setIndex((prev) => prev + 1);
-    }, 600);
+    const timer = setTimeout(
+      () => {
+        setIndex((prev) => prev + 1);
+      },
+      index === 0 ? 200 : 600,
+    );
 
     return () => clearTimeout(timer);
   }, [index]);

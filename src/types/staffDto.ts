@@ -1,16 +1,16 @@
-export type TprofileLinkDTO = {
+export type TProfileLinkDTO = {
   linkType: string;
   linkUrl: string;
   profileLinkId: number;
 };
 
-export type TcentralStaffDTO = {
+export type TCentralStaffDTO = {
   centralStaffId: number;
   generation: number;
   introduction: string;
   nickname: string;
   profileImageUrl: string;
-  profileLinkList: TprofileLinkDTO[];
+  profileLinkList: TProfileLinkDTO[];
   role: string;
   school: string;
 };

@@ -8,7 +8,7 @@ export type TProjectMemberDTO = {
   projectMemberId: number;
 };
 
-export type TProectDetailDTO = {
+export type TProjectDetailDTO = {
   description: string;
   endDate: string;
   generation: number;

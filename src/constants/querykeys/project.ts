@@ -2,7 +2,7 @@ export const QUERY_KEYS = {
   projects: 'projects',
   staffGenerations: 'staffGenerations',
   projectGenerations: 'projectGenerations',
-  shcools: 'schools',
+  schools: 'schools',
   requirements: 'requirements',
   mainActivity: 'mainActivity',
   allProjects: 'allProjects',

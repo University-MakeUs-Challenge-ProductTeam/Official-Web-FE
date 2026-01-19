@@ -1,6 +1,4 @@
-import React from 'react';
-
-import type { TProectDetailDTO } from '@/types/projectDto';
+import type { TProjectDetailDTO } from '@/types/projectDto';
 import { PLATFORM_NAME } from '@/constants/Platforms';
 
 import Typography from '@/components/common/Typography';
@@ -8,7 +6,7 @@ import Typography from '@/components/common/Typography';
 import { formatDateRange } from '@/lib/utils/date';
 
 interface IProjectContentBoxProps {
-  projectData: TProectDetailDTO;
+  projectData: TProjectDetailDTO;
 }
 
 function ProjectContentBox({ projectData }: IProjectContentBoxProps) {

@@ -3,12 +3,12 @@ import { MdAlternateEmail } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import type { TcentralStaffDTO } from '@/types/staffDto';
+import type { TCentralStaffDTO } from '@/types/staffDto';
 
 import Typography from '@/components/common/Typography';
 
 interface IStaffProfileProps {
-  profileData: TcentralStaffDTO;
+  profileData: TCentralStaffDTO;
 }
 
 function StaffProfile({ profileData }: IStaffProfileProps) {

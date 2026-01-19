@@ -10,7 +10,7 @@ import Typography from '@/components/common/Typography';
 
 import SchoolSlider from './_components/SchoolSlider';
 
-import { getShcoolListData as getSchoolListData } from '@/lib/api/shcool';
+import { getSchoolListData } from '@/lib/api/school';
 
 function Counter({ value }: { value: number }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -31,7 +31,7 @@ function Counter({ value }: { value: number }) {
 
 function SecondBanner() {
   const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.shcools],
+    queryKey: [QUERY_KEYS.schools],
     queryFn: () => getSchoolListData(),
   });
 

@@ -6,12 +6,12 @@ import Image from 'next/image';
 
 import { QUERY_KEYS } from '@/constants/querykeys/project';
 
-import { getShcoolListData } from '@/lib/api/shcool';
+import { getSchoolListData } from '@/lib/api/school';
 
 export default function UniversityMarquee() {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.shcools],
-    queryFn: () => getShcoolListData(),
+    queryKey: [QUERY_KEYS.schools],
+    queryFn: () => getSchoolListData(),
   });
 
   const schoolList = data?.participateSchoolList || [];

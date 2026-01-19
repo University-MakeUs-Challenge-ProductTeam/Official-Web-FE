@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import Container from '@/components/common/Container';
 
-import ReleasedProjectView from '@/features/project/components/RelasedProjectView';
+import ReleasedProjectView from '@/features/project/components/ReleasedProjectView';
 import UMCProjectView from '@/features/project/components/UMCProjectView';
 
 export const metadata: Metadata = {

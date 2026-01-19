@@ -61,10 +61,10 @@ export default async function RootLayout({
   return (
     <html lang="ko" className={`${pretendard.variable} ${roboto.variable} scroll-smooth antialiased`} suppressHydrationWarning>
       <body className="min-h-screen bg-black font-pretendard text-white selection:bg-[#52E560] selection:text-black">
+        <Preloader />
+        <CustomCursor />
         <MSWProvider>
           <QueryProvider>
-            <Preloader />
-            <CustomCursor />
             <div className="relative flex min-h-screen flex-col">
               <RedesignNavbar />
               <main className="flex-1">{children}</main>

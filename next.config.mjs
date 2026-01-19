@@ -6,8 +6,11 @@ const nextConfig = {
     },
   },
   images: {
-    domains: ['umc-web-product-s3.s3.ap-northeast-2.amazonaws.com'],
     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'umc-web-product-s3.s3.ap-northeast-2.amazonaws.com',
+      },
       {
         protocol: 'https',
         hostname: 'images.unsplash.com',

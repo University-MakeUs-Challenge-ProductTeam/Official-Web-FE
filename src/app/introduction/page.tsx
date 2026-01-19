@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 
-import FifthBanner from './_components/FifthBanner';
-import FirstBanner from './_components/FirstBanner';
-import FourthBanner from './_components/FourthBanner';
-import SecondBanner from './_components/SecondBanner';
-import ThirdBanner from './_components/ThirdBanner';
+import RedesignCurriculum from '@/components/ui/RedesignCurriculum';
 
-import Container from '@/shared/components/Container';
+import FifthBanner from '@/features/introduction/components/FifthBanner';
+import FirstBanner from '@/features/introduction/components/FirstBanner';
+import FourthBanner from '@/features/introduction/components/FourthBanner';
+import SecondBanner from '@/features/introduction/components/SecondBanner';
 
 export const metadata: Metadata = {
   title: 'UMC - 소개',
@@ -15,13 +14,17 @@ export const metadata: Metadata = {
 
 function IntroductionPage() {
   return (
-    <Container className="mt-5 flex flex-col gap-60">
-      <FirstBanner />
+    <div className="flex flex-col bg-black">
+      <div className="container mx-auto px-6">
+        <FirstBanner />
+      </div>
       <SecondBanner />
-      <ThirdBanner />
-      <FourthBanner />
-      <FifthBanner />
-    </Container>
+      <RedesignCurriculum />
+      <div className="container mx-auto px-6">
+        <FourthBanner />
+        <FifthBanner />
+      </div>
+    </div>
   );
 }
 

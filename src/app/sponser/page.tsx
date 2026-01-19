@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
-import FirstBanner from './_components/FirstBanner';
-import SecondBanner from './_components/SecondBanner';
-import ThirdBanner from './_components/ThirdBanner';
+import Container from '@/components/common/Container';
 
-import Container from '@/shared/components/Container';
+import FirstBanner from '@/features/sponser/components/FirstBanner';
+import SecondBanner from '@/features/sponser/components/SecondBanner';
+import ThirdBanner from '@/features/sponser/components/ThirdBanner';
 
 export const metadata: Metadata = {
   title: 'UMC - 후원사 목록',

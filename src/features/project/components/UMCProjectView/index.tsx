@@ -1,47 +1,42 @@
 'use client';
 
-import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { IoIosSearch } from 'react-icons/io';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import useDebounce from '@/hooks/useDebounce';
-
 import Typography from '@/components/common/Typography';
 
-import type { OPlatform } from '../PlatformDropdown';
 import PlatformDropdown from '../PlatformDropdown';
 import ProjectCard from '../ProjectCard';
 import ProjectGenerationDropdown from '../ProjectGenerationDropdown';
 
+import { useProjectFilters } from '@/features/project/hooks/use-project-filters';
+import { useProjectPagination } from '@/features/project/hooks/use-project-pagination';
 import { getProjectList } from '@/lib/api/project';
 
 function UMCProjectView() {
-  const [selectedGeneration, setSelectedGeneration] = useState<number | 'ALL'>('ALL');
-  const [selectedPlatform, setSelectedPlatform] = useState<keyof typeof OPlatform>('ALL');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [pageGroup, setPageGroup] = useState(0);
-  const [page, setPage] = useState(0);
-  const debouncedSearchTerm = useDebounce(searchTerm, 400);
+  const { selectedGeneration, selectedPlatform, searchTerm, debouncedSearchTerm, setSelectedGeneration, setSelectedPlatform, setSearchTerm } =
+    useProjectFilters();
 
-  const pageSize = 12;
-  const pagesPerGroup = 5;
-  const startPage = pageGroup * pagesPerGroup;
-
-  const handlePageChange = (newPage: number) => {
-    setPage(newPage);
-    if (newPage < startPage) {
-      setPageGroup(pageGroup - 1);
-    } else if (newPage >= startPage + pagesPerGroup) {
-      setPageGroup(pageGroup + 1);
-    }
-  };
+  const { page, pageSize, pagesPerGroup, startPage, handlePageChange } = useProjectPagination({
+    totalItems: 0,
+    pageSize: 12,
+    pagesPerGroup: 5,
+  });
 
   const { data: projectData, isLoading } = useQuery({
     queryKey: ['projects', page, selectedGeneration, selectedPlatform, debouncedSearchTerm],
-    queryFn: () => getProjectList({ page, size: pageSize, generation: selectedGeneration, platformName: selectedPlatform, searchTerm: debouncedSearchTerm }),
+    queryFn: () =>
+      getProjectList({
+        page,
+        size: pageSize,
+        generation: selectedGeneration,
+        platformName: selectedPlatform,
+        searchTerm: debouncedSearchTerm,
+      }),
   });
+
   const totalPages = projectData?.totalPages || 1;
 
   return (
@@ -101,7 +96,7 @@ function UMCProjectView() {
           </motion.div>
         ) : (
           <motion.div
-            key={`${selectedGeneration}-${selectedPlatform}-${page}`}
+            key={`${selectedGeneration}-${String(selectedPlatform)}-${page}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4"
@@ -146,7 +141,7 @@ function UMCProjectView() {
 
           <button
             type="button"
-            onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
+            onClick={() => handlePageChange(Math.min(page + 1, totalPages - 1))}
             disabled={page === totalPages - 1}
             className="rounded-full bg-white/5 p-3 text-[#52E560] transition-colors hover:bg-[#52E560]/10 disabled:opacity-20"
           >

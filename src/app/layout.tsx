@@ -4,6 +4,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -70,6 +72,8 @@ export default async function RootLayout({
             </div>
           </QueryProvider>
         </MSWProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

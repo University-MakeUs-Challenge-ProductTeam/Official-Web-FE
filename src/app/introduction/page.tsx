@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: '대학생 개발 연합 동아리 University Make Us Challenge',
 };
 
-function IntroductionPage() {
+const IntroductionPage = () => {
   return (
     <div className="flex flex-col bg-black">
       <div className="container mx-auto px-6">
@@ -26,6 +26,6 @@ function IntroductionPage() {
       </div>
     </div>
   );
-}
+};
 
 export default IntroductionPage;

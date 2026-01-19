@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 import Typography from '@/components/common/Typography';
 
-function ThirdBanner() {
+const ThirdBanner = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       style={{ willChange: 'transform, opacity' }}
-      className="relative mt-40 transform-gpu overflow-hidden rounded-[40px] bg-gradient-to-br from-[#52E560] to-[#2E8B57] p-12 md:p-24"
+      className="relative mt-40 transform-gpu overflow-hidden rounded-[40px] bg-gradient-to-br from-main-green to-main-green p-12 md:p-24"
     >
       <div className="absolute right-0 top-0 -mr-20 -mt-20 size-[400px] rounded-full bg-white/20 blur-[100px]" />
       <div className="absolute bottom-0 left-0 -mb-20 -ml-20 size-[300px] rounded-full bg-black/20 blur-[100px]" />
@@ -30,7 +30,7 @@ function ThirdBanner() {
 
         <Link
           href="/sponser/apply"
-          className="group relative mt-12 flex h-20 items-center justify-center overflow-hidden rounded-full bg-black px-12 text-xl font-black italic tracking-tighter text-[#52E560] transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,0,0.3)]"
+          className="group relative mt-12 flex h-20 items-center justify-center overflow-hidden rounded-full bg-black px-12 text-xl font-black italic tracking-tighter text-main-green transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,0,0,0.3)]"
         >
           <span className="relative z-10">BECOME A PARTNER</span>
           <motion.div className="absolute inset-0 bg-white/10" initial={{ x: '-100%' }} whileHover={{ x: '100%' }} transition={{ duration: 0.5 }} />
@@ -38,6 +38,6 @@ function ThirdBanner() {
       </div>
     </motion.div>
   );
-}
+};
 
 export default ThirdBanner;

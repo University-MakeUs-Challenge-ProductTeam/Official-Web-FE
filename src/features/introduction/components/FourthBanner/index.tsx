@@ -13,7 +13,7 @@ import Typography from '@/components/common/Typography';
 
 import { getCentralEvent } from '@/lib/api/event';
 
-function FourthBanner() {
+const FourthBanner = () => {
   const [selectedEvent, setSelectedEvent] = useState<TCentralEventDTO>('UNION_OT');
   const eventList = Object.keys(CENTRAL_EVENT_CONTENT) as Array<keyof typeof CENTRAL_EVENT_CONTENT>;
 
@@ -31,7 +31,7 @@ function FourthBanner() {
         style={{ willChange: 'transform, opacity' }}
         className="mb-20 transform-gpu text-center"
       >
-        <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Events</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-main-green">Events</span>
         <h2 className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-6xl">
           MAJOR <span className="text-white/20">ACTIVITIES</span>
         </h2>
@@ -43,13 +43,13 @@ function FourthBanner() {
             type="button"
             key={item}
             onClick={() => setSelectedEvent(item)}
-            className={`relative px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${selectedEvent === item ? 'text-[#52E560]' : 'text-white/40 hover:text-white/60'} `}
+            className={`relative px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${selectedEvent === item ? 'text-main-green' : 'text-white/40 hover:text-white/60'} `}
           >
             {CENTRAL_EVENT_CONTENT[item]}
             {selectedEvent === item && (
               <motion.div
                 layoutId="active-event-pill"
-                className="absolute inset-0 -z-10 rounded-full border border-[#52E560]/30 bg-[#52E560]/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
+                className="absolute inset-0 -z-10 rounded-full border border-main-green/30 bg-main-green/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
               />
             )}
           </button>
@@ -81,7 +81,7 @@ function FourthBanner() {
                 <Typography size="title-sm" className="text-4xl font-black italic tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                   {CENTRAL_EVENT_CONTENT[selectedEvent]}
                 </Typography>
-                <div className="h-px w-20 bg-[#52E560]" />
+                <div className="h-px w-20 bg-main-green" />
                 <Typography as="p" size="text-sm" className="whitespace-pre-wrap text-lg font-medium leading-loose tracking-tight text-white/80">
                   {data?.description}
                 </Typography>
@@ -100,6 +100,6 @@ function FourthBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default FourthBanner;

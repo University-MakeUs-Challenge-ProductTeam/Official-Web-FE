@@ -3,11 +3,11 @@ import { useCallback, useMemo, useState } from 'react';
 
 import { DropdownContext } from '../dropdown-context';
 
-interface IDropdownProviderProps {
+type TDropdownProviderProps = {
   children: ReactNode;
-}
+};
 
-export function DropdownProvider({ children }: IDropdownProviderProps) {
+export const DropdownProvider = ({ children }: TDropdownProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = useCallback(() => setIsOpen((prev) => !prev), []);
@@ -16,4 +16,4 @@ export function DropdownProvider({ children }: IDropdownProviderProps) {
   const value = useMemo(() => ({ isOpen, toggleDropdown, closeDropdown }), [isOpen, toggleDropdown, closeDropdown]);
 
   return <DropdownContext.Provider value={value}>{children}</DropdownContext.Provider>;
-}
+};

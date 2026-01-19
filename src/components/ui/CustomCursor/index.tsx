@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-export default function CustomCursor() {
+const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -38,15 +38,17 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[10000] size-4 rounded-full bg-[#52E560] mix-blend-difference"
+      className="pointer-events-none fixed left-0 top-0 z-[10000] size-4 rounded-full bg-main-green mix-blend-difference"
       style={{
         x: cursorX,
         y: cursorY,
         translateX: '-50%',
         translateY: '-50%',
         scale: isHovering ? 2.5 : 1,
-        boxShadow: isHovering ? '0 0 20px #52E560' : 'none',
+        boxShadow: isHovering ? '0 0 20px rgb(82, 229, 96)' : 'none',
       }}
     />
   );
-}
+};
+
+export default CustomCursor;

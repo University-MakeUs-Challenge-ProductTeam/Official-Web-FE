@@ -4,13 +4,13 @@ import type { ReactNode } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
 
-interface ISliderProps {
+type TSliderProps = {
   children: ReactNode;
   reverse?: boolean;
   speed?: number;
-}
+};
 
-function Slider({ children, reverse = false, speed = 2000 }: ISliderProps) {
+const Slider = ({ children, reverse = false, speed = 2000 }: TSliderProps) => {
   return (
     <Swiper
       slidesPerView="auto"
@@ -37,6 +37,6 @@ function Slider({ children, reverse = false, speed = 2000 }: ISliderProps) {
       {children}
     </Swiper>
   );
-}
+};
 
 export default Slider;

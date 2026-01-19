@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'UMC 후원사 신청 페이지',
 };
 
-function ApplyPage() {
+const ApplyPage = () => {
   return (
     <Container>
       <Spacing direction="vertical" size={32} />
@@ -22,6 +22,6 @@ function ApplyPage() {
       <Form />
     </Container>
   );
-}
+};
 
 export default ApplyPage;

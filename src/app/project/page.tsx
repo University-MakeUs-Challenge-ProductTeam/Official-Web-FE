@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description: 'UMC 프로젝트 목록',
 };
 
-function ProjectPage() {
+const ProjectPage = () => {
   return (
     <Container className="my-10 flex max-w-[1400px] flex-col gap-20">
       <UMCProjectView />
       <ReleasedProjectView />
     </Container>
   );
-}
+};
 
 export default ProjectPage;

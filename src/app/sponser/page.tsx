@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'UMC 후원사 목록 페이지',
 };
 
-function SponserPage() {
+const SponserPage = () => {
   return (
     <Container className="mb-32 flex flex-col gap-36">
       <FirstBanner />
@@ -19,6 +19,6 @@ function SponserPage() {
       <ThirdBanner />
     </Container>
   );
-}
+};
 
 export default SponserPage;

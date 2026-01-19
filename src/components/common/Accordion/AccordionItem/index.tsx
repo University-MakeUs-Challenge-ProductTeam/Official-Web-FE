@@ -1,7 +1,6 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import React from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -10,12 +9,12 @@ import { useAccordionContext } from '../accordion-context';
 
 import cn from '@/lib/utils/style';
 
-interface IAccordionItemProps {
+type TAccordionItemProps = {
   ariaLabel?: string;
   children?: ReactNode;
   index: number;
   title?: string;
-}
+};
 
 /**
  * AccordionItem 컴포넌트
@@ -24,7 +23,7 @@ interface IAccordionItemProps {
  * @param index 각 Accordion 컴포넌트를 구분할 key를 지정합니다.
  * @param title 제목을 표시합니다.
  */
-function AccordionItem({ index, title = '제목', ariaLabel, children = '내용' }: IAccordionItemProps) {
+const AccordionItem = ({ index, title = '제목', ariaLabel, children = '내용' }: TAccordionItemProps) => {
   const { activeIndex, setActiveIndex } = useAccordionContext();
   const isActive = activeIndex === index;
 
@@ -33,7 +32,7 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
   };
 
   return (
-    <div aria-label={ariaLabel} className="group/accordion relative mb-6 w-full overflow-visible">
+    <div className="group/accordion relative mb-6 w-full overflow-visible">
       <motion.button
         whileHover={{ x: 10 }}
         className={cn(
@@ -42,9 +41,12 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
         )}
         type="button"
         onClick={handleClick}
+        aria-expanded={isActive}
+        aria-controls={`accordion-content-${index}`}
+        aria-label={ariaLabel || title}
       >
         <div className="flex items-center gap-6">
-          <span className={cn('text-xs font-black italic tracking-widest transition-colors', isActive ? 'text-[#52E560]' : 'text-white/20')}>
+          <span className={cn('text-xs font-black italic tracking-widest transition-colors', isActive ? 'text-main-green' : 'text-white/20')}>
             Q.{index.toString().padStart(2, '0')}
           </span>
           <Typography
@@ -60,8 +62,9 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
             animate={{ rotate: isActive ? 180 : 0 }}
             className={cn(
               'flex size-8 items-center justify-center rounded-full border border-white/10 transition-colors',
-              isActive ? 'border-[#52E560] bg-[#52E560] text-black' : 'text-white/40 group-hover/accordion:text-white',
+              isActive ? 'border-main-green bg-main-green text-black' : 'text-white/40 group-hover/accordion:text-white',
             )}
+            aria-hidden="true"
           >
             <IoIosArrowDown size={16} />
           </motion.div>
@@ -76,6 +79,8 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'circOut' }}
               className="overflow-hidden"
+              id={`accordion-content-${index}`}
+              role="region"
             >
               <div className="mt-6 border-t border-white/5 pt-6">
                 <Typography className="text-sm font-medium leading-relaxed text-white/40">{children}</Typography>
@@ -86,6 +91,6 @@ function AccordionItem({ index, title = '제목', ariaLabel, children = '내용'
       </motion.button>
     </div>
   );
-}
+};
 
 export default AccordionItem;

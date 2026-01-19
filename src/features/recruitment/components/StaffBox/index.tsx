@@ -3,20 +3,20 @@ import { STAFF_ROLE_CONTENT } from '@/constants/recruitment';
 
 import Typography from '@/components/common/Typography';
 
-interface IStaffBoxProps {
+type TStaffBoxProps = {
   staffList?: TStaffDTOList[];
-}
+};
 
-function StaffBox({ staffList }: IStaffBoxProps) {
+const StaffBox = ({ staffList }: TStaffBoxProps) => {
   return (
-    <div className="group relative flex flex-1 flex-col gap-8 rounded-[40px] border border-white/5 bg-white/[0.02] p-6 backdrop-blur-3xl transition-all hover:border-[#52E560]/20 md:p-10">
+    <div className="group relative flex flex-1 flex-col gap-8 rounded-[40px] border border-white/5 bg-white/[0.02] p-6 backdrop-blur-3xl transition-all hover:border-main-green/20 md:p-10">
       <div className="flex items-center justify-between">
         <Typography as="h3" className="text-xl font-black italic tracking-tighter text-white">
-          UNIVERSITY <span className="text-[#52E560]">OPERATIONS</span>
+          UNIVERSITY <span className="text-main-green">OPERATIONS</span>
         </Typography>
         <div className="flex gap-1">
           {[...Array(3)].map((_, index) => (
-            <div key={index} className="size-1 rounded-full bg-[#52E560]/20" />
+            <div key={index} className="size-1 rounded-full bg-main-green/20" />
           ))}
         </div>
       </div>
@@ -31,9 +31,11 @@ function StaffBox({ staffList }: IStaffBoxProps) {
           return (
             <div className="group/item flex flex-col gap-3" key={label}>
               <div className="flex items-center gap-2">
-                <div className={`rounded-full transition-all ${isExecutive ? 'size-2 bg-[#52E560] shadow-[0_0_10px_#52E560]' : 'size-1.5 bg-[#52E560]/50'}`} />
+                <div
+                  className={`rounded-full transition-all ${isExecutive ? 'size-2 bg-main-green shadow-[0_0_10px_#52E560]' : 'size-1.5 bg-main-green/50'}`}
+                />
                 <Typography
-                  className={`${isExecutive ? 'text-lg text-[#52E560] drop-shadow-[0_0_10px_rgba(82,229,96,0.3)]' : 'text-xs text-[#52E560]/70'} font-black uppercase tracking-widest transition-colors`}
+                  className={`${isExecutive ? 'text-lg text-main-green drop-shadow-[0_0_10px_rgba(82,229,96,0.3)]' : 'text-xs text-main-green/70'} font-black uppercase tracking-widest transition-colors`}
                 >
                   {label}
                 </Typography>
@@ -56,6 +58,6 @@ function StaffBox({ staffList }: IStaffBoxProps) {
       </div>
     </div>
   );
-}
+};
 
 export default StaffBox;

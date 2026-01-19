@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 import { cva } from 'class-variance-authority';
 
 import { useDropdownContext } from '../dropdown-context';
@@ -15,11 +14,11 @@ const DropdownTriggerVariants = cva('flex flex-row items-center gap-3 bg-white/5
   defaultVariants: {},
 });
 
-interface IDropdownTriggerProps {
+type TDropdownTriggerProps = {
   children: ReactNode;
   className?: string;
   variant?: 'bordered';
-}
+};
 
 /**
  * DropdownTrigger 컴포넌트
@@ -27,17 +26,20 @@ interface IDropdownTriggerProps {
  * @param onClick DropdownTrigger 컴포넌트를 눌렀을 때 발생할 이벤트를 지정합니다.
  * @param variant DropdownTrigger 컴포넌트의 스타일을 결정합니다.
  */
-function DropdownTrigger({ children, variant = 'bordered', className }: IDropdownTriggerProps) {
+const DropdownTrigger = ({ children, variant = 'bordered', className }: TDropdownTriggerProps) => {
   const { toggleDropdown, isOpen } = useDropdownContext();
   return (
     <button
-      className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-[#52E560] shadow-[0_0_20px_rgba(82,229,96,0.3)]' : 'border-white/10', className)}
+      className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-main-green shadow-[0_0_20px_rgba(82,229,96,0.3)]' : 'border-white/10', className)}
       type="button"
       onClick={toggleDropdown}
+      aria-expanded={isOpen}
+      aria-haspopup="true"
+      aria-controls="dropdown-menu"
     >
       {children}
     </button>
   );
-}
+};
 
 export default DropdownTrigger;

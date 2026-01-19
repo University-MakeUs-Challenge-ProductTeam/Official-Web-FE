@@ -7,7 +7,7 @@ import useGetAllProjects from '@/hooks/queries/useGetAllProjects';
 
 import Slider from '@/features/home/components/FifthBanner/_components/Slider';
 
-function SliderList() {
+const SliderList = () => {
   const { data: projects } = useGetAllProjects();
   return (
     <Slider>
@@ -27,6 +27,6 @@ function SliderList() {
       ))}
     </Slider>
   );
-}
+};
 
 export default SliderList;

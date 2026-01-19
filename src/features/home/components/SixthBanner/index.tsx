@@ -10,7 +10,7 @@ const coreValues = [
   { id: 3, name: '소프트스퀘어드', path: '/images/소프트스퀘어드.png' },
 ];
 
-function SixthBanner() {
+const SixthBanner = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Typography size="title-sm" color="main-disable">
@@ -40,6 +40,6 @@ function SixthBanner() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default SixthBanner;

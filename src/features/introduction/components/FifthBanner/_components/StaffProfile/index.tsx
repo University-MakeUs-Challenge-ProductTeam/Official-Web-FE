@@ -7,17 +7,17 @@ import type { TCentralStaffDTO } from '@/types/staffDto';
 
 import Typography from '@/components/common/Typography';
 
-interface IStaffProfileProps {
+type TStaffProfileProps = {
   profileData: TCentralStaffDTO;
-}
+};
 
-function StaffProfile({ profileData }: IStaffProfileProps) {
+const StaffProfile = ({ profileData }: TStaffProfileProps) => {
   return (
     <motion.div
       whileHover={{ y: -8 }}
-      className="group relative flex flex-col gap-6 overflow-hidden rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-[#52E560]/30 hover:bg-[#52E560]/5"
+      className="group relative flex flex-col gap-6 overflow-hidden rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5"
     >
-      <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#52E560] to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />
+      <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-main-green to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />
 
       <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/20">
         {profileData.profileImageUrl ? (
@@ -37,13 +37,13 @@ function StaffProfile({ profileData }: IStaffProfileProps) {
 
         {/* Role Badge Overlay */}
         <div className="absolute bottom-4 left-4">
-          <span className="inline-block rounded-full bg-[#52E560] px-4 py-1 text-[10px] font-black italic tracking-widest text-black">{profileData.role}</span>
+          <span className="inline-block rounded-full bg-main-green px-4 py-1 text-[10px] font-black italic tracking-widest text-black">{profileData.role}</span>
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
         <div className="space-y-1">
-          <Typography as="h1" className="text-3xl font-black italic leading-none tracking-tighter text-white transition-colors group-hover:text-[#52E560]">
+          <Typography as="h1" className="text-3xl font-black italic leading-none tracking-tighter text-white transition-colors group-hover:text-main-green">
             {profileData.nickname}
           </Typography>
           <Typography as="p" className="text-xs font-black uppercase tracking-widest text-white/20">
@@ -68,7 +68,7 @@ function StaffProfile({ profileData }: IStaffProfileProps) {
                   href={href}
                   target={isEmail ? '_top' : '_blank'}
                   rel="noopener noreferrer"
-                  className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all hover:border-[#52E560]/30 hover:bg-[#52E560]/10 hover:text-[#52E560]"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all hover:border-main-green/30 hover:bg-main-green/10 hover:text-main-green"
                 >
                   <Icon size={18} />
                 </a>
@@ -81,6 +81,6 @@ function StaffProfile({ profileData }: IStaffProfileProps) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default StaffProfile;

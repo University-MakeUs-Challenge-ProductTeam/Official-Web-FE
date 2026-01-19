@@ -23,11 +23,12 @@ const ButtonVariants = cva('flex w-full items-center justify-center rounded-lg t
   },
 });
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof ButtonVariants> {
-  children: React.ReactNode;
-  className?: string;
-  icon?: IconType;
-}
+type TButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof ButtonVariants> & {
+    children: React.ReactNode;
+    className?: string;
+    icon?: IconType;
+  };
 
 /**
  * Button 컴포넌트
@@ -39,13 +40,13 @@ interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Va
  * @param props 추가 버튼 속성들을, 전달할 수 있습니다.
  * @constructor
  */
-function Button({ children, className, variant, size, icon: Icon, ...props }: IButtonProps) {
+const Button = ({ children, className, variant, size, icon: Icon, ...props }: TButtonProps) => {
   return (
     <button type="button" className={cn(ButtonVariants({ variant, size }), className)} {...props}>
-      {Icon && <Icon size={15} />}
+      {Icon && <Icon size={15} aria-hidden="true" />}
       {children}
     </button>
   );
-}
+};
 
 export default Button;

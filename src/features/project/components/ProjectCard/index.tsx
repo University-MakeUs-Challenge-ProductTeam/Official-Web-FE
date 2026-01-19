@@ -15,7 +15,7 @@ import Typography from '@/components/common/Typography';
 import cn from '@/lib/utils/style';
 
 const ProjectCardVariants = cva(
-  'group relative flex w-full mx-auto gap-6 border border-white/5 bg-white/5 backdrop-blur-3xl rounded-[32px] p-6 cursor-pointer overflow-hidden transition-all hover:border-[#52E560]/30 hover:bg-[#52E560]/5',
+  'group relative flex w-full mx-auto gap-6 border border-white/5 bg-white/5 backdrop-blur-3xl rounded-[32px] p-6 cursor-pointer overflow-hidden transition-all hover:border-main-green/30 hover:bg-main-green/5',
   {
     variants: {
       type: {
@@ -29,20 +29,20 @@ const ProjectCardVariants = cva(
   },
 );
 
-interface IProjectCardProps {
+type TProjectCardProps = {
   projectData: TProjectDTO;
   type?: 'released' | 'default';
-}
+};
 
-function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
+const ProjectCard = ({ projectData, type = 'default' }: TProjectCardProps) => {
   const router = useRouter();
   const { projectId, projectName, platFormNameList, slogan } = projectData;
   const projectImage = type === 'released' ? projectData.projectLogoImageUrl : projectData.projectLandingImageUrl;
 
   return (
     <motion.div whileHover={{ y: -10 }} className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
-      <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#52E560] to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />
-      <div className="absolute right-0 top-0 -mr-20 -mt-20 size-40 rounded-full bg-[#52E560] opacity-0 blur-[80px] transition-opacity group-hover:opacity-10" />
+      <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-main-green to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />
+      <div className="absolute right-0 top-0 -mr-20 -mt-20 size-40 rounded-full bg-main-green opacity-0 blur-[80px] transition-opacity group-hover:opacity-10" />
 
       <div className={cn('relative overflow-hidden rounded-2xl border border-white/10', type === 'default' ? 'aspect-video w-full' : 'h-32 w-32 shrink-0')}>
         {projectImage ? (
@@ -62,13 +62,13 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
 
       <div className="flex flex-1 flex-col gap-3">
         {type === 'default' && (
-          <span className="text-[10px] font-black uppercase tracking-widest text-[#52E560] opacity-50">
+          <span className="text-[10px] font-black uppercase tracking-widest text-main-green opacity-50">
             {platFormNameList.map((item) => PLATFORM_NAME[item]).join(' · ')}
           </span>
         )}
 
         <div className="space-y-1">
-          <Typography as="h1" className="text-2xl font-black italic leading-none tracking-tighter text-white transition-colors group-hover:text-[#52E560]">
+          <Typography as="h1" className="text-2xl font-black italic leading-none tracking-tighter text-white transition-colors group-hover:text-main-green">
             {projectName}
           </Typography>
           <Typography as="p" size="text-sm" className="line-clamp-2 font-medium leading-normal text-white/40">
@@ -83,7 +83,7 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
               return (
                 <div
                   key={index}
-                  className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all group-hover:border-[#52E560]/30 group-hover:text-[#52E560]"
+                  className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all group-hover:border-main-green/30 group-hover:text-main-green"
                 >
                   <Icon size={18} />
                 </div>
@@ -94,6 +94,6 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
       </div>
     </motion.div>
   );
-}
+};
 
 export default ProjectCard;

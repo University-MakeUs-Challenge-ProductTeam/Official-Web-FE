@@ -4,7 +4,7 @@ import Typography from '@/components/common/Typography';
 
 import SliderList from '@/features/home/components/FifthBanner/_components/SliderList';
 
-function FifthBanner() {
+const FifthBanner = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Typography size="title-sm" color="main-disable">
@@ -23,6 +23,6 @@ function FifthBanner() {
       </div>
     </Flex>
   );
-}
+};
 
 export default FifthBanner;

@@ -29,7 +29,7 @@ const subTextVariants = {
   }),
 };
 
-function SecondBanner() {
+const SecondBanner = () => {
   const textRef = useRef(null);
   const subTextRef = useRef(null);
   const isTextInView = useInView(textRef, { once: true });
@@ -105,6 +105,6 @@ function SecondBanner() {
       </div>
     </>
   );
-}
+};
 
 export default SecondBanner;

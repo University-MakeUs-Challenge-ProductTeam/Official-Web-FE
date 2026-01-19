@@ -46,7 +46,7 @@ module.exports = {
     'react/function-component-definition': [
       'error',
       {
-        namedComponents: 'function-declaration',
+        namedComponents: 'arrow-function', // Changed from 'function-declaration' to 'arrow-function'
         unnamedComponents: 'arrow-function',
       },
     ],
@@ -74,5 +74,8 @@ module.exports = {
 
     // 배열의 인덱스를 key로 사용하는 것을 허용합니다.
     'react/no-array-index-key': 'off',
+
+    // Arrow function body style (allow block statements even if single return)
+    'arrow-body-style': 'off',
   },
 };

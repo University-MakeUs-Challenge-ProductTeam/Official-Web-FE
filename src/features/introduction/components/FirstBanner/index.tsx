@@ -10,7 +10,7 @@ import Typography from '@/components/common/Typography';
 
 import { getProjectList } from '@/lib/api/project';
 
-function Counter({ from, to }: { from: number; to: number }) {
+const Counter = ({ from, to }: { from: number; to: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
 
@@ -31,9 +31,9 @@ function Counter({ from, to }: { from: number; to: number }) {
   }, [from, to, inView]);
 
   return <span ref={ref}>{from}</span>;
-}
+};
 
-function FirstBanner() {
+const FirstBanner = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const { data: projectData } = useQuery({
     queryKey: [QUERY_KEYS.projects, 'ALL', 0],
@@ -71,16 +71,16 @@ function FirstBanner() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
-            className="group relative flex w-full min-w-[280px] max-w-[320px] cursor-default flex-col items-center rounded-4xl border border-white/5 bg-white/5 p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-[#52E560]/30"
+            className="group relative flex w-full min-w-[280px] max-w-[320px] cursor-default flex-col items-center rounded-4xl border border-white/5 bg-white/5 p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-main-green/30"
             key={title}
           >
-            <div className="absolute inset-0 -z-10 rounded-[inherit] bg-gradient-to-b from-[#52E560]/0 to-[#52E560]/5 opacity-0 transition-opacity group-hover:opacity-100" />
+            <div className="absolute inset-0 -z-10 rounded-[inherit] bg-gradient-to-b from-main-green/0 to-main-green/5 opacity-0 transition-opacity group-hover:opacity-100" />
 
             <Typography size="title-sm" className="text-xs font-bold uppercase tracking-widest text-white/40">
               {title}
             </Typography>
             <div
-              className="mt-2 flex min-h-16 items-baseline justify-center gap-1 text-6xl font-black italic tracking-tighter text-[#52E560]"
+              className="mt-2 flex min-h-16 items-baseline justify-center gap-1 text-6xl font-black italic tracking-tighter text-main-green"
               style={{ textShadow: '0 0 30px rgba(82,229,96,0.3)' }}
             >
               <span className="inline-block min-w-[4ch] tabular-nums">{count > 0 ? <Counter from={0} to={count} /> : '-'}</span>
@@ -88,12 +88,12 @@ function FirstBanner() {
             </div>
 
             {/* Decorative element */}
-            <div className="mt-8 h-px w-12 bg-white/10 transition-all group-hover:w-20 group-hover:bg-[#52E560]" />
+            <div className="mt-8 h-px w-12 bg-white/10 transition-all group-hover:w-20 group-hover:bg-main-green" />
           </motion.div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default FirstBanner;

@@ -16,12 +16,12 @@ export const OPlatform = {
   WEB: 'Web',
 } as const;
 
-interface IPlatformDropdownProps {
+type TPlatformDropdownProps = {
   selected: keyof typeof OPlatform;
   setSelected: React.Dispatch<React.SetStateAction<keyof typeof OPlatform>>;
-}
+};
 
-function PlatformDropdown({ selected, setSelected }: IPlatformDropdownProps) {
+const PlatformDropdown = ({ selected, setSelected }: TPlatformDropdownProps) => {
   const platformList = Object.keys(OPlatform) as Array<keyof typeof OPlatform>;
   return (
     <Dropdown>
@@ -29,12 +29,12 @@ function PlatformDropdown({ selected, setSelected }: IPlatformDropdownProps) {
         <Typography className="text-sm font-black uppercase italic tracking-widest text-white/40">
           {selected !== 'ALL' ? OPlatform[selected] : 'Platform'}
         </Typography>
-        <IoIosArrowDown size={14} className="text-[#52E560]" />
+        <IoIosArrowDown size={14} className="text-main-green" />
       </DropdownTrigger>
       <DropdownMenu>
         {platformList.map((item) => (
           <DropdownItem key={item} onClick={() => setSelected(item)}>
-            <Typography className={`text-sm font-black uppercase italic tracking-widest ${item === selected ? 'text-[#52E560]' : 'text-white/40'}`}>
+            <Typography className={`text-sm font-black uppercase italic tracking-widest ${item === selected ? 'text-main-green' : 'text-white/40'}`}>
               {OPlatform[item]}
             </Typography>
           </DropdownItem>
@@ -42,6 +42,6 @@ function PlatformDropdown({ selected, setSelected }: IPlatformDropdownProps) {
       </DropdownMenu>
     </Dropdown>
   );
-}
+};
 
 export default PlatformDropdown;

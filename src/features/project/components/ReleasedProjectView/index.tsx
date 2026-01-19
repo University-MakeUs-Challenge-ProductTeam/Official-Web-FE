@@ -13,7 +13,7 @@ import ProjectCard from '../ProjectCard';
 
 import { getReleasedProjectList } from '@/lib/api/project';
 
-function ReleasedProjectView() {
+const ReleasedProjectView = () => {
   const [page, setPage] = useState(0);
   const pageSize = 6;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
@@ -34,7 +34,7 @@ function ReleasedProjectView() {
         style={{ willChange: 'transform, opacity' }}
         className="mb-12 transform-gpu text-right"
       >
-        <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Live Now</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-main-green">Live Now</span>
         <h2 className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-6xl">
           RELEASED <span className="text-white/20">PRODUCTS</span>
         </h2>
@@ -70,7 +70,7 @@ function ReleasedProjectView() {
             type="button"
             onClick={() => setPage(Math.max(page - 1, 0))}
             disabled={page === 0}
-            className="rounded-full bg-white/5 p-3 text-[#52E560] transition-colors hover:bg-[#52E560]/10 disabled:opacity-20"
+            className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleLeft />
           </button>
@@ -94,7 +94,7 @@ function ReleasedProjectView() {
             type="button"
             onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
             disabled={page === totalPages - 1}
-            className="rounded-full bg-white/5 p-3 text-[#52E560] transition-colors hover:bg-[#52E560]/10 disabled:opacity-20"
+            className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleRight />
           </button>
@@ -102,6 +102,6 @@ function ReleasedProjectView() {
       )}
     </div>
   );
-}
+};
 
 export default ReleasedProjectView;

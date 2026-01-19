@@ -16,7 +16,7 @@ import StaffBox from '../StaffBox';
 
 import { getRequirements } from '@/lib/api/recruitment';
 
-function ScheduleBox() {
+const ScheduleBox = () => {
   const [selectedSchool, setSelectedSchool] = useState('');
   const { data: schoolData, isLoading } = useQuery({
     queryKey: [QUERY_KEYS.requirements, selectedSchool],
@@ -34,12 +34,12 @@ function ScheduleBox() {
           style={{ willChange: 'transform, opacity' }}
           className="flex-1 transform-gpu text-center md:text-left"
         >
-          <span className="mb-4 inline-block rounded-full border border-[#52E560]/20 bg-[#52E560]/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-[#52E560]">
+          <span className="mb-4 inline-block rounded-full border border-main-green/20 bg-main-green/10 px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-main-green">
             Timeline & Requirements
           </span>
           <h2 className="text-5xl font-black italic leading-[0.8] tracking-tighter text-white md:text-7xl">
             CHOOSE YOUR <br />
-            <span className="text-[#52E560]">BATTLEGROUND</span>
+            <span className="text-main-green">BATTLEGROUND</span>
           </h2>
           <p className="mt-8 max-w-lg font-medium leading-relaxed text-white/40">
             모집일정 및 파트는 학교별로 상이합니다. <br />
@@ -54,7 +54,7 @@ function ScheduleBox() {
           style={{ willChange: 'transform, opacity' }}
           className="group relative z-50 transform-gpu overflow-visible rounded-full p-px"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#52E560] to-transparent opacity-20 transition-all duration-500 group-hover:via-[#52E560]/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-main-green to-transparent opacity-20 transition-all duration-500 group-hover:via-main-green/50" />
           <div className="relative">
             <ScheduleDropdown selectedSchool={selectedSchool} setSelectedSchool={setSelectedSchool} />
           </div>
@@ -81,7 +81,7 @@ function ScheduleBox() {
                   <motion.div
                     animate={{ scale: [1, 1.4, 1], opacity: [0.1, 0.2, 0.1] }}
                     transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute inset-x-0 bottom-0 -z-10 h-10 rounded-full bg-[#52E560] blur-3xl"
+                    className="absolute inset-x-0 bottom-0 -z-10 h-10 rounded-full bg-main-green blur-3xl"
                   />
                 </div>
                 <Typography className="text-2xl font-black uppercase italic tracking-widest text-white/10">Awaiting Target Location</Typography>
@@ -91,7 +91,7 @@ function ScheduleBox() {
                       key={index}
                       animate={{ opacity: [0.2, 1, 0.2] }}
                       transition={{ duration: 1, repeat: Infinity, delay: index * 0.2 }}
-                      className="size-1 rounded-full bg-[#52E560]"
+                      className="size-1 rounded-full bg-main-green"
                     />
                   ))}
                 </div>
@@ -115,6 +115,6 @@ function ScheduleBox() {
       </div>
     </div>
   );
-}
+};
 
 export default ScheduleBox;

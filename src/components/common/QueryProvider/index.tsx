@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export function QueryProvider({ children }: Props) {
+export const QueryProvider = ({ children }: Props) => {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -28,4 +28,4 @@ export function QueryProvider({ children }: Props) {
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
     </QueryClientProvider>
   );
-}
+};

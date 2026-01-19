@@ -8,7 +8,7 @@ const coreValues = [
   { id: 3, label: '자신감', path: '/images/자신감.png' },
 ];
 
-function ThirdBanner() {
+const ThirdBanner = () => {
   return (
     <Flex direction="column" justify="center" align="center">
       <Typography size="title-sm" color="main-disable">
@@ -35,6 +35,6 @@ function ThirdBanner() {
       </Flex>
     </Flex>
   );
-}
+};
 
 export default ThirdBanner;

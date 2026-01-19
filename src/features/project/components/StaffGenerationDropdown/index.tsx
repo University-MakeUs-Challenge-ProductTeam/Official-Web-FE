@@ -14,12 +14,12 @@ import Typography from '@/components/common/Typography';
 
 import { getCentralStaffGenerations } from '@/lib/api/staff';
 
-interface IStaffGenerationDropdownProps {
+type TStaffGenerationDropdownProps = {
   selected: 'ALL' | number;
   setSelected: React.Dispatch<React.SetStateAction<'ALL' | number>>;
-}
+};
 
-function StaffGenerationDropdown({ selected, setSelected }: IStaffGenerationDropdownProps) {
+const StaffGenerationDropdown = ({ selected, setSelected }: TStaffGenerationDropdownProps) => {
   const { data } = useQuery({
     queryKey: [QUERY_KEYS.staffGenerations],
     queryFn: () => getCentralStaffGenerations(),
@@ -32,12 +32,12 @@ function StaffGenerationDropdown({ selected, setSelected }: IStaffGenerationDrop
         <Typography className="text-sm font-black uppercase italic tracking-widest text-white/40">
           {selected !== 'ALL' ? `${selected}th Gen` : 'Generation'}
         </Typography>
-        <IoIosArrowDown size={14} className="text-[#52E560]" />
+        <IoIosArrowDown size={14} className="text-main-green" />
       </DropdownTrigger>
       <DropdownMenu position="top-[calc(100%+8px)] left-0 min-w-full">
         {generationList.map((gen) => (
           <DropdownItem key={gen} onClick={() => setSelected(gen as any)}>
-            <Typography className={`text-sm font-black uppercase italic tracking-widest ${gen === selected ? 'text-[#52E560]' : 'text-white/40'}`}>
+            <Typography className={`text-sm font-black uppercase italic tracking-widest ${gen === selected ? 'text-main-green' : 'text-white/40'}`}>
               {gen === 'ALL' ? 'ALL' : `${gen}th`}
             </Typography>
           </DropdownItem>
@@ -45,6 +45,6 @@ function StaffGenerationDropdown({ selected, setSelected }: IStaffGenerationDrop
       </DropdownMenu>
     </Dropdown>
   );
-}
+};
 
 export default StaffGenerationDropdown;

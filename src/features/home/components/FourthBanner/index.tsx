@@ -13,7 +13,16 @@ import Flex from '@/components/common/Flex';
 import Spacing from '@/components/common/Spacing';
 import Typography from '@/components/common/Typography';
 
-function FourthBanner() {
+const FourthBannerSkeleton = () => {
+  return (
+    <div className="flex w-full flex-col items-center">
+      <div className="h-[600px] w-full animate-pulse rounded-md bg-slate-300" />
+      <div className="mt-5 h-20 w-full animate-pulse rounded-md bg-slate-300" />
+    </div>
+  );
+};
+
+const FourthBanner = () => {
   const [selectedEventType, setSelectedEventType] = useState<EventList>('PM_DAY');
   const { data: activities, isPending } = useGetMainActivity({ eventType: selectedEventType });
   const eventKeys = Object.keys(EventType) as EventKRList[];
@@ -68,7 +77,7 @@ function FourthBanner() {
             ) : (
               <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
             )}
-            <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-[#B8B8B8]">
+            <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-neutral-200">
               {activities?.result.description}
             </Typography>
           </>
@@ -76,15 +85,6 @@ function FourthBanner() {
       </div>
     </Flex>
   );
-}
-
-function FourthBannerSkeleton() {
-  return (
-    <div className="flex w-full flex-col items-center">
-      <div className="h-[600px] w-full animate-pulse rounded-md bg-slate-300" />
-      <div className="mt-5 h-20 w-full animate-pulse rounded-md bg-slate-300" />
-    </div>
-  );
-}
+};
 
 export default FourthBanner;

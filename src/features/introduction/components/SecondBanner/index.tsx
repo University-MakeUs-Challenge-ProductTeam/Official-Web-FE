@@ -12,7 +12,7 @@ import SchoolSlider from './_components/SchoolSlider';
 
 import { getSchoolListData } from '@/lib/api/school';
 
-function Counter({ value }: { value: number }) {
+const Counter = ({ value }: { value: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -27,9 +27,9 @@ function Counter({ value }: { value: number }) {
   }, [value]);
 
   return <span ref={ref}>0</span>;
-}
+};
 
-function SecondBanner() {
+const SecondBanner = () => {
   const { data, isLoading } = useQuery({
     queryKey: [QUERY_KEYS.schools],
     queryFn: () => getSchoolListData(),
@@ -42,18 +42,18 @@ function SecondBanner() {
     return (
       <div className="flex flex-col items-center py-20">
         <div className="mb-20 text-center">
-          <div className="mx-auto h-6 w-48 animate-pulse rounded-lg bg-[#2A2A2A]" />
-          <div className="mx-auto mt-4 h-24 w-96 animate-pulse rounded-lg bg-[#2A2A2A]" />
+          <div className="mx-auto h-6 w-48 animate-pulse rounded-lg bg-surface-800" />
+          <div className="mx-auto mt-4 h-24 w-96 animate-pulse rounded-lg bg-surface-800" />
         </div>
         <div className="w-full space-y-6">
           <div className="flex gap-4 overflow-hidden">
             {[...Array(6)].map((_, index) => (
-              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
+              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-surface-800" />
             ))}
           </div>
           <div className="flex gap-4 overflow-hidden">
             {[...Array(6)].map((_, index) => (
-              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
+              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-surface-800" />
             ))}
           </div>
         </div>
@@ -101,6 +101,6 @@ function SecondBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default SecondBanner;

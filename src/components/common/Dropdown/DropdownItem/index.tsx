@@ -1,15 +1,14 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 import { motion } from 'framer-motion';
 
 import { useDropdownContext } from '../dropdown-context';
 
-interface IDropdownItemProps {
+type TDropdownItemProps = {
   children: ReactNode;
   onClick?: () => void;
-}
+};
 
-function DropdownItem({ children, onClick }: IDropdownItemProps) {
+const DropdownItem = ({ children, onClick }: TDropdownItemProps) => {
   const { closeDropdown } = useDropdownContext();
   return (
     <motion.li
@@ -20,10 +19,19 @@ function DropdownItem({ children, onClick }: IDropdownItemProps) {
         if (onClick) onClick();
         closeDropdown();
       }}
+      role="menuitem"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          if (onClick) onClick();
+          closeDropdown();
+        }
+      }}
     >
       {children}
     </motion.li>
   );
-}
+};
 
 export default DropdownItem;

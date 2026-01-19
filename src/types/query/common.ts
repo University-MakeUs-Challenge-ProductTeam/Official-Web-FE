@@ -1,6 +1,8 @@
 import type { QueryKey, UseMutationOptions, UseQueryOptions } from '@tanstack/react-query';
 import type { AxiosError } from 'axios';
 
+import type { ApiResponse } from '../common/response';
+
 type ResponseError = AxiosError<{
   error: string;
   message: string;
@@ -11,11 +13,9 @@ type UseMutationCustomOptions<TData = unknown, TVariables = unknown> = Omit<UseM
 
 type UseQueryCustomOptions<TQueryFnData = unknown, TData = TQueryFnData> = Omit<UseQueryOptions<TQueryFnData, ResponseError, TData, QueryKey>, 'queryKey'>;
 
-type CommonResponse<T> = {
-  code: string;
-  isSuccess: boolean;
-  message: string;
-  result: T;
-};
+/**
+ * @deprecated CommonResponse 대신 ApiResponse<T>를 사용하세요
+ */
+type CommonResponse<T> = ApiResponse<T>;
 
 export type { CommonResponse, ResponseError, UseMutationCustomOptions, UseQueryCustomOptions };

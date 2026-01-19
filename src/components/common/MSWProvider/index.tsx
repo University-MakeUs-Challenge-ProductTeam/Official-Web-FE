@@ -7,7 +7,7 @@ import { isMocking } from '@/constants/constants';
 
 import { initMocking } from '@/lib/mocks';
 
-export function MSWProvider({ children }: { children: React.ReactNode }) {
+export const MSWProvider = ({ children }: { children: React.ReactNode }) => {
   const [isReady, setIsReady] = useState(!isMocking());
 
   useEffect(() => {
@@ -24,4 +24,4 @@ export function MSWProvider({ children }: { children: React.ReactNode }) {
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{children}</>;
-}
+};

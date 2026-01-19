@@ -1,11 +1,19 @@
-import type { TApiResponseType } from '@/types/api/projectTypes';
+import type { ApiResponse } from '@/types/api/projectTypes';
 import type { TSponsorType } from '@/types/api/sponsor';
-import type { TPostSponsorResponse, TSponsorDTO } from '@/types/dtos/sponsor';
+import type { TPostSponsorResponse, TSponsorApplicationDTO } from '@/types/dtos/sponsor';
 
 import { axiosInstance } from '@/lib/api/axios-instance';
 
-export const postSponsor = async ({ applicationName, contactInfo, description, email, link, organizationName }: TSponsorDTO): Promise<TPostSponsorResponse> => {
-  const { data } = await axiosInstance.post<TPostSponsorResponse>(`/api/sponsors/request`, {
+export const postSponsor = async ({
+  applicationName,
+  contactInfo,
+  description,
+  email,
+  link,
+  organizationName,
+}: TSponsorApplicationDTO): Promise<TPostSponsorResponse> => {
+  const url = '/api/sponsors/request';
+  const { data } = await axiosInstance.post<TPostSponsorResponse>(url, {
     applicationName,
     contactInfo,
     description,
@@ -18,7 +26,8 @@ export const postSponsor = async ({ applicationName, contactInfo, description, e
 };
 
 export const getSponsor = async () => {
-  const { data } = await axiosInstance.get<TApiResponseType<TSponsorType>>(`/api/sponsors`);
+  const url = '/api/sponsors';
+  const { data } = await axiosInstance.get<ApiResponse<TSponsorType>>(url);
 
   return data.result;
 };

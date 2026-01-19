@@ -9,13 +9,13 @@ import ProjectContentBox from '@/features/project/components/ProjectContentBox';
 import ProjectMemberBox from '@/features/project/components/ProjectMemberBox';
 import { getProjectDetail } from '@/lib/api/project';
 
-export async function generateMetadata({
+export const generateMetadata = async ({
   params,
 }: {
   params: {
     id: number;
   };
-}): Promise<Metadata> {
+}): Promise<Metadata> => {
   const { id } = params;
   const projectData = await getProjectDetail({ id });
 
@@ -30,16 +30,16 @@ export async function generateMetadata({
       ],
     },
   };
-}
+};
 
-async function ProjectDetailPage({ params }: { params: { id: number } }) {
+const ProjectDetailPage = async ({ params }: { params: { id: number } }) => {
   const { id } = params;
   const projectData = await getProjectDetail({ id });
 
   return (
     <div className="min-h-screen bg-black pb-40">
       {/* Hero Section */}
-      <div className="relative flex min-h-[60vh] w-full flex-col items-center justify-center overflow-hidden bg-[#101010]">
+      <div className="relative flex min-h-[60vh] w-full flex-col items-center justify-center overflow-hidden bg-neutral-800">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(82,229,96,0.15),transparent_70%)] blur-[100px]" />
 
         <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
@@ -91,6 +91,6 @@ async function ProjectDetailPage({ params }: { params: { id: number } }) {
       </Container>
     </div>
   );
-}
+};
 
 export default ProjectDetailPage;

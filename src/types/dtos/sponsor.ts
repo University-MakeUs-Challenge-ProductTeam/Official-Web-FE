@@ -1,6 +1,6 @@
 import type { CommonResponse } from '@/types/query/common';
 
-export type TSponsorDTO = {
+export type TSponsorApplicationDTO = {
   applicationName: string;
   contactInfo: string;
   description: string;

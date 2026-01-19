@@ -14,7 +14,7 @@ import StaffProfile from './_components/StaffProfile';
 import StaffGenerationDropdown from '@/features/project/components/StaffGenerationDropdown';
 import { getCentralStaff } from '@/lib/api/staff';
 
-function FifthBanner() {
+const FifthBanner = () => {
   const [selectedGeneration, setSelectedGeneration] = useState<number | 'ALL'>('ALL');
   const [pageGroup, setPageGroup] = useState(0);
   const [page, setPage] = useState(0);
@@ -47,7 +47,7 @@ function FifthBanner() {
         style={{ willChange: 'transform, opacity' }}
         className="mb-24 transform-gpu text-center"
       >
-        <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Visionaries</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-main-green">Visionaries</span>
         <h2 className="mt-4 text-4xl font-black italic leading-[0.8] tracking-tighter text-white md:text-7xl">
           CENTRAL <span className="text-white/20">STAFF</span>
         </h2>
@@ -59,7 +59,7 @@ function FifthBanner() {
 
       <div className="relative z-50 mb-16 flex justify-center">
         <div className="group relative overflow-visible rounded-full p-px">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#52E560] to-transparent opacity-20 transition-all duration-500 group-hover:via-[#52E560]/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-main-green to-transparent opacity-20 transition-all duration-500 group-hover:via-main-green/50" />
           <div className="relative">
             <StaffGenerationDropdown selected={selectedGeneration} setSelected={setSelectedGeneration} />
           </div>
@@ -112,7 +112,7 @@ function FifthBanner() {
             type="button"
             onClick={() => handlePageChange(Math.max(page - 1, 0))}
             disabled={page === 0}
-            className="rounded-full bg-white/5 p-3 text-[#52E560] transition-colors hover:bg-[#52E560]/10 disabled:opacity-20"
+            className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleLeft />
           </button>
@@ -125,7 +125,7 @@ function FifthBanner() {
                   key={pageIndex}
                   type="button"
                   className={`size-10 rounded-full text-sm font-black italic transition-all ${
-                    pageIndex === page ? 'bg-[#52E560] text-black shadow-[0_0_15px_#52E560]' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
+                    pageIndex === page ? 'bg-main-green text-black shadow-[0_0_15px_#52E560]' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
                   } `}
                   onClick={() => handlePageChange(pageIndex)}
                 >
@@ -139,7 +139,7 @@ function FifthBanner() {
             type="button"
             onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
             disabled={page === totalPages - 1}
-            className="rounded-full bg-white/5 p-3 text-[#52E560] transition-colors hover:bg-[#52E560]/10 disabled:opacity-20"
+            className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleRight />
           </button>
@@ -147,6 +147,6 @@ function FifthBanner() {
       )}
     </div>
   );
-}
+};
 
 export default FifthBanner;

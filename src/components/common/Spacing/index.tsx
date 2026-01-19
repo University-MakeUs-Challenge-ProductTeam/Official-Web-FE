@@ -9,7 +9,7 @@ interface ISpacing {
  * @param size px단위로, 얼마나 간격(가로, 세로)를 넓히고 싶은지 정합니다.
  * @constructor
  */
-function Spacing({ direction, size }: ISpacing) {
+const Spacing = ({ direction, size }: ISpacing) => {
   return (
     <div
       style={{
@@ -18,6 +18,6 @@ function Spacing({ direction, size }: ISpacing) {
       }}
     />
   );
-}
+};
 
 export default Spacing;

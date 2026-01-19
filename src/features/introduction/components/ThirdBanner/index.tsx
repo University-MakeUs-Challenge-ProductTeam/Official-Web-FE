@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import type { TProjectPart } from '@/types/projectDto';
@@ -11,7 +11,7 @@ import Typography from '@/components/common/Typography';
 
 import { getPartCurriculums } from '@/lib/api/part';
 
-function ThirdBanner() {
+const ThirdBanner = () => {
   const [selectedPart, setSelectedPart] = useState<TProjectPart>('AOS');
   const partList = Object.keys(PART_NAME) as Array<keyof typeof PART_NAME>;
 
@@ -32,7 +32,7 @@ function ThirdBanner() {
             as="button"
             key={item}
             size="text-sm"
-            className={`cursor-pointer pt-1 font-bold sm:text-text-lg ${selectedPart === item ? 'border-t-2 border-solid border-main-green font-bold text-main-green' : 'text-[#6D6D6D]'}`}
+            className={`cursor-pointer pt-1 font-bold sm:text-text-lg ${selectedPart === item ? 'border-t-2 border-solid border-main-green font-bold text-main-green' : 'text-neutral-400'}`}
             onClick={() => setSelectedPart(item)}
           >
             {PART_NAME[item]}
@@ -40,24 +40,24 @@ function ThirdBanner() {
         ))}
       </div>
 
-      <div className="flex w-full flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] p-8">
+      <div className="flex w-full flex-1 flex-col gap-4 rounded-xl border border-solid border-surface-700 p-8">
         <div className="flex flex-row gap-3">
-          <Typography size="text-sm" className="w-[70px] text-[#818181] sm:text-lg">
+          <Typography size="text-sm" className="w-[70px] text-main-disable sm:text-lg">
             요구역량
           </Typography>
-          <Typography size="text-sm" className="flex-1 text-[#CFCFCF] sm:text-lg">
+          <Typography size="text-sm" className="flex-1 text-neutral-200 sm:text-lg">
             {data?.requireSkill}
           </Typography>
         </div>
       </div>
 
-      <div className="flex w-full flex-1 flex-col gap-4 rounded-xl border border-solid border-[#3A3A3A] p-8">
+      <div className="flex w-full flex-1 flex-col gap-4 rounded-xl border border-solid border-surface-700 p-8">
         {data?.activityPartCurriculumList.map((item, index) => (
           <div className="flex flex-row gap-3" key={item.curriculumId}>
-            <Typography size="text-sm" className="w-[60px] text-[#818181] sm:text-lg">
+            <Typography size="text-sm" className="w-[60px] text-main-disable sm:text-lg">
               {index}주차
             </Typography>
-            <Typography size="text-sm" className="flex-1 text-[#CFCFCF] sm:text-lg">
+            <Typography size="text-sm" className="flex-1 text-neutral-200 sm:text-lg">
               {item.topic}
             </Typography>
           </div>
@@ -65,6 +65,6 @@ function ThirdBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default ThirdBanner;

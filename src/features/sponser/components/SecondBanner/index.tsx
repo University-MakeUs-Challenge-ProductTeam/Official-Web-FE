@@ -11,7 +11,7 @@ import Typography from '@/components/common/Typography';
 
 import { getSponsor } from '@/lib/api/sponsor';
 
-function SecondBanner() {
+const SecondBanner = () => {
   const { data, isLoading } = useQuery({
     queryKey: [QUERY_KEYS.sponsors],
     queryFn: () => getSponsor(),
@@ -42,7 +42,7 @@ function SecondBanner() {
         style={{ willChange: 'transform, opacity' }}
         className="mb-20 transform-gpu"
       >
-        <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Network</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-main-green">Network</span>
         <h2 className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-6xl">
           PROACTIVE <span className="text-white/20">SPONSORS</span>
         </h2>
@@ -57,17 +57,17 @@ function SecondBanner() {
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
             style={{ willChange: 'transform, opacity' }}
-            className="group relative flex transform-gpu flex-col gap-8 rounded-4xl border border-white/5 bg-white/5 p-10 backdrop-blur-3xl transition-all hover:border-[#52E560]/30"
+            className="group relative flex transform-gpu flex-col gap-8 rounded-4xl border border-white/5 bg-white/5 p-10 backdrop-blur-3xl transition-all hover:border-main-green/30"
           >
             <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
               <div className="relative size-24 overflow-hidden rounded-2xl bg-white p-2">
                 <Image src={item.logoUrl} fill alt={item.title} className="object-contain p-2" />
               </div>
               <div className="space-y-1">
-                <Typography size="title-sm" className="text-2xl font-black italic tracking-tighter text-white transition-colors group-hover:text-[#52E560]">
+                <Typography size="title-sm" className="text-2xl font-black italic tracking-tighter text-white transition-colors group-hover:text-main-green">
                   {item.title}
                 </Typography>
-                <div className="h-px w-10 bg-[#52E560] opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="h-px w-10 bg-main-green opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
             </div>
 
@@ -76,7 +76,7 @@ function SecondBanner() {
             <Link
               href={item.url}
               target="_blank"
-              className="mt-auto self-end text-xs font-black uppercase italic tracking-widest text-[#52E560] opacity-40 transition-opacity hover:opacity-100"
+              className="mt-auto self-end text-xs font-black uppercase italic tracking-widest text-main-green opacity-40 transition-opacity hover:opacity-100"
             >
               Visit Website —
             </Link>
@@ -85,6 +85,6 @@ function SecondBanner() {
       </motion.div>
     </div>
   );
-}
+};
 
 export default SecondBanner;

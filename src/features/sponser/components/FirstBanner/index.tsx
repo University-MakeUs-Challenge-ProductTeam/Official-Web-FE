@@ -11,7 +11,7 @@ const mainSponsors = [
   { id: 3, name: '소프트스퀘어드', path: '/images/소프트스퀘어드.png' },
 ];
 
-function FirstBanner() {
+const FirstBanner = () => {
   return (
     <div className="flex flex-col items-center py-40">
       <motion.div
@@ -21,9 +21,9 @@ function FirstBanner() {
         style={{ willChange: 'transform, opacity' }}
         className="mb-32 transform-gpu text-center"
       >
-        <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Partners</span>
+        <span className="text-xs font-bold uppercase tracking-widest text-main-green">Partners</span>
         <h1 className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-7xl">
-          BREAKING <span className="text-[#52E560]">BOUNDARIES</span> <br />
+          BREAKING <span className="text-main-green">BOUNDARIES</span> <br />
           <span className="text-white/20">TOGETHER</span>
         </h1>
         <p className="mt-6 text-lg font-medium text-white/40">UMC 챌린저들의 도전을 함께 응원하는 파트너사들을 소개합니다.</p>
@@ -40,7 +40,7 @@ function FirstBanner() {
             style={{ willChange: 'transform, opacity' }}
             className="group flex transform-gpu flex-col items-center"
           >
-            <div className="relative size-[250px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-[#52E560] hover:shadow-[0_0_40px_rgba(82,229,96,0.2)]">
+            <div className="relative size-[250px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-main-green hover:shadow-[0_0_40px_rgba(82,229,96,0.2)]">
               <div className="relative size-full overflow-hidden rounded-full bg-white grayscale transition-all duration-500 group-hover:grayscale-0">
                 <Image src={value.path} fill sizes="250px" alt={value.name} className="object-contain p-8" />
               </div>
@@ -54,6 +54,6 @@ function FirstBanner() {
       </div>
     </div>
   );
-}
+};
 
 export default FirstBanner;

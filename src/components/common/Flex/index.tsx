@@ -32,10 +32,10 @@ const FlexVariants = cva('flex', {
   },
 });
 
-interface IFlexProps extends VariantProps<typeof FlexVariants> {
+type TFlexProps = VariantProps<typeof FlexVariants> & {
   children: React.ReactNode;
   className?: string;
-}
+};
 
 /**
  * Flex 컴포넌트
@@ -46,8 +46,8 @@ interface IFlexProps extends VariantProps<typeof FlexVariants> {
  * @param className 추가 스타일링에 대한 코드를 작성합니다.
  * @constructor
  */
-function Flex({ children, align, justify, direction, className }: IFlexProps) {
+const Flex = ({ children, align, justify, direction, className }: TFlexProps) => {
   return <div className={cn(FlexVariants({ align, justify, direction }), className)}>{children}</div>;
-}
+};
 
 export default Flex;

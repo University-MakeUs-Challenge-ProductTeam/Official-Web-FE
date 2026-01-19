@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-interface IUseProjectPaginationProps {
+type TUseProjectPaginationProps = {
   pageSize?: number;
   pagesPerGroup?: number;
   totalItems: number;
-}
+};
 
-interface IUseProjectPaginationReturn {
+type TUseProjectPaginationReturn = {
   endPage: number;
   handleNextGroup: () => void;
   handlePageChange: (newPage: number) => void;
@@ -17,9 +17,9 @@ interface IUseProjectPaginationReturn {
   pagesPerGroup: number;
   startPage: number;
   totalPages: number;
-}
+};
 
-export const useProjectPagination = ({ totalItems, pageSize = 12, pagesPerGroup = 5 }: IUseProjectPaginationProps): IUseProjectPaginationReturn => {
+export const useProjectPagination = ({ totalItems, pageSize = 12, pagesPerGroup = 5 }: TUseProjectPaginationProps): TUseProjectPaginationReturn => {
   const [page, setPage] = useState(0);
   const [pageGroup, setPageGroup] = useState(0);
 

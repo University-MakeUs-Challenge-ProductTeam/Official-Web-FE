@@ -28,6 +28,24 @@ export const TypographyVariants = cva<{
       'main-black': 'text-main-black',
       'main-white': 'text-main-white',
       'main-pink': 'text-main-pink',
+      'error-50': 'text-error-50',
+      'error-100': 'text-error-100',
+      'error-200': 'text-error-200',
+      'error-300': 'text-error-300',
+      'error-400': 'text-error-400',
+      'error-500': 'text-error-500',
+      'error-600': 'text-error-600',
+      'error-700': 'text-error-700',
+      'error-800': 'text-error-800',
+      'surface-50': 'text-surface-50',
+      'surface-100': 'text-surface-100',
+      'surface-200': 'text-surface-200',
+      'surface-300': 'text-surface-300',
+      'surface-400': 'text-surface-400',
+      'surface-500': 'text-surface-500',
+      'surface-600': 'text-surface-600',
+      'surface-700': 'text-surface-700',
+      'surface-800': 'text-surface-800',
       'neutral-000': 'text-neutral-000',
       'neutral-100': 'text-neutral-100',
       'neutral-200': 'text-neutral-200',
@@ -72,11 +90,11 @@ export const TypographyVariants = cva<{
   },
 });
 
-interface ITypographyProps extends HTMLAttributes<HTMLDivElement> {
+type TTypographyProps = HTMLAttributes<HTMLDivElement> & {
   as?: ElementType;
   color?: ColorKey;
   size?: FontKey;
-}
+};
 
 /**
  * Typography 컴포넌트
@@ -85,7 +103,7 @@ interface ITypographyProps extends HTMLAttributes<HTMLDivElement> {
  * @param color 글씨의 색상을 선택합니다.
  * @param size 글씨의 크기, 자간, 줄간 등의 스타일을 지정합니다.
  */
-const Typography = forwardRef<HTMLDivElement, ITypographyProps>(({ size, className, children, color, as, ...props }, ref) => {
+const Typography = forwardRef<HTMLDivElement, TTypographyProps>(({ size, className, children, color, as, ...props }, ref) => {
   const Component = as || 'div';
 
   return (

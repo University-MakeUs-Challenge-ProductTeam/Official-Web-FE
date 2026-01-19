@@ -3,7 +3,35 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-export default function KineticHero() {
+const FloatingShapes = () => {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10">
+      {[...Array(20)].map((_, index) => (
+        <motion.div
+          key={index}
+          initial={{
+            x: `${Math.random() * 100}%`,
+            y: `${Math.random() * 100}%`,
+            opacity: 0,
+          }}
+          animate={{
+            y: [null, '-20%', '20%'],
+            opacity: [0, 0.2, 0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 10,
+            repeat: Infinity,
+            delay: index * 0.2,
+          }}
+          className="absolute size-1 bg-main-green shadow-[0_0_10px_#52E560]"
+        />
+      ))}
+    </div>
+  );
+};
+
+const KineticHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -45,7 +73,7 @@ export default function KineticHero() {
             className="text-center text-[15vw] font-black italic leading-[0.8] tracking-tighter text-white"
           >
             BREAK THE <br />
-            <span className="text-[#52E560]" style={{ textShadow: '0 0 40px rgba(82, 229, 96, 0.3)' }}>
+            <span className="text-main-green" style={{ textShadow: '0 0 40px rgba(82, 229, 96, 0.3)' }}>
               RULES
             </span>
           </motion.h1>
@@ -79,7 +107,7 @@ export default function KineticHero() {
             <button
               type="button"
               disabled
-              className="group relative cursor-not-allowed overflow-hidden rounded-full bg-[#52E560]/50 px-8 py-3 font-bold text-black/50"
+              className="group relative cursor-not-allowed overflow-hidden rounded-full bg-main-green/50 px-8 py-3 font-bold text-black/50"
             >
               WAITING FOR 10TH
               {/* <div className="absolute inset-x-0 bottom-0 h-1 bg-white/20 transition-all group-hover:h-full" /> */}
@@ -98,32 +126,5 @@ export default function KineticHero() {
       </div>
     </section>
   );
-}
-
-function FloatingShapes() {
-  return (
-    <div className="pointer-events-none absolute inset-0 -z-10">
-      {[...Array(20)].map((_, index) => (
-        <motion.div
-          key={index}
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, '-20%', '20%'],
-            opacity: [0, 0.2, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            delay: index * 0.2,
-          }}
-          className="absolute size-1 bg-[#52E560] shadow-[0_0_10px_#52E560]"
-        />
-      ))}
-    </div>
-  );
-}
+};
+export default KineticHero;

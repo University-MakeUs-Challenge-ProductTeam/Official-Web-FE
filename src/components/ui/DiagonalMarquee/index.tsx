@@ -3,7 +3,53 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-export default function DiagonalMarquee() {
+const getStyleClasses = (style: 'filled' | 'outline' | 'faint') => {
+  switch (style) {
+    case 'filled':
+      return 'text-main-green drop-shadow-[0_0_20px_rgba(82,229,96,0.4)]';
+    case 'outline':
+      return 'text-transparent stroke-white stroke-2';
+    case 'faint':
+      return 'text-transparent stroke-white/20 stroke-1';
+    default:
+      return '';
+  }
+};
+
+const MarqueeRow = ({
+  text,
+  direction,
+  speed,
+  styleVariant,
+}: {
+  direction: 'left' | 'right';
+  speed: number;
+  styleVariant: 'filled' | 'outline' | 'faint';
+  text: string;
+}) => {
+  const defaultText = `${text} — ${text} — ${text} — ${text} — `; // Repeat enough to fill visual width
+
+  return (
+    <div className="flex w-[200vw] select-none overflow-hidden">
+      <motion.div
+        className="flex whitespace-nowrap"
+        animate={{
+          x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'],
+        }}
+        transition={{
+          duration: speed,
+          ease: 'linear',
+          repeat: Infinity,
+        }}
+      >
+        <span className={`mx-4 text-[10vw] font-black italic tracking-tighter ${getStyleClasses(styleVariant)}`}>{defaultText}</span>
+        <span className={`mx-4 text-[10vw] font-black italic tracking-tighter ${getStyleClasses(styleVariant)}`}>{defaultText}</span>
+      </motion.div>
+    </div>
+  );
+};
+
+const DiagonalMarquee = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -34,50 +80,5 @@ export default function DiagonalMarquee() {
       </motion.div>
     </section>
   );
-}
-
-function MarqueeRow({
-  text,
-  direction,
-  speed,
-  styleVariant,
-}: {
-  direction: 'left' | 'right';
-  speed: number;
-  styleVariant: 'filled' | 'outline' | 'faint';
-  text: string;
-}) {
-  const defaultText = `${text} — ${text} — ${text} — ${text} — `; // Repeat enough to fill visual width
-
-  return (
-    <div className="flex w-[200vw] select-none overflow-hidden">
-      <motion.div
-        className="flex whitespace-nowrap"
-        animate={{
-          x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'],
-        }}
-        transition={{
-          duration: speed,
-          ease: 'linear',
-          repeat: Infinity,
-        }}
-      >
-        <span className={`mx-4 text-[10vw] font-black italic tracking-tighter ${getStyleClasses(styleVariant)}`}>{defaultText}</span>
-        <span className={`mx-4 text-[10vw] font-black italic tracking-tighter ${getStyleClasses(styleVariant)}`}>{defaultText}</span>
-      </motion.div>
-    </div>
-  );
-}
-
-function getStyleClasses(style: 'filled' | 'outline' | 'faint') {
-  switch (style) {
-    case 'filled':
-      return 'text-[#52E560] drop-shadow-[0_0_20px_rgba(82,229,96,0.4)]';
-    case 'outline':
-      return 'text-transparent stroke-white stroke-2';
-    case 'faint':
-      return 'text-transparent stroke-white/20 stroke-1';
-    default:
-      return '';
-  }
-}
+};
+export default DiagonalMarquee;

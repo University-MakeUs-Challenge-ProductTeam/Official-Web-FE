@@ -3,7 +3,7 @@ import KineticHero from '@/components/ui/KineticHero';
 import RedesignCurriculum from '@/components/ui/RedesignCurriculum';
 import UniversityMarquee from '@/components/ui/UniversityMarquee';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="bg-black">
       <KineticHero />
@@ -14,4 +14,6 @@ export default function Home() {
       <DiagonalMarquee />
     </div>
   );
-}
+};
+
+export default Home;

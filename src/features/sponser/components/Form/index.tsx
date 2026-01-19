@@ -3,7 +3,6 @@
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 
 import usePostSponsorResponse from '@/hooks/queries/usePostSponsorResponse';
 
@@ -12,15 +11,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 import TextArea from '@/components/common/TextArea';
 import Typography from '@/components/common/Typography';
 
-const sponsorFormSchema = z.object({
-  applicationName: z.string().min(1, { message: '성함을 입력해 주세요.' }),
-  contactInfo: z.string().min(1, { message: '연락처를 입력해 주세요.' }),
-  email: z.string().email({ message: '유효한 이메일 주소를 입력해 주세요.' }),
-  organizationName: z.string().min(1, { message: '기관명을 입력해 주세요.' }),
-  logoImage: z.string().url({ message: '유효한 URL을 입력해 주세요.' }),
-  description: z.string().min(1, { message: '기관 설명을 입력해 주세요.' }),
-  link: z.string().url({ message: '유효한 URL을 입력해 주세요.' }),
-});
+import { sponsorFormSchema } from '../../schemas/sponsor-form.schema';
 
 function Form() {
   const {

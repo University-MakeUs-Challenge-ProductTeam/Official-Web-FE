@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-import ActivityBox from './_components/ActivityBox';
-import FaqAccordions from './_components/FaqAccordions';
-import ScheduleBox from './_components/ScheduleBox';
+import { KAKAO_CHAT_LINK } from '@/constants/link';
 
-import Container from '@/shared/components/Container';
-import Typography from '@/shared/components/Typography';
-import { KAKAO_CHAT_LINK } from '@/shared/constants/link';
+import Typography from '@/components/common/Typography';
+
+import ActivityBox from '@/features/recruitment/components/ActivityBox';
+import FaqAccordions from '@/features/recruitment/components/FaqAccordions';
+import ScheduleBox from '@/features/recruitment/components/ScheduleBox';
 
 export const metadata: Metadata = {
   title: 'UMC - 모집 안내',
@@ -16,29 +16,44 @@ export const metadata: Metadata = {
 
 function RecruitmentPage() {
   return (
-    <Container className="my-10 flex flex-col gap-20">
-      <ActivityBox />
-      <ScheduleBox />
-      <div className="flex flex-col">
-        <Typography as="h1" size="title-smd" className="text-[#ECECEC]">
-          FAQ
-        </Typography>
-        <FaqAccordions />
+    <div className="flex flex-col bg-black">
+      <div className="container mx-auto px-6">
+        <ActivityBox />
+        <ScheduleBox />
+
+        <div className="flex flex-col border-t border-white/5 py-32">
+          <div className="mb-20 text-center">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#52E560]">Support</span>
+            <Typography className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-6xl">
+              COMMON <span className="text-[#52E560]">FAQ</span>
+            </Typography>
+            <p className="mx-auto mt-6 max-w-lg font-medium text-white/40">
+              지원자분들이 자주 묻는 질문들을 모았습니다. <br />더 궁금한 점이 있다면 언제든 문의해주세요.
+            </p>
+          </div>
+          <div className="mx-auto w-full max-w-4xl">
+            <FaqAccordions />
+          </div>
+        </div>
+
+        <div className="relative mb-40 mt-20 overflow-hidden rounded-[40px] border border-white/5 bg-white/[0.02] p-12 text-center md:p-24">
+          <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#52E560] to-transparent" />
+
+          <Typography className="text-3xl font-black italic leading-tight tracking-tighter text-white md:text-5xl">
+            STILL HAVE <span className="text-[#52E560]">QUESTIONS?</span>
+          </Typography>
+          <p className="mt-6 font-medium text-white/40">UMC에 대해 더 궁금한 점이 있다면 언제든 문의해주세요.</p>
+
+          <Link
+            target="_blank"
+            href={KAKAO_CHAT_LINK}
+            className="mt-10 inline-flex h-16 items-center justify-center rounded-full bg-[#52E560] px-10 text-sm font-black italic tracking-tighter text-black transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(82,229,96,0.3)]"
+          >
+            CONTACT US NOW
+          </Link>
+        </div>
       </div>
-      <div className="mt-20 flex flex-row flex-wrap items-center justify-between gap-5">
-        <Typography as="h1" size="title-smd" className="mr-5 text-[#ECECEC]">
-          UMC에 대해
-          <br />더 궁금한 챌린저라면?
-        </Typography>
-        <Link
-          target="_blank"
-          href={KAKAO_CHAT_LINK}
-          className="flex h-[50px] items-center justify-center rounded-[100px] border-2 border-solid border-main-green bg-[#1F1F1F] px-[24px] text-text-sm font-bold text-main-green transition-colors duration-500 hover:bg-main-green hover:text-[#1F1F1F]"
-        >
-          문의하러 가기
-        </Link>
-      </div>
-    </Container>
+    </div>
   );
 }
 

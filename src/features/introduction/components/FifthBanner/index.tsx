@@ -69,8 +69,8 @@ function FifthBanner() {
       <AnimatePresence mode="wait">
         {isLoading ? (
           <div className="grid w-full grid-cols-1 gap-10 lg:grid-cols-2 xl:grid-cols-3">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-64 animate-pulse rounded-4xl bg-white/5" />
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="h-64 animate-pulse rounded-4xl bg-white/5" />
             ))}
           </div>
         ) : data?.centralStaffList.length === 0 ? (
@@ -91,12 +91,12 @@ function FifthBanner() {
             exit={{ opacity: 0, scale: 0.95 }}
             className="mx-auto grid w-full grid-cols-1 place-items-center gap-10 lg:grid-cols-2 xl:grid-cols-3"
           >
-            {data?.centralStaffList.map((item, idx) => (
+            {data?.centralStaffList.map((item, index) => (
               <motion.div
                 key={item.centralStaffId}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.05 }}
+                transition={{ delay: index * 0.05 }}
                 className="w-full"
               >
                 <StaffProfile profileData={item} />
@@ -118,8 +118,8 @@ function FifthBanner() {
           </button>
 
           <div className="flex gap-2">
-            {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, i) => {
-              const pageIndex = startPage + i;
+            {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, index) => {
+              const pageIndex = startPage + index;
               return (
                 <button
                   key={pageIndex}

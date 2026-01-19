@@ -30,12 +30,12 @@ function FirstBanner() {
       </motion.div>
 
       <div className="flex flex-col gap-10 md:flex-row md:gap-20">
-        {mainSponsors.map((value, idx) => (
+        {mainSponsors.map((value, index) => (
           <motion.div
             key={value.id}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: idx * 0.1, type: 'spring' }}
+            transition={{ delay: index * 0.1, type: 'spring' }}
             viewport={{ once: true }}
             style={{ willChange: 'transform, opacity' }}
             className="group flex transform-gpu flex-col items-center"

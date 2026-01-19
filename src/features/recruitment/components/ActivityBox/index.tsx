@@ -79,7 +79,7 @@ function ActivityBox() {
                 </Typography>
               </motion.div>
             ))
-          : [...Array(6)].map((_, i) => <div key={i} className="h-32 animate-pulse rounded-3xl bg-white/5" />)}
+          : [...Array(6)].map((_, index) => <div key={index} className="h-32 animate-pulse rounded-3xl bg-white/5" />)}
       </div>
     </div>
   );

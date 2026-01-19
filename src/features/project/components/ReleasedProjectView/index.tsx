@@ -43,8 +43,8 @@ function ReleasedProjectView() {
       <AnimatePresence mode="wait">
         {isLoading ? (
           <div className="grid grid-cols-1 gap-10 2xl:grid-cols-2">
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="h-48 animate-pulse rounded-4xl bg-white/5" />
+            {[...Array(3)].map((_, index) => (
+              <div key={index} className="h-48 animate-pulse rounded-4xl bg-white/5" />
             ))}
           </div>
         ) : projectData?.releasedProjectDTOList.length === 0 ? (
@@ -76,16 +76,16 @@ function ReleasedProjectView() {
           </button>
 
           <div className="flex gap-2">
-            {Array.from({ length: totalPages }, (_, i) => (
+            {Array.from({ length: totalPages }, (_, index) => (
               <button
-                key={i}
+                key={index}
                 type="button"
                 className={`size-10 rounded-full text-sm font-black italic transition-all ${
-                  i === page ? 'bg-[#52E560] text-black shadow-[0_0_15px_#52E560]' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
+                  index === page ? 'bg-[#52E560] text-black shadow-[0_0_15px_#52E560]' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
                 } `}
-                onClick={() => setPage(i)}
+                onClick={() => setPage(index)}
               >
-                {i + 1}
+                {index + 1}
               </button>
             ))}
           </div>

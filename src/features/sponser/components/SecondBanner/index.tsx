@@ -25,8 +25,8 @@ function SecondBanner() {
           <div className="h-12 w-96 animate-pulse rounded-lg bg-white/5" />
         </div>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-64 animate-pulse rounded-4xl bg-white/5" />
+          {[...Array(4)].map((_, index) => (
+            <div key={index} className="h-64 animate-pulse rounded-4xl bg-white/5" />
           ))}
         </div>
       </div>

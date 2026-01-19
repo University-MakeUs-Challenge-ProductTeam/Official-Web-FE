@@ -80,8 +80,8 @@ function UMCProjectView() {
       <AnimatePresence mode="wait">
         {isLoading ? (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-64 animate-pulse rounded-4xl bg-white/5" />
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="h-64 animate-pulse rounded-4xl bg-white/5" />
             ))}
           </div>
         ) : projectData?.umcProjectList.length === 0 ? (
@@ -122,8 +122,8 @@ function UMCProjectView() {
           </button>
 
           <div className="flex gap-2">
-            {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, i) => {
-              const pageIndex = startPage + i;
+            {Array.from({ length: Math.min(pagesPerGroup, totalPages - startPage) }, (_, index) => {
+              const pageIndex = startPage + index;
               return (
                 <button
                   key={pageIndex}

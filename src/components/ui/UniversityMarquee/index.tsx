@@ -39,8 +39,8 @@ export default function UniversityMarquee() {
           }}
           className="flex gap-20 whitespace-nowrap px-10"
         >
-          {[...schoolList, ...schoolList].map((univ, idx) => (
-            <div key={`${univ.participateSchoolId}-${idx}`} className="group/item flex items-center gap-4 grayscale transition-all hover:grayscale-0">
+          {[...schoolList, ...schoolList].map((univ, index) => (
+            <div key={`${univ.participateSchoolId}-${index}`} className="group/item flex items-center gap-4 grayscale transition-all hover:grayscale-0">
               <div className="relative flex size-16 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 p-3 transition-colors group-hover/item:border-[#52E560]/50">
                 {univ.logoImageUrl ? (
                   <Image src={univ.logoImageUrl} alt={univ.schoolName} fill sizes="64px" className="object-contain p-2" />

@@ -47,13 +47,13 @@ function SecondBanner() {
         </div>
         <div className="w-full space-y-6">
           <div className="flex gap-4 overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
             ))}
           </div>
           <div className="flex gap-4 overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="h-[60px] w-48 shrink-0 animate-pulse rounded-full bg-[#2A2A2A]" />
             ))}
           </div>
         </div>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { TRecruitmentScheduleDTO, TShcoolScheduleType } from '@/types/recruitmentDto';
 import { SCHEDULE_CONTENT } from '@/constants/recruitment';
 
@@ -44,8 +42,8 @@ function RecruitmentSchedule({ scheduleData }: IRecruitmentScheduleProps) {
           RECRUITMENT <span className="text-[#52E560]">TIMELINE</span>
         </Typography>
         <div className="flex gap-1">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="size-1 rounded-full bg-[#52E560]/20" />
+          {[...Array(3)].map((_, index) => (
+            <div key={index} className="size-1 rounded-full bg-[#52E560]/20" />
           ))}
         </div>
       </div>

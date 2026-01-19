@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { TRequirementPartDTO } from '@/types/recruitmentDto';
 import { PART_NAME } from '@/constants/Parts';
 
@@ -17,8 +15,8 @@ function PartAndSkill({ partSkillData }: IPartAndSkillProps) {
           PART & <span className="text-[#52E560]">CRITERIA</span>
         </Typography>
         <div className="flex gap-1">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="size-1 rounded-full bg-[#52E560]/20" />
+          {[...Array(3)].map((_, index) => (
+            <div key={index} className="size-1 rounded-full bg-[#52E560]/20" />
           ))}
         </div>
       </div>

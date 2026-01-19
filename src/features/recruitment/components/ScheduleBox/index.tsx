@@ -86,11 +86,11 @@ function ScheduleBox() {
                 </div>
                 <Typography className="text-2xl font-black uppercase italic tracking-widest text-white/10">Awaiting Target Location</Typography>
                 <div className="mt-4 flex gap-2">
-                  {[...Array(3)].map((_, i) => (
+                  {[...Array(3)].map((_, index) => (
                     <motion.div
-                      key={i}
+                      key={index}
                       animate={{ opacity: [0.2, 1, 0.2] }}
-                      transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+                      transition={{ duration: 1, repeat: Infinity, delay: index * 0.2 }}
                       className="size-1 rounded-full bg-[#52E560]"
                     />
                   ))}

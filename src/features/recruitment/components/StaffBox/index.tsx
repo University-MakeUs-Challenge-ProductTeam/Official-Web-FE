@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { TStaffDTOList } from '@/types/recruitmentDto';
 import { STAFF_ROLE_CONTENT } from '@/constants/recruitment';
 
@@ -17,8 +15,8 @@ function StaffBox({ staffList }: IStaffBoxProps) {
           UNIVERSITY <span className="text-[#52E560]">OPERATIONS</span>
         </Typography>
         <div className="flex gap-1">
-          {[...Array(3)].map((_, i) => (
-            <div key={i} className="size-1 rounded-full bg-[#52E560]/20" />
+          {[...Array(3)].map((_, index) => (
+            <div key={index} className="size-1 rounded-full bg-[#52E560]/20" />
           ))}
         </div>
       </div>

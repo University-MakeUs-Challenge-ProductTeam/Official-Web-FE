@@ -103,9 +103,9 @@ export default function KineticHero() {
 function FloatingShapes() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      {[...Array(20)].map((_, i) => (
+      {[...Array(20)].map((_, index) => (
         <motion.div
-          key={i}
+          key={index}
           initial={{
             x: `${Math.random() * 100}%`,
             y: `${Math.random() * 100}%`,
@@ -119,7 +119,7 @@ function FloatingShapes() {
           transition={{
             duration: Math.random() * 10 + 10,
             repeat: Infinity,
-            delay: i * 0.2,
+            delay: index * 0.2,
           }}
           className="absolute size-1 bg-[#52E560] shadow-[0_0_10px_#52E560]"
         />

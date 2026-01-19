@@ -11,8 +11,8 @@ function SliderList() {
   const { data: projects } = useGetAllProjects();
   return (
     <Slider>
-      {projects?.result?.projectList.map((project, idx) => (
-        <SwiperSlide key={idx}>
+      {projects?.result?.projectList.map((project, index) => (
+        <SwiperSlide key={index}>
           <div className="size-[128px]">
             <Image
               className="rounded-lg"

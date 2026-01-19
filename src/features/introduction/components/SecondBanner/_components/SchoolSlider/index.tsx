@@ -36,9 +36,9 @@ function SchoolSlider({
         }}
       >
         {/* Render items twice for seamless loop */}
-        {[...schoolList, ...schoolList].map((item, idx) => (
+        {[...schoolList, ...schoolList].map((item, index) => (
           <div
-            key={`${item.participateSchoolId}-${idx}`}
+            key={`${item.participateSchoolId}-${index}`}
             className="group flex min-h-[60px] flex-row items-center justify-center gap-3 whitespace-nowrap rounded-full border border-white/5 bg-white/5 px-6 py-3 backdrop-blur-xl transition-all hover:border-[#52E560]/30 hover:bg-[#52E560]/5"
           >
             {item.logoImageUrl && (

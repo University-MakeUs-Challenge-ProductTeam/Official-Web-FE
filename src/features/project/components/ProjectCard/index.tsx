@@ -78,11 +78,11 @@ function ProjectCard({ projectData, type = 'default' }: IProjectCardProps) {
 
         {type === 'released' && (
           <div className="flex gap-2 pt-2">
-            {platFormNameList.map((item, idx) => {
+            {platFormNameList.map((item, index) => {
               const Icon = item === 'WEB' ? TbWorld : item === 'AOS' ? FaAndroid : FaApple;
               return (
                 <div
-                  key={idx}
+                  key={index}
                   className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all group-hover:border-[#52E560]/30 group-hover:text-[#52E560]"
                 >
                   <Icon size={18} />

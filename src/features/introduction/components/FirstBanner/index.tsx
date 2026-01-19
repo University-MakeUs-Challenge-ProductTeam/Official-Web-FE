@@ -65,12 +65,12 @@ function FirstBanner() {
       </motion.div>
 
       <div className="mt-32 flex w-full flex-wrap justify-center gap-8">
-        {STATS.map(({ title, count, suffix }, idx) => (
+        {STATS.map(({ title, count, suffix }, index) => (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.1, duration: 0.5 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
             className="group relative flex w-full min-w-[280px] max-w-[320px] cursor-default flex-col items-center rounded-4xl border border-white/5 bg-white/5 p-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all hover:border-[#52E560]/30"
             key={title}
           >

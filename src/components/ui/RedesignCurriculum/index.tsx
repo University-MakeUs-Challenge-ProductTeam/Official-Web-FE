@@ -91,16 +91,16 @@ export default function RedesignCurriculum() {
                   <h4 className="mb-8 text-sm font-black uppercase tracking-widest text-[#52E560]">Weekly Schedule</h4>
 
                   <div className="scrollbar-hide max-h-[600px] space-y-4 overflow-y-auto pb-20 pr-4">
-                    {data?.activityPartCurriculumList.map((item, idx) => (
+                    {data?.activityPartCurriculumList.map((item, index) => (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
+                        transition={{ delay: index * 0.05 }}
                         key={item.curriculumId}
                         className="group/item flex items-start gap-4 rounded-2xl border border-transparent p-4 transition-all hover:border-white/10 hover:bg-white/5"
                       >
                         <span className="mt-1 w-12 text-xs font-black italic text-[#52E560] opacity-50 transition-opacity group-hover/item:opacity-100">
-                          {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                          {index + 1 < 10 ? `0${index + 1}` : index + 1}
                         </span>
                         <p className="text-sm font-medium leading-relaxed text-white/80 transition-colors group-hover/item:text-white">{item.topic}</p>
                       </motion.div>

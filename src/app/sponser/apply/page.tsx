@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
-import Form from '@/app/sponser/_components/Form';
-import Container from '@/shared/components/Container';
-import Spacing from '@/shared/components/Spacing';
-import Typography from '@/shared/components/Typography';
+import Container from '@/components/common/Container';
+import Spacing from '@/components/common/Spacing';
+import Typography from '@/components/common/Typography';
+
+import Form from '@/features/sponser/components/Form';
 
 export const metadata: Metadata = {
   title: 'UMC - 후원사 신청',

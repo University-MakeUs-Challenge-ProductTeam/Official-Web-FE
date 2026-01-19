@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-import ReleasedProjectView from './_components/RelasedProjectView';
-import UMCProjectView from './_components/UMCProjectView';
+import Container from '@/components/common/Container';
 
-import Container from '@/shared/components/Container';
+import ReleasedProjectView from '@/features/project/components/RelasedProjectView';
+import UMCProjectView from '@/features/project/components/UMCProjectView';
 
 export const metadata: Metadata = {
   title: 'UMC - 프로젝트',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function ProjectPage() {
   return (
-    <Container className="my-10 flex flex-col gap-20">
+    <Container className="my-10 flex max-w-[1400px] flex-col gap-20">
       <UMCProjectView />
       <ReleasedProjectView />
     </Container>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import useDebounce from '@/hooks/useDebounce';
+import useDebounce from '@/hooks/use-debounce';
 
 import type { OPlatform } from '@/features/project/components/PlatformDropdown';
 

@@ -62,7 +62,7 @@ const DiagonalMarquee = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="relative flex h-[80vh] w-full items-center justify-center overflow-hidden bg-black py-20">
+    <section ref={containerRef} className="relative flex h-[80vh] w-full max-w-[100vw] items-center justify-center overflow-hidden bg-black py-20">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(82,229,96,0.05),transparent_70%)] blur-[100px]" />
 
       <motion.div style={{ y, opacity, rotate }} className="relative z-10 flex scale-110 flex-col items-center justify-center gap-4">

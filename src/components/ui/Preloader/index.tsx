@@ -3,9 +3,12 @@
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { usePreloaderStore } from '@/store/usePreloaderStore';
+
 const words = ['UNIVERSITY', 'MAKEUS', 'CHALLENGE', 'UMC'];
 
 const Preloader = () => {
+  const setIsLoading = usePreloaderStore((state) => state.setIsLoading);
   const [index, setIndex] = useState(0);
   const [complete, setComplete] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -15,6 +18,7 @@ const Preloader = () => {
     // Force reset on mount to ensure animation plays if intended
     setIndex(0);
     setComplete(false);
+    setIsLoading(true);
 
     // Check session storage to prevent playing on every single refresh if desired,
     // but the user's request implies they WANT to see it.
@@ -28,12 +32,13 @@ const Preloader = () => {
       // Based on "Requires refresh to work", likely it's failing to trigger nicely.
       // Let's NOT skip it for now to ensure they see it.
     }
-  }, []);
+  }, [setIsLoading]);
 
   useEffect(() => {
     if (index === words.length) {
       const timeout = setTimeout(() => {
         setComplete(true);
+        setIsLoading(false);
         sessionStorage.setItem('umc_intro_shown', 'true');
       }, 800);
       return () => clearTimeout(timeout);
@@ -46,7 +51,7 @@ const Preloader = () => {
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [index]);
+  }, [index, setIsLoading]);
 
   // Prevent scroll during preloader
   useEffect(() => {
@@ -71,7 +76,7 @@ const Preloader = () => {
             opacity: 0,
             transition: { duration: 0.8, ease: 'easeInOut' },
           }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+          className={`fixed inset-0 z-[50000] flex items-center justify-center bg-black ${complete ? 'pointer-events-none' : 'pointer-events-auto'}`}
         >
           <div className="relative flex flex-col items-center justify-center">
             {/* Main Text Animation */}
@@ -84,7 +89,7 @@ const Preloader = () => {
                     animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
                     exit={{ y: -50, opacity: 0, filter: 'blur(10px)' }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="whitespace-nowrap py-10 text-6xl font-black italic leading-normal tracking-tighter text-main-green md:text-8xl"
+                    className="w-full text-center text-[12vw] font-black italic leading-normal tracking-tighter text-main-green md:text-8xl"
                     style={{ textShadow: '0 0 40px rgba(82, 229, 96, 0.6)' }}
                   >
                     {words[index]}

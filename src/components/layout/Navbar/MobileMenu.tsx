@@ -40,7 +40,7 @@ export const MobileMenu = ({ isOpen, onClose, pathname, navItems }: TMobileMenuP
                 <Link
                   href={item.href}
                   aria-current={pathname === item.href ? 'page' : undefined}
-                  className={`relative text-4xl font-black italic transition-colors ${
+                  className={`relative inline-block p-2 text-4xl font-black italic leading-relaxed tracking-tight transition-colors ${
                     pathname === item.href ? 'text-main-green' : 'text-white/70 hover:text-white'
                   } `}
                 >

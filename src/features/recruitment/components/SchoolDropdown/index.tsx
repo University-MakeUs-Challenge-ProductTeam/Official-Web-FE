@@ -27,7 +27,7 @@ const ScheduleDropdown = ({ selectedSchool, setSelectedSchool }: TScheduleDropdo
   });
   return (
     <Dropdown>
-      <DropdownTrigger className="flex items-center gap-4 px-8 py-4">
+      <DropdownTrigger className="flex w-[280px] items-center justify-between gap-4 px-8 py-4">
         <Typography
           className={`text-sm font-black uppercase italic tracking-[0.2em] transition-colors ${selectedSchool ? 'text-main-green' : 'text-white/40'}`}
         >

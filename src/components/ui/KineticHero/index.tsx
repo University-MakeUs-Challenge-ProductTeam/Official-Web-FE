@@ -44,7 +44,7 @@ const KineticHero = () => {
   const opacity = useTransform(scrollYProgress, [0.6, 1], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative h-[130vh] w-full overflow-hidden bg-black">
+    <section ref={containerRef} className="relative min-h-dvh w-full overflow-hidden bg-black md:h-[130vh]">
       {/* Fluid Liquid Background Simulation */}
       <div className="absolute inset-0 z-0">
         <motion.div

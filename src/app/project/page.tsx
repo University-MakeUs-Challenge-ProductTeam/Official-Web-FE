@@ -25,6 +25,7 @@ const ProjectPage = async () => {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <Container className="my-10 flex max-w-[1400px] flex-col gap-20">
+        <h1 className="sr-only">UMC Projects</h1>
         <UMCProjectView />
         <ReleasedProjectView />
       </Container>

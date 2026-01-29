@@ -25,7 +25,7 @@ const IntroductionPage = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="flex flex-col bg-black">
+      <div className="flex flex-col overflow-x-hidden bg-black">
         <div className="container mx-auto px-6">
           <FirstBanner />
         </div>

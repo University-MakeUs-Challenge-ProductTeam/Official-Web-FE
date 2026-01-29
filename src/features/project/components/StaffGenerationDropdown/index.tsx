@@ -36,7 +36,14 @@ const StaffGenerationDropdown = ({ selected, setSelected }: TStaffGenerationDrop
       </DropdownTrigger>
       <DropdownMenu position="top-[calc(100%+8px)] left-0 min-w-full">
         {generationList.map((gen) => (
-          <DropdownItem key={gen} onClick={() => setSelected(gen as any)}>
+          <DropdownItem
+            key={gen}
+            onClick={(e: any) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setSelected(gen as any);
+            }}
+          >
             <Typography className={`text-sm font-black uppercase italic tracking-widest ${gen === selected ? 'text-main-green' : 'text-white/40'}`}>
               {gen === 'ALL' ? 'ALL' : `${gen}th`}
             </Typography>

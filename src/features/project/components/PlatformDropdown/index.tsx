@@ -33,7 +33,14 @@ const PlatformDropdown = ({ selected, setSelected }: TPlatformDropdownProps) => 
       </DropdownTrigger>
       <DropdownMenu>
         {platformList.map((item) => (
-          <DropdownItem key={item} onClick={() => setSelected(item)}>
+          <DropdownItem
+            key={item}
+            onClick={(e: any) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setSelected(item);
+            }}
+          >
             <Typography className={`text-sm font-black uppercase italic tracking-widest ${item === selected ? 'text-main-green' : 'text-white/40'}`}>
               {OPlatform[item]}
             </Typography>

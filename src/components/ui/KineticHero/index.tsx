@@ -70,7 +70,7 @@ const KineticHero = () => {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center text-[15vw] font-black italic leading-[0.8] tracking-tighter text-white"
+            className="text-center text-[12vw] font-black italic leading-[0.8] tracking-tighter text-white md:text-[15vw]"
           >
             BREAK THE <br />
             <span className="text-main-green" style={{ textShadow: '0 0 40px rgba(82, 229, 96, 0.3)' }}>

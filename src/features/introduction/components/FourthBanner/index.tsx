@@ -33,23 +33,30 @@ const FourthBanner = () => {
         </h2>
       </motion.div>
 
-      <div className="mb-16 flex flex-wrap justify-center gap-2 md:gap-4">
-        {eventList.map((item) => (
-          <button
-            type="button"
-            key={item}
-            onClick={() => setSelectedEvent(item)}
-            className={`relative px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${selectedEvent === item ? 'text-main-green' : 'text-white/40 hover:text-white/60'} `}
-          >
-            {CENTRAL_EVENT_CONTENT[item]}
-            {selectedEvent === item && (
-              <motion.div
-                layoutId="active-event-pill"
-                className="absolute inset-0 -z-10 rounded-full border border-main-green/30 bg-main-green/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
-              />
-            )}
-          </button>
-        ))}
+      <div className="scrollbar-hide mb-16 flex w-full snap-x snap-mandatory overflow-x-auto px-6 md:justify-center md:px-0">
+        <div className="flex gap-2 md:gap-4">
+          {eventList.map((item) => (
+            <button
+              type="button"
+              key={item}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedEvent(item);
+              }}
+              className={`relative shrink-0 snap-center whitespace-nowrap px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${
+                selectedEvent === item ? 'text-main-green' : 'text-white/40 hover:text-white/60'
+              } `}
+            >
+              {CENTRAL_EVENT_CONTENT[item]}
+              {selectedEvent === item && (
+                <motion.div
+                  layoutId="active-event-pill"
+                  className="absolute inset-0 -z-10 rounded-full border border-main-green/30 bg-main-green/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
+                />
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className="relative min-h-[400px] w-full max-w-6xl">
@@ -74,11 +81,14 @@ const FourthBanner = () => {
               </div>
 
               <div className="space-y-6">
-                <Typography size="title-sm" className="text-4xl font-black italic tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                <Typography
+                  size="title-sm"
+                  className="text-2xl font-black italic tracking-tighter text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] md:text-4xl"
+                >
                   {CENTRAL_EVENT_CONTENT[selectedEvent]}
                 </Typography>
                 <div className="h-px w-20 bg-main-green" />
-                <Typography as="p" size="text-sm" className="whitespace-pre-wrap text-lg font-medium leading-loose tracking-tight text-white/80">
+                <Typography as="p" size="text-sm" className="whitespace-pre-wrap text-sm font-medium leading-loose tracking-tight text-white/80 md:text-lg">
                   {data?.description}
                 </Typography>
               </div>

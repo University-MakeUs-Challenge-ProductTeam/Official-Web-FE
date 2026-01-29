@@ -22,7 +22,7 @@ const FirstBanner = () => {
         className="mb-32 transform-gpu text-center"
       >
         <span className="text-xs font-bold uppercase tracking-widest text-main-green">Partners</span>
-        <h1 className="mt-4 text-4xl font-black italic tracking-tighter text-white md:text-7xl">
+        <h1 className="mt-4 text-3xl font-black italic tracking-tighter text-white md:text-7xl">
           BREAKING <span className="text-main-green">BOUNDARIES</span> <br />
           <span className="text-white/20">TOGETHER</span>
         </h1>
@@ -40,7 +40,7 @@ const FirstBanner = () => {
             style={{ willChange: 'transform, opacity' }}
             className="group flex transform-gpu flex-col items-center"
           >
-            <div className="relative size-[250px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-main-green hover:shadow-[0_0_40px_rgba(82,229,96,0.2)]">
+            <div className="relative size-[200px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-main-green hover:shadow-[0_0_40px_rgba(82,229,96,0.2)] md:size-[250px]">
               <div className="relative size-full overflow-hidden rounded-full bg-white grayscale transition-all duration-500 group-hover:grayscale-0">
                 <Image src={value.path} fill sizes="250px" alt={value.name} className="object-contain p-8" />
               </div>

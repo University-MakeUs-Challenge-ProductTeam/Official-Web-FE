@@ -90,16 +90,16 @@ const RedesignCurriculum = () => {
                 <div className="group relative overflow-hidden rounded-4xl border border-white/10 bg-white/5 p-10 backdrop-blur-3xl">
                   <h4 className="mb-8 text-sm font-black uppercase tracking-widest text-main-green">Weekly Schedule</h4>
 
-                  <div className="scrollbar-hide max-h-[600px] space-y-4 overflow-y-auto pb-20 pr-4">
+                  <div className="scrollbar-hide max-h-[600px] touch-pan-y space-y-4 overflow-y-auto overscroll-contain pb-20 pr-4">
                     {data?.activityPartCurriculumList.map((item, index) => (
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.05 }}
                         key={item.curriculumId}
-                        className="group/item flex items-start gap-4 rounded-2xl border border-transparent p-4 transition-all hover:border-white/10 hover:bg-white/5"
+                        className="group/item flex w-full items-start gap-4 rounded-2xl border border-transparent p-4 text-left transition-all hover:border-white/10 hover:bg-white/5"
                       >
-                        <span className="mt-1 w-12 text-xs font-black italic text-main-green opacity-50 transition-opacity group-hover/item:opacity-100">
+                        <span className="mt-1 w-10 shrink-0 text-xs font-black italic text-main-green opacity-50 transition-opacity group-hover/item:opacity-100">
                           {index + 1 < 10 ? `0${index + 1}` : index + 1}
                         </span>
                         <p className="text-sm font-medium leading-relaxed text-white/80 transition-colors group-hover/item:text-white">{item.topic}</p>

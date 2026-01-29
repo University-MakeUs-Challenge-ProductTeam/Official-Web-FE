@@ -24,7 +24,7 @@ const RecruitmentPage = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className="flex flex-col bg-black">
+      <div className="flex flex-col overflow-x-hidden bg-black">
         <div className="container mx-auto px-6">
           <h1 className="sr-only">UMC Recruitment</h1>
           <ActivityBox />

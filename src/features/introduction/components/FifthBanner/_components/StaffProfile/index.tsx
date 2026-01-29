@@ -68,6 +68,7 @@ const StaffProfile = ({ profileData }: TStaffProfileProps) => {
                   href={href}
                   target={isEmail ? '_top' : '_blank'}
                   rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                   className="flex size-10 items-center justify-center rounded-full border border-white/5 bg-white/5 text-white/40 transition-all hover:border-main-green/30 hover:bg-main-green/10 hover:text-main-green"
                 >
                   <Icon size={18} />

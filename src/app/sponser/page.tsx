@@ -21,11 +21,13 @@ const SponserPage = async () => {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Container className="mb-32 flex flex-col gap-36">
-        <FirstBanner />
-        <SecondBanner />
-        <ThirdBanner />
-      </Container>
+      <div className="flex flex-col overflow-x-hidden bg-black">
+        <Container className="mb-32 flex flex-col gap-36">
+          <FirstBanner />
+          <SecondBanner />
+          <ThirdBanner />
+        </Container>
+      </div>
     </HydrationBoundary>
   );
 };

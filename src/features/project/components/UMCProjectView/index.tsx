@@ -10,7 +10,7 @@ import ProjectGrid from './_components/ProjectGrid';
 
 import { useProjectFilters } from '@/features/project/hooks/use-project-filters';
 import { useProjectPagination } from '@/features/project/hooks/use-project-pagination';
-import { getProjectList } from '@/lib/api/project';
+import { projectListQueryOptions } from '@/lib/query';
 
 const UMCProjectView = () => {
   const { selectedGeneration, selectedPlatform, searchTerm, debouncedSearchTerm, setSelectedGeneration, setSelectedPlatform, setSearchTerm } =
@@ -22,17 +22,15 @@ const UMCProjectView = () => {
     pagesPerGroup: 5,
   });
 
-  const { data: projectData, isLoading } = useQuery({
-    queryKey: ['projects', page, selectedGeneration, selectedPlatform, debouncedSearchTerm],
-    queryFn: () =>
-      getProjectList({
-        page,
-        size: pageSize,
-        generation: selectedGeneration,
-        platformName: selectedPlatform,
-        searchTerm: debouncedSearchTerm,
-      }),
-  });
+  const { data: projectData, isLoading } = useQuery(
+    projectListQueryOptions({
+      page,
+      size: pageSize,
+      generation: selectedGeneration,
+      platformName: selectedPlatform,
+      searchTerm: debouncedSearchTerm,
+    }),
+  );
 
   const totalPages = projectData?.totalPages || 1;
 

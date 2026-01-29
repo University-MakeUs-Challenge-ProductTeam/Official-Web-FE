@@ -4,13 +4,11 @@ import { useEffect, useRef } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { animate, motion } from 'framer-motion';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
 import SchoolSlider from './_components/SchoolSlider';
 
-import { getSchoolListData } from '@/lib/api/school';
+import { schoolListQueryOptions } from '@/lib/query';
 
 const Counter = ({ value }: { value: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -30,10 +28,7 @@ const Counter = ({ value }: { value: number }) => {
 };
 
 const SecondBanner = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.schools],
-    queryFn: () => getSchoolListData(),
-  });
+  const { data, isLoading } = useQuery(schoolListQueryOptions());
 
   const totalSchools = data?.totalSchoolCount || 0;
   const sliderIndex = data?.participateSchoolList ? Math.ceil(data.participateSchoolList.length / 2) : 0;

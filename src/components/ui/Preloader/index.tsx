@@ -75,7 +75,7 @@ const Preloader = () => {
         >
           <div className="relative flex flex-col items-center justify-center">
             {/* Main Text Animation */}
-            <div className="relative h-24 overflow-hidden md:h-32">
+            <div className="relative flex h-48 items-center justify-center overflow-visible md:h-72">
               <AnimatePresence mode="wait">
                 {index < words.length && (
                   <motion.div
@@ -84,8 +84,8 @@ const Preloader = () => {
                     animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
                     exit={{ y: -50, opacity: 0, filter: 'blur(10px)' }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="whitespace-nowrap text-6xl font-black italic tracking-tighter text-main-green md:text-8xl"
-                    style={{ textShadow: '0 0 30px rgba(82, 229, 96, 0.4)' }}
+                    className="whitespace-nowrap py-10 text-6xl font-black italic leading-normal tracking-tighter text-main-green md:text-8xl"
+                    style={{ textShadow: '0 0 40px rgba(82, 229, 96, 0.6)' }}
                   >
                     {words[index]}
                   </motion.div>

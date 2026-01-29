@@ -4,11 +4,9 @@ import { useEffect, useRef } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { animate, motion, useInView } from 'framer-motion';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
-import { getProjectList } from '@/lib/api/project';
+import { projectListQueryOptions } from '@/lib/query';
 
 const Counter = ({ from, to }: { from: number; to: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,10 +33,7 @@ const Counter = ({ from, to }: { from: number; to: number }) => {
 
 const FirstBanner = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  const { data: projectData } = useQuery({
-    queryKey: [QUERY_KEYS.projects, 'ALL', 0],
-    queryFn: () => getProjectList({ page: 0, size: 1, generation: 'ALL', platformName: 'ALL' }),
-  });
+  const { data: projectData } = useQuery(projectListQueryOptions({ page: 0, size: 1, generation: 'ALL', platformName: 'ALL' }));
 
   // Ideally, these would also be fetched from an API
   const STATS = [
@@ -80,11 +75,11 @@ const FirstBanner = () => {
               {title}
             </Typography>
             <div
-              className="mt-2 flex min-h-16 items-baseline justify-center gap-1 text-6xl font-black italic tracking-tighter text-main-green"
+              className="mt-2 flex min-h-16 items-baseline justify-center text-6xl font-black italic tracking-tighter text-main-green"
               style={{ textShadow: '0 0 30px rgba(82,229,96,0.3)' }}
             >
-              <span className="inline-block min-w-[4ch] tabular-nums">{count > 0 ? <Counter from={0} to={count} /> : '-'}</span>
-              <span className="text-4xl">{suffix}</span>
+              <span className="inline-block tabular-nums">{count > 0 ? <Counter from={0} to={count} /> : '-'}</span>
+              <span className="ml-0.5 text-4xl">{suffix}</span>
             </div>
 
             {/* Decorative element */}

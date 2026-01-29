@@ -5,13 +5,11 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
 import ProjectCard from '../ProjectCard';
 
-import { getReleasedProjectList } from '@/lib/api/project';
+import { releasedProjectQueryOptions } from '@/lib/query';
 
 const ReleasedProjectView = () => {
   const [page, setPage] = useState(0);
@@ -19,10 +17,7 @@ const ReleasedProjectView = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
   const pagesPerGroup = 5;
 
-  const { data: projectData, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.projects, 'released', page],
-    queryFn: () => getReleasedProjectList({ page, size: pageSize }),
-  });
+  const { data: projectData, isLoading } = useQuery(releasedProjectQueryOptions(page, pageSize));
   const totalPages = projectData?.totalPages || 1;
 
   return (

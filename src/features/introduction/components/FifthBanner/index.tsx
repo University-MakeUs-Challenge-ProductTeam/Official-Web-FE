@@ -5,14 +5,12 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
 import StaffProfile from './_components/StaffProfile';
 
 import StaffGenerationDropdown from '@/features/project/components/StaffGenerationDropdown';
-import { getCentralStaff } from '@/lib/api/staff';
+import { staffListQueryOptions } from '@/lib/query';
 
 const FifthBanner = () => {
   const [selectedGeneration, setSelectedGeneration] = useState<number | 'ALL'>('ALL');
@@ -23,10 +21,13 @@ const FifthBanner = () => {
   const pagesPerGroup = 5;
   const startPage = pageGroup * pagesPerGroup;
 
-  const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.staffs, selectedGeneration, page],
-    queryFn: () => getCentralStaff({ page, size: pageSize, generation: selectedGeneration }),
-  });
+  const { data, isLoading } = useQuery(
+    staffListQueryOptions({
+      page,
+      size: pageSize,
+      generation: selectedGeneration,
+    }),
+  );
   const totalPages = data?.totalPages || 1;
 
   const handlePageChange = (newPage: number) => {

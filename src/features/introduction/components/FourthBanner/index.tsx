@@ -7,20 +7,16 @@ import Image from 'next/image';
 
 import type { TCentralEventDTO } from '@/types/eventDtos';
 import { CENTRAL_EVENT_CONTENT } from '@/constants/activityContent';
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Typography from '@/components/common/Typography';
 
-import { getCentralEvent } from '@/lib/api/event';
+import { centralEventQueryOptions } from '@/lib/query';
 
 const FourthBanner = () => {
   const [selectedEvent, setSelectedEvent] = useState<TCentralEventDTO>('UNION_OT');
   const eventList = Object.keys(CENTRAL_EVENT_CONTENT) as Array<keyof typeof CENTRAL_EVENT_CONTENT>;
 
-  const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.events, selectedEvent],
-    queryFn: () => getCentralEvent({ eventType: selectedEvent }),
-  });
+  const { data, isLoading } = useQuery(centralEventQueryOptions(selectedEvent));
 
   return (
     <div className="flex flex-col items-center overflow-hidden py-40">

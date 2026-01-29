@@ -5,17 +5,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
-import { getSponsor } from '@/lib/api/sponsor';
+import { sponsorListQueryOptions } from '@/lib/query';
 
 const SecondBanner = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.sponsors],
-    queryFn: () => getSponsor(),
-  });
+  const { data, isLoading } = useQuery(sponsorListQueryOptions());
 
   if (isLoading) {
     return (

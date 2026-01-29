@@ -64,7 +64,6 @@ const RedesignFooter = () => {
 
         <div className="mt-20 flex flex-col items-center justify-between border-t border-white/5 pt-10 text-[10px] uppercase tracking-widest text-white/20 md:flex-row">
           <p>© 2026 University MakeUs Challenge. Build whatever you want.</p>
-          <p className="mt-4 md:mt-0">Design by Antigravity AI</p>
         </div>
       </div>
     </footer>

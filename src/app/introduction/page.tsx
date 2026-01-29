@@ -1,3 +1,4 @@
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import type { Metadata } from 'next';
 
 import RedesignCurriculum from '@/components/ui/RedesignCurriculum';
@@ -6,25 +7,36 @@ import FifthBanner from '@/features/introduction/components/FifthBanner';
 import FirstBanner from '@/features/introduction/components/FirstBanner';
 import FourthBanner from '@/features/introduction/components/FourthBanner';
 import SecondBanner from '@/features/introduction/components/SecondBanner';
+import { getQueryClient, projectListQueryOptions, schoolListQueryOptions } from '@/lib/query';
 
 export const metadata: Metadata = {
   title: 'UMC - 소개',
   description: '대학생 개발 연합 동아리 University Make Us Challenge',
 };
 
-const IntroductionPage = () => {
+const IntroductionPage = async () => {
+  const queryClient = getQueryClient();
+
+  // Prefetch data for SSR
+  await Promise.all([
+    queryClient.prefetchQuery(schoolListQueryOptions()),
+    queryClient.prefetchQuery(projectListQueryOptions({ page: 0, generation: 'ALL', platformName: 'ALL' })),
+  ]);
+
   return (
-    <div className="flex flex-col bg-black">
-      <div className="container mx-auto px-6">
-        <FirstBanner />
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <div className="flex flex-col bg-black">
+        <div className="container mx-auto px-6">
+          <FirstBanner />
+        </div>
+        <SecondBanner />
+        <RedesignCurriculum />
+        <div className="container mx-auto px-6">
+          <FourthBanner />
+          <FifthBanner />
+        </div>
       </div>
-      <SecondBanner />
-      <RedesignCurriculum />
-      <div className="container mx-auto px-6">
-        <FourthBanner />
-        <FifthBanner />
-      </div>
-    </div>
+    </HydrationBoundary>
   );
 };
 

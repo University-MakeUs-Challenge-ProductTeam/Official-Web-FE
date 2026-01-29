@@ -5,18 +5,14 @@ import { motion } from 'framer-motion';
 
 import type { TActivity } from '@/types/recruitmentDto';
 import { ACTIVITY_CONTENT } from '@/constants/activityContent';
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Typography from '@/components/common/Typography';
 
-import { getActivities } from '@/lib/api/recruitment';
+import { activitiesQueryOptions } from '@/lib/query';
 import { formatDateRange } from '@/lib/utils/date';
 
 const ActivityBox = () => {
-  const { data: activities, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.activity],
-    queryFn: () => getActivities(),
-  });
+  const { data: activities, isLoading } = useQuery(activitiesQueryOptions());
 
   const activityContent = (label: TActivity): string | null => {
     if (activities) {

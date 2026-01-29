@@ -5,8 +5,6 @@ import { IoSchool } from 'react-icons/io5';
 import { useQuery } from '@tanstack/react-query';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
 import Typography from '@/components/common/Typography';
 
 import PartAndSkill from '../PartAndSkill';
@@ -14,15 +12,11 @@ import RecruitmentSchedule from '../RecruitmentSchedule';
 import ScheduleDropdown from '../SchoolDropdown';
 import StaffBox from '../StaffBox';
 
-import { getRequirements } from '@/lib/api/recruitment';
+import { requirementsQueryOptions } from '@/lib/query';
 
 const ScheduleBox = () => {
   const [selectedSchool, setSelectedSchool] = useState('');
-  const { data: schoolData, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.requirements, selectedSchool],
-    queryFn: () => getRequirements({ schoolName: selectedSchool }),
-    enabled: selectedSchool !== '',
-  });
+  const { data: schoolData, isLoading } = useQuery(requirementsQueryOptions(selectedSchool));
 
   return (
     <div className="flex flex-col border-t border-white/5 py-32">

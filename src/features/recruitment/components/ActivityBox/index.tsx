@@ -9,7 +9,6 @@ import { ACTIVITY_CONTENT } from '@/constants/activityContent';
 import Typography from '@/components/common/Typography';
 
 import { activitiesQueryOptions } from '@/lib/query';
-import { formatDateRange } from '@/lib/utils/date';
 
 const ActivityBox = () => {
   const { data: activities, isLoading } = useQuery(activitiesQueryOptions());
@@ -17,19 +16,18 @@ const ActivityBox = () => {
   const activityContent = (label: TActivity): string | null => {
     if (activities) {
       switch (label) {
-        case '활동기간': {
-          return formatDateRange(activities.activityStartDate, activities.activityEndDate);
-        }
+        case '활동기간':
+          return '26.03-26.08';
         case '모집기간':
-          return '학교별 상이';
+          return '26.02.16-03.08 (세부 기간은 학교별 상이)';
         case '연합 OT':
-          return activities.unionOTDate;
+          return '2026-03-13';
         case '학교 OT':
           return '학교별 상이';
         case '동아리 회비':
-          return `${activities.clubFee.toLocaleString()}원`;
+          return '30,000원(중앙회비) +\n(교내회비는 학교별 상이)';
         case '프로젝트 참가비':
-          return `${activities.projectFee.toLocaleString()}원 (${activities.projectPaybackFee.toLocaleString()}원 페이백)`;
+          return '30,000원(10,000원 페이백)';
         default:
           return null;
       }
@@ -70,7 +68,7 @@ const ActivityBox = () => {
                 </div>
 
                 <Typography className="text-xs font-black uppercase tracking-widest text-main-green">{item.label}</Typography>
-                <Typography className="text-xl font-black italic tracking-tighter text-white transition-transform group-hover:translate-x-1">
+                <Typography className="whitespace-pre-line text-xl font-black italic tracking-tighter text-white transition-transform group-hover:translate-x-1">
                   {activityContent(item.label)}
                 </Typography>
               </motion.div>

@@ -26,7 +26,7 @@ const FirstBanner = () => {
           BREAKING <span className="text-main-green">BOUNDARIES</span> <br />
           <span className="text-white/20">TOGETHER</span>
         </h1>
-        <p className="mt-6 text-lg font-medium text-white/40">UMC 챌린저들의 도전을 함께 응원하는 파트너사들을 소개합니다.</p>
+        <p className="mt-6 text-base font-medium text-white/40 md:text-lg">UMC 챌린저들의 도전을 함께 응원하는 파트너사들을 소개합니다.</p>
       </motion.div>
 
       <div className="flex flex-col gap-10 md:flex-row md:gap-20">
@@ -35,18 +35,27 @@ const FirstBanner = () => {
             key={value.id}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            whileTap={{ scale: 0.95 }}
             transition={{ delay: index * 0.1, type: 'spring' }}
             viewport={{ once: true }}
             style={{ willChange: 'transform, opacity' }}
             className="group flex transform-gpu flex-col items-center"
           >
-            <div className="relative size-[200px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-main-green hover:shadow-[0_0_40px_rgba(82,229,96,0.2)] md:size-[250px]">
-              <div className="relative size-full overflow-hidden rounded-full bg-white grayscale transition-all duration-500 group-hover:grayscale-0">
+            <div className="relative size-[180px] overflow-hidden rounded-full border border-white/5 bg-white/5 p-4 shadow-[0_0_0_0_rgba(82,229,96,0)] backdrop-blur-3xl transition-all hover:border-main-green hover:shadow-[0_0_40px_rgba(82,229,96,0.2)] md:size-[250px]">
+              <motion.div
+                initial={{ filter: 'grayscale(100%)' }}
+                whileHover={{ filter: 'grayscale(0%)' }}
+                whileTap={{ filter: 'grayscale(0%)' }}
+                className="relative size-full overflow-hidden rounded-full bg-white transition-all duration-500 group-hover:grayscale-0"
+              >
                 <Image src={value.path} fill sizes="250px" alt={value.name} className="object-contain p-8" />
-              </div>
+              </motion.div>
             </div>
 
-            <Typography size="text-lg" className="mt-8 font-black italic tracking-tighter text-white/40 transition-colors group-hover:text-white">
+            <Typography
+              size="text-lg"
+              className="mt-8 text-base font-black italic tracking-tighter text-white/40 transition-colors group-hover:text-white md:text-lg"
+            >
               {value.name}
             </Typography>
           </motion.div>

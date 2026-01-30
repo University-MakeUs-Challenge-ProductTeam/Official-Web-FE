@@ -6,7 +6,10 @@ const RedesignFooter = () => {
   return (
     <footer className="relative mt-20 overflow-hidden border-t border-white/5 bg-black py-20">
       {/* Background radial glow */}
-      <div className="absolute -bottom-1/2 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-main-green/5 blur-[120px]" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute -bottom-1/2 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-main-green/5 blur-[120px]"
+        aria-hidden="true"
+      />
 
       <div className="container relative z-10 mx-auto px-6">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">

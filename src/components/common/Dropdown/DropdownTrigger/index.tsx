@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { cva } from 'class-variance-authority';
+import { motion } from 'framer-motion';
 
 import { useDropdownContext } from '../dropdown-context';
 
@@ -29,7 +30,8 @@ type TDropdownTriggerProps = {
 const DropdownTrigger = ({ children, variant = 'bordered', className }: TDropdownTriggerProps) => {
   const { toggleDropdown, isOpen } = useDropdownContext();
   return (
-    <button
+    <motion.button
+      whileTap={{ scale: 0.98 }}
       className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-main-green shadow-[0_0_20px_rgba(82,229,96,0.3)]' : 'border-white/10', className)}
       type="button"
       onClick={toggleDropdown}
@@ -38,7 +40,7 @@ const DropdownTrigger = ({ children, variant = 'bordered', className }: TDropdow
       aria-controls="dropdown-menu"
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

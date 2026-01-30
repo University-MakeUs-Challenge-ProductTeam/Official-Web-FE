@@ -40,18 +40,24 @@ const UniversityMarquee = () => {
           className="flex gap-20 whitespace-nowrap px-10"
         >
           {[...schoolList, ...schoolList].map((univ, index) => (
-            <div key={`${univ.participateSchoolId}-${index}`} className="group/item flex items-center gap-4 grayscale transition-all hover:grayscale-0">
+            <motion.div key={`${univ.participateSchoolId}-${index}`} whileTap={{ scale: 0.95 }} className="group/item flex items-center gap-4 transition-all">
               <div className="relative flex size-16 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 p-3 transition-colors group-hover/item:border-main-green/50">
                 {univ.logoImageUrl ? (
-                  <Image src={univ.logoImageUrl} alt={univ.schoolName} fill sizes="64px" className="object-contain p-2" />
+                  <Image
+                    src={univ.logoImageUrl}
+                    alt={univ.schoolName}
+                    fill
+                    sizes="64px"
+                    className="object-contain p-2 grayscale transition-all group-hover/item:grayscale-0 group-active/item:grayscale-0"
+                  />
                 ) : (
                   <span className="text-[10px] font-black italic text-white/50 group-hover/item:text-main-green">{univ.schoolName.substring(0, 1)}</span>
                 )}
               </div>
-              <span className="text-2xl font-black italic tracking-tighter text-white/20 transition-all group-hover/item:scale-110 group-hover/item:text-white">
+              <span className="text-2xl font-black italic tracking-tighter text-white/20 transition-all group-hover/item:scale-110 group-hover/item:text-white group-active/item:text-white">
                 {univ.schoolName}
               </span>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

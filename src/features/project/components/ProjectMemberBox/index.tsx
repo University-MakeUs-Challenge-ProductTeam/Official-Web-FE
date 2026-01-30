@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import type { TProjectMemberDTO } from '@/types/projectDto';
 import { PART_NAME } from '@/constants/Parts';
 
@@ -27,7 +29,10 @@ const ProjectMemberBox = ({ projectMember }: TProjectMemberBoxProps) => {
   const formattedMembers = getFormattedProjectMembers(projectMember);
 
   return (
-    <div className="flex flex-1 flex-col gap-6 rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5">
+    <motion.div
+      whileTap={{ scale: 0.98 }}
+      className="flex flex-1 flex-col gap-6 rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5"
+    >
       <div className="space-y-2">
         <Typography className="text-xs font-bold uppercase tracking-widest text-main-green">MAKERS</Typography>
         <Typography className="text-2xl font-black italic tracking-tighter text-white">
@@ -37,13 +42,17 @@ const ProjectMemberBox = ({ projectMember }: TProjectMemberBoxProps) => {
 
       <div className="mt-2 flex flex-col gap-4">
         {formattedMembers.map(({ part, members }) => (
-          <div key={part} className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/5 p-4 transition-all hover:border-main-green/20">
+          <motion.div
+            key={part}
+            whileTap={{ scale: 0.98 }}
+            className="flex flex-col gap-2 rounded-2xl border border-white/5 bg-white/5 p-4 transition-all hover:border-main-green/20"
+          >
             <Typography className="text-xs font-black uppercase tracking-widest text-main-green">{part}</Typography>
             <Typography className="whitespace-pre-wrap text-lg font-medium leading-relaxed text-white/80">{members}</Typography>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

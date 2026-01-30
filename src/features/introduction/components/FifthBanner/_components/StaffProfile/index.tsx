@@ -14,7 +14,8 @@ type TStaffProfileProps = {
 const StaffProfile = ({ profileData }: TStaffProfileProps) => {
   return (
     <motion.div
-      whileHover={{ y: -8 }}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.98 }}
       className="group relative flex flex-col gap-6 overflow-hidden rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5"
     >
       <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-main-green to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />

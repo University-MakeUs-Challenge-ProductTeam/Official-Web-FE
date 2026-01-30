@@ -34,7 +34,7 @@ const AccordionItem = ({ index, title = '제목', ariaLabel, children = '내용'
   return (
     <div className="group/accordion relative mb-6 w-full overflow-visible">
       <motion.button
-        whileHover={{ x: 10 }}
+        whileHover={{ x: typeof window !== 'undefined' && window.innerWidth > 768 ? 10 : 0 }}
         className={cn(
           'relative w-full rounded-2xl border border-white/5 p-6 text-left transition-all duration-300',
           isActive ? 'border-white/20 bg-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.3)]' : 'bg-white/[0.02] hover:bg-white/5',

@@ -40,7 +40,12 @@ const ProjectCard = ({ projectData, type = 'default' }: TProjectCardProps) => {
   const projectImage = type === 'released' ? projectData.projectLogoImageUrl : projectData.projectLandingImageUrl;
 
   return (
-    <motion.div whileHover={{ y: -10 }} className={cn(ProjectCardVariants({ type }))} onClick={() => router.push(`/project/${projectId}`)}>
+    <motion.div
+      whileHover={{ y: typeof window !== 'undefined' && window.innerWidth > 768 ? -10 : 0 }}
+      whileTap={{ scale: 0.98 }}
+      className={cn(ProjectCardVariants({ type }))}
+      onClick={() => router.push(`/project/${projectId}`)}
+    >
       <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-main-green to-transparent opacity-0 blur-[1px] transition-all duration-500 group-hover:opacity-60" />
       <div className="absolute right-0 top-0 -mr-20 -mt-20 size-40 rounded-full bg-main-green opacity-0 blur-[80px] transition-opacity group-hover:opacity-10" />
 

@@ -76,7 +76,7 @@ const Preloader = () => {
             opacity: 0,
             transition: { duration: 0.8, ease: 'easeInOut' },
           }}
-          className={`fixed inset-0 z-[50000] flex items-center justify-center bg-black ${complete ? 'pointer-events-none' : 'pointer-events-auto'}`}
+          className={`fixed inset-0 z-[50000] flex items-center justify-center bg-black ${complete ? 'pointer-events-none hidden' : 'pointer-events-auto'}`}
         >
           <div className="relative flex flex-col items-center justify-center">
             {/* Main Text Animation */}

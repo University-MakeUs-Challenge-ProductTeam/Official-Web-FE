@@ -61,19 +61,21 @@ const ReleasedProjectView = () => {
 
       {totalPages > 1 && (
         <div className="mt-20 flex items-center justify-center gap-4">
-          <button
+          <motion.button
+            whileTap={{ scale: 0.95 }}
             type="button"
             onClick={() => setPage(Math.max(page - 1, 0))}
             disabled={page === 0}
             className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleLeft />
-          </button>
+          </motion.button>
 
           <div className="flex gap-2">
             {Array.from({ length: totalPages }, (_, index) => (
-              <button
+              <motion.button
                 key={index}
+                whileTap={{ scale: 0.95 }}
                 type="button"
                 className={`size-10 rounded-full text-sm font-black italic transition-all ${
                   index === page ? 'bg-[#52E560] text-black shadow-[0_0_15px_#52E560]' : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
@@ -81,18 +83,19 @@ const ReleasedProjectView = () => {
                 onClick={() => setPage(index)}
               >
                 {index + 1}
-              </button>
+              </motion.button>
             ))}
           </div>
 
-          <button
+          <motion.button
+            whileTap={{ scale: 0.95 }}
             type="button"
             onClick={() => setPage(Math.min(page + 1, totalPages - 1))}
             disabled={page === totalPages - 1}
             className="rounded-full bg-white/5 p-3 text-main-green transition-colors hover:bg-main-green/10 disabled:opacity-20"
           >
             <FaAngleRight />
-          </button>
+          </motion.button>
         </div>
       )}
     </div>

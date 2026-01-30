@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 import type { TProjectDetailDTO } from '@/types/projectDto';
 import { PLATFORM_NAME } from '@/constants/Platforms';
 
@@ -16,7 +18,10 @@ const ProjectContentBox = ({ projectData }: TProjectContentBoxProps) => {
   const platformList = platFormNameList.map((item) => PLATFORM_NAME[item]);
 
   return (
-    <div className="flex flex-1 flex-col gap-6 rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5">
+    <motion.div
+      whileTap={{ scale: 0.98 }}
+      className="flex flex-1 flex-col gap-6 rounded-[32px] border border-white/5 bg-white/5 p-8 backdrop-blur-3xl transition-all hover:border-main-green/30 hover:bg-main-green/5"
+    >
       <div className="space-y-2">
         <Typography className="text-xs font-bold uppercase tracking-widest text-main-green">DETAILS</Typography>
         <Typography className="text-2xl font-black italic tracking-tighter text-white">
@@ -68,7 +73,7 @@ const ProjectContentBox = ({ projectData }: TProjectContentBoxProps) => {
           </Typography>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -112,12 +112,13 @@ const KineticHero = () => {
               WAITING FOR 10TH
               {/* <div className="absolute inset-x-0 bottom-0 h-1 bg-white/20 transition-all group-hover:h-full" /> */}
             </button>
-            <button
+            <motion.button
+              whileTap={{ scale: 0.95 }}
               type="button"
               className="rounded-full border border-white/20 bg-white/5 px-8 py-3 font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10"
             >
               LEARN MORE
-            </button>
+            </motion.button>
           </motion.div>
         </motion.div>
 

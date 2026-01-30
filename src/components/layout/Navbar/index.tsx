@@ -90,9 +90,15 @@ const RedesignNavbar = () => {
             aria-controls="mobile-menu"
           >
             <div className="flex h-5 w-6 flex-col justify-between">
-              <motion.span animate={isMobileMenuOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }} className="h-0.5 w-full rounded-full bg-white" />
-              <motion.span animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-full rounded-full bg-white" />
-              <motion.span animate={isMobileMenuOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }} className="h-0.5 w-full rounded-full bg-white" />
+              <motion.span
+                animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                className="h-0.5 w-full rounded-full bg-white transition-all"
+              />
+              <motion.span animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-full rounded-full bg-white transition-all" />
+              <motion.span
+                animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                className="h-0.5 w-full rounded-full bg-white transition-all"
+              />
             </div>
           </button>
         </div>

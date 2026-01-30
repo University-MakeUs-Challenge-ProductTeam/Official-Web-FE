@@ -3,6 +3,7 @@
 import type { FieldValues, SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { motion } from 'framer-motion';
 
 import usePostSponsorResponse from '@/hooks/queries/usePostSponsorResponse';
 
@@ -124,7 +125,8 @@ const Form = () => {
       </fieldset>
 
       {/* 제출 버튼 */}
-      <button
+      <motion.button
+        whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={isPending}
         className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-main-green to-[#3BB54A] px-8 py-4 font-black italic text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(82,229,96,0.6)] disabled:cursor-not-allowed disabled:opacity-50"
@@ -137,7 +139,7 @@ const Form = () => {
             <div className="absolute inset-0 -z-0 bg-gradient-to-r from-main-green to-main-green opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </>
         )}
-      </button>
+      </motion.button>
     </form>
   );
 };

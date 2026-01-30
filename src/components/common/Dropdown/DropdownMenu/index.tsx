@@ -20,7 +20,7 @@ const DropdownMenu = ({ children, position = 'top-[calc(100%+8px)] left-0 min-w-
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className={`${position} absolute z-[100] max-h-[50vh] overflow-y-auto rounded-3xl border border-white/10 bg-black/80 p-2 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl md:max-h-[450px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1`}
+          className={`${position} absolute z-[200] max-h-[50vh] overflow-y-auto rounded-3xl border border-white/10 bg-black/80 p-2 shadow-[0_20px_40px_rgba(0,0,0,0.5)] backdrop-blur-2xl md:max-h-[450px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:w-1`}
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useCallback, useRef } from 'react';
 import { cva } from 'class-variance-authority';
 import { motion } from 'framer-motion';
 
@@ -29,20 +29,41 @@ type TDropdownTriggerProps = {
  */
 const DropdownTrigger = ({ children, variant = 'bordered', className }: TDropdownTriggerProps) => {
   const { toggleDropdown, isOpen } = useDropdownContext();
+  const touchHandled = useRef(false);
 
-  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    toggleDropdown();
-  };
+  const handleClick = useCallback(
+    (e: React.MouseEvent) => {
+      if (touchHandled.current) {
+        touchHandled.current = false;
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+      toggleDropdown();
+    },
+    [toggleDropdown],
+  );
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      touchHandled.current = true;
+      toggleDropdown();
+      setTimeout(() => {
+        touchHandled.current = false;
+      }, 0);
+    },
+    [toggleDropdown],
+  );
 
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
       className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-main-green shadow-[0_0_20px_rgba(82,229,96,0.3)]' : 'border-white/10', className)}
       type="button"
-      onClick={handleInteraction}
-      onTouchEnd={handleInteraction}
+      onClick={handleClick}
+      onTouchEnd={handleTouchEnd}
       aria-expanded={isOpen}
       aria-haspopup="true"
       aria-controls="dropdown-menu"

@@ -79,7 +79,7 @@ const Preloader = () => {
             opacity: 0,
             transition: { duration: 0.8, ease: 'easeInOut' },
           }}
-          className="fixed inset-0 z-[50000] flex items-center justify-center bg-black"
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black"
         >
           <div className="relative flex flex-col items-center justify-center">
             {/* Main Text Animation */}

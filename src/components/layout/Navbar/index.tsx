@@ -47,7 +47,7 @@ const RedesignNavbar = () => {
 
   return (
     <>
-      <motion.nav initial={false} className="pointer-events-none fixed inset-x-0 top-0 z-[99999] flex h-fit justify-center p-6">
+      <motion.nav initial={false} className="pointer-events-none fixed inset-x-0 top-0 z-[800] flex h-fit justify-center p-6">
         <div
           className={`pointer-events-auto flex w-full max-w-7xl items-center justify-between gap-4 rounded-full px-6 py-3 transition-all duration-300 md:w-auto md:gap-8 md:px-8 ${
             isScrolled ? 'border border-white/10 bg-black/40 shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-xl' : 'bg-transparent'
@@ -85,7 +85,7 @@ const RedesignNavbar = () => {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative z-[10001] flex size-14 cursor-pointer items-center justify-center rounded-full bg-black/10 backdrop-blur-sm transition-all hover:bg-white/10 active:scale-95 md:hidden"
+            className="relative z-[851] flex size-14 cursor-pointer items-center justify-center rounded-full bg-black/10 backdrop-blur-sm transition-all hover:bg-white/10 active:scale-95 md:hidden"
             aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"

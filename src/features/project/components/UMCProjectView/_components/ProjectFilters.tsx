@@ -16,7 +16,7 @@ type TProjectFiltersProps = {
 
 const ProjectFilters = ({ selectedGeneration, selectedPlatform, searchTerm, onGenerationChange, onPlatformChange, onSearchChange }: TProjectFiltersProps) => {
   return (
-    <div className="sticky top-20 z-[100] mb-8 bg-black/90 py-4 backdrop-blur-md md:top-24 md:mb-16">
+    <div className="sticky top-20 z-50 mb-8 bg-black/90 py-4 backdrop-blur-md md:top-24 md:mb-16">
       <div className="group relative flex flex-col items-center gap-4 overflow-visible rounded-3xl border border-white/5 bg-black/40 p-4 backdrop-blur-3xl transition-all hover:border-main-green/20 md:h-12 md:flex-row md:flex-wrap md:rounded-full md:px-6">
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-main-green/5 to-transparent opacity-0 transition-opacity group-hover:opacity-100 md:rounded-full" />
 

@@ -36,23 +36,33 @@ const RedesignCurriculum = () => {
         </motion.div>
 
         {/* Custom Tabs */}
-        <div className="mb-16 flex flex-wrap justify-center gap-2 px-4 md:gap-4">
-          {partList.map((item) => (
-            <button
-              type="button"
-              key={item}
-              onClick={() => setSelectedPart(item)}
-              className={`relative px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${selectedPart === item ? 'text-main-green' : 'text-white/40 hover:text-white/60'} `}
-            >
-              {PART_NAME[item]}
-              {selectedPart === item && (
-                <motion.div
-                  layoutId="active-pill"
-                  className="absolute inset-0 -z-10 rounded-full border border-main-green/30 bg-main-green/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
-                />
-              )}
-            </button>
-          ))}
+        <div className="relative mb-16 px-4">
+          <div className="flex gap-2 overflow-x-auto pb-4 md:flex-wrap md:justify-center md:gap-4 md:overflow-visible md:pb-0 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-main-green/50 [&::-webkit-scrollbar-thumb]:hover:bg-main-green [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar]:h-1.5">
+            {partList.map((item) => (
+              <button
+                type="button"
+                key={item}
+                onClick={() => setSelectedPart(item)}
+                className={`relative shrink-0 px-6 py-2 text-xs font-bold uppercase tracking-wider transition-all md:text-sm ${selectedPart === item ? 'text-main-green' : 'text-white/40 hover:text-white/60'} `}
+              >
+                {PART_NAME[item]}
+                {selectedPart === item && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 -z-10 rounded-full border border-main-green/30 bg-main-green/10 shadow-[0_0_15px_rgba(82,229,96,0.1)]"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile Scroll Hint */}
+          <div className="pointer-events-none absolute right-0 top-0 flex h-10 w-16 items-center justify-end bg-gradient-to-l from-black via-black/80 to-transparent md:hidden">
+            <motion.div animate={{ x: [0, 4, 0] }} transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }} className="mr-2 flex items-center gap-1">
+              <div className="h-px w-3 bg-main-green/60" />
+              <div className="size-0 border-y-[3px] border-l-[5px] border-y-transparent border-l-main-green/60" />
+            </motion.div>
+          </div>
         </div>
 
         {/* Content Area */}

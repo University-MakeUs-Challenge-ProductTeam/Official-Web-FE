@@ -1,6 +1,6 @@
 'use client';
 
-import { FaAndroid, FaApple } from 'react-icons/fa';
+import { FaAndroid, FaApple } from 'react-icons/fa6';
 import { TbWorld } from 'react-icons/tb';
 import { cva } from 'class-variance-authority';
 import { motion } from 'framer-motion';

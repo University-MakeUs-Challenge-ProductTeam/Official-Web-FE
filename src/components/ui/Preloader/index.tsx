@@ -1,40 +1,45 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 import { usePreloaderStore } from '@/store/usePreloaderStore';
 
 const words = ['UNIVERSITY', 'MAKEUS', 'CHALLENGE', 'UMC'];
 
 const Preloader = () => {
+  const pathname = usePathname();
   const setIsLoading = usePreloaderStore((state) => state.setIsLoading);
   const [index, setIndex] = useState(0);
   const [complete, setComplete] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  useLayoutEffect(() => {
-    setIsMounted(true);
-    // Force reset on mount to ensure animation plays if intended
-    setIndex(0);
-    setComplete(false);
-    setIsLoading(true);
-
-    // Check session storage to prevent playing on every single refresh if desired,
-    // but the user's request implies they WANT to see it.
-    // We will ensure it plays reliability.
-    const hasVisited = sessionStorage.getItem('umc_intro_shown');
-    if (hasVisited) {
-      // If we want to skip on subsequent visits:
-      // setComplete(true);
-      // But for now, let's allow it to play to fix the "doesn't play" issue,
-      // or maybe the user IS experiencing the session skip and thinks it's a bug?
-      // Based on "Requires refresh to work", likely it's failing to trigger nicely.
-      // Let's NOT skip it for now to ensure they see it.
-    }
-  }, [setIsLoading]);
-
+  // Initialize on mount
   useEffect(() => {
+    const hasShown = sessionStorage.getItem('umc_intro_shown');
+    const isHomePage = pathname === '/';
+
+    if (isHomePage && !hasShown) {
+      // Show preloader on home page first visit
+      setIsVisible(true);
+      setIsLoading(true);
+      setIndex(0);
+      setComplete(false);
+    } else {
+      // Don't show preloader
+      setIsVisible(false);
+      setComplete(true);
+      setIsLoading(false);
+    }
+  }, [pathname, setIsLoading]);
+
+  // Animate through words
+  useEffect(() => {
+    if (!isVisible || complete) {
+      return undefined;
+    }
+
     if (index === words.length) {
       const timeout = setTimeout(() => {
         setComplete(true);
@@ -44,18 +49,18 @@ const Preloader = () => {
       return () => clearTimeout(timeout);
     }
 
-    const duration = index === 0 ? 800 : 500; // Increased first word duration
+    const duration = index === 0 ? 800 : 500;
 
     const timer = setTimeout(() => {
       setIndex((prev) => prev + 1);
     }, duration);
 
     return () => clearTimeout(timer);
-  }, [index, setIsLoading]);
+  }, [index, setIsLoading, isVisible, complete]);
 
   // Prevent scroll during preloader
   useEffect(() => {
-    if (!complete) {
+    if (isVisible && !complete) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
@@ -63,20 +68,18 @@ const Preloader = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [complete]);
-
-  if (!isMounted) return null;
+  }, [complete, isVisible]);
 
   return (
     <AnimatePresence mode="wait">
-      {!complete && (
+      {isVisible && !complete && (
         <motion.div
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
             transition: { duration: 0.8, ease: 'easeInOut' },
           }}
-          className={`fixed inset-0 z-[50000] flex items-center justify-center bg-black ${complete ? 'pointer-events-none hidden' : 'pointer-events-auto'}`}
+          className="fixed inset-0 z-[50000] flex items-center justify-center bg-black"
         >
           <div className="relative flex flex-col items-center justify-center">
             {/* Main Text Animation */}

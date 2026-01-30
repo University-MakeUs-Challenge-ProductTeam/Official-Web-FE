@@ -13,8 +13,8 @@ const ButtonVariants = cva('flex w-full items-center justify-center rounded-lg t
       disabled: 'border-main-disable bg-main-black text-main-disable',
     },
     size: {
-      sm: 'border py-1',
-      md: 'border-2 py-3',
+      sm: 'border py-2 px-4 min-h-[44px]',
+      md: 'border-2 py-3 px-6 min-h-[48px]',
     },
   },
   defaultVariants: {

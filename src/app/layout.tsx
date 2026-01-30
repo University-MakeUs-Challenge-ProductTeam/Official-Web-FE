@@ -1,12 +1,9 @@
 import '@/styles';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import React from 'react';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import localFont from 'next/font/local';
 
@@ -21,6 +18,7 @@ import CustomCursor from '@/components/ui/CustomCursor';
 import Preloader from '@/components/ui/Preloader';
 
 import { initMocking } from '@/lib/mocks';
+import { generateOrganizationSchema } from '@/lib/schema';
 
 const pretendard = localFont({
   src: '../../src/app/fonts/PretendardVariable.woff2',
@@ -94,6 +92,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#000000',
+};
+
 const RootLayout = async ({
   children,
 }: Readonly<{
@@ -103,9 +109,12 @@ const RootLayout = async ({
     await initMocking();
   }
 
+  const organizationSchema = generateOrganizationSchema();
+
   return (
     <html lang="ko" className={`${pretendard.variable} ${roboto.variable} scroll-smooth antialiased`} suppressHydrationWarning>
       <body className="min-h-screen bg-black font-pretendard text-white selection:bg-main-green selection:text-black">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <Preloader />
         <CustomCursor />
         <MSWProvider>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -84,22 +85,14 @@ const RedesignNavbar = () => {
           <button
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="relative z-[10001] flex size-12 cursor-pointer items-center justify-center rounded-full bg-black/10 backdrop-blur-sm transition-all hover:bg-white/10 active:scale-95 md:hidden"
+            className="relative z-[10001] flex size-14 cursor-pointer items-center justify-center rounded-full bg-black/10 backdrop-blur-sm transition-all hover:bg-white/10 active:scale-95 md:hidden"
             aria-label={isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기'}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            <div className="flex h-5 w-6 flex-col justify-between">
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-full rounded-full bg-white transition-all"
-              />
-              <motion.span animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }} className="h-0.5 w-full rounded-full bg-white transition-all" />
-              <motion.span
-                animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                className="h-0.5 w-full rounded-full bg-white transition-all"
-              />
-            </div>
+            <motion.div initial={false} animate={{ rotate: isMobileMenuOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
+              {isMobileMenuOpen ? <X size={24} className="text-white" strokeWidth={2} /> : <Menu size={24} className="text-white" strokeWidth={2} />}
+            </motion.div>
           </button>
         </div>
       </motion.nav>

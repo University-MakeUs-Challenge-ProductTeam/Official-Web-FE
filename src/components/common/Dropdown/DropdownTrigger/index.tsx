@@ -29,12 +29,20 @@ type TDropdownTriggerProps = {
  */
 const DropdownTrigger = ({ children, variant = 'bordered', className }: TDropdownTriggerProps) => {
   const { toggleDropdown, isOpen } = useDropdownContext();
+
+  const handleInteraction = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleDropdown();
+  };
+
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
       className={cn(DropdownTriggerVariants({ variant }), isOpen ? 'border-main-green shadow-[0_0_20px_rgba(82,229,96,0.3)]' : 'border-white/10', className)}
       type="button"
-      onClick={toggleDropdown}
+      onClick={handleInteraction}
+      onTouchEnd={handleInteraction}
       aria-expanded={isOpen}
       aria-haspopup="true"
       aria-controls="dropdown-menu"

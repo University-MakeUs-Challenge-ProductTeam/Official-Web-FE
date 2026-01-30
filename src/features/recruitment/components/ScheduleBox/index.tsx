@@ -63,7 +63,7 @@ const ScheduleBox = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="relative flex min-h-[500px] flex-col items-center justify-center overflow-hidden rounded-[60px] border border-white/5 bg-white/[0.02] backdrop-blur-3xl"
+              className="relative flex min-h-[300px] flex-col items-center justify-center overflow-hidden rounded-[60px] border border-white/5 bg-white/[0.02] backdrop-blur-3xl md:min-h-[500px]"
             >
               {/* Background Decorative Elements */}
               <div className="absolute left-1/2 top-0 h-px w-4/5 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent" />

@@ -82,9 +82,9 @@ const config: Config = {
           },
         ],
         'caption': [
-          '12px',
+          '14px',
           {
-            lineHeight: '1.4',
+            lineHeight: '1.5',
             letterSpacing: '-0.002em',
             fontWeight: 500,
           },

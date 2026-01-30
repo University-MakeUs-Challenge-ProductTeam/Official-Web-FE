@@ -8,6 +8,7 @@ import FirstBanner from '@/features/introduction/components/FirstBanner';
 import FourthBanner from '@/features/introduction/components/FourthBanner';
 import SecondBanner from '@/features/introduction/components/SecondBanner';
 import { getQueryClient, projectListQueryOptions, schoolListQueryOptions } from '@/lib/query';
+import { generateAboutPageSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'UMC - 소개',
@@ -23,8 +24,11 @@ const IntroductionPage = async () => {
     queryClient.prefetchQuery(projectListQueryOptions({ page: 0, generation: 'ALL', platformName: 'ALL' })),
   ]);
 
+  const aboutSchema = generateAboutPageSchema();
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
       <div className="flex flex-col overflow-x-hidden bg-black">
         <div className="container mx-auto px-6">
           <FirstBanner />

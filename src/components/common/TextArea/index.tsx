@@ -31,7 +31,7 @@ const TextArea = ({ className, rows = 20, formatPrice, disabled, errors, icon: I
         aria-invalid={errors[id] ? 'true' : 'false'}
         aria-required={required}
         aria-describedby={errors[id] ? `${id}-error` : undefined}
-        className={`py-38 peer w-full resize-none rounded-lg border-2 bg-neutral-900 p-4 px-32 pt-6 font-bold text-main-white outline-none transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70 ${formatPrice ? 'pl-9' : 'pl-4'} ${
+        className={`peer w-full resize-none rounded-lg border-2 bg-neutral-900 p-4 px-8 pt-6 text-base font-bold text-main-white outline-none transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70 ${formatPrice ? 'pl-9' : 'pl-4'} ${
           errors[id]
             ? 'border-[#FF5E5E] focus:border-[#FF5E5E] focus:shadow-[0_0_20px_rgba(255,94,94,0.3)]'
             : 'border-surface-700 hover:border-main-green/50 focus:border-main-green focus:shadow-[0_0_20px_rgba(82,229,96,0.3)]'

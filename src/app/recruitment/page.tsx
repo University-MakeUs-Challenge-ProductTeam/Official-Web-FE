@@ -10,6 +10,7 @@ import ActivityBox from '@/features/recruitment/components/ActivityBox';
 import FaqAccordions from '@/features/recruitment/components/FaqAccordions';
 import ScheduleBox from '@/features/recruitment/components/ScheduleBox';
 import { activitiesQueryOptions, getQueryClient } from '@/lib/query';
+import { generateEventSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'UMC - 모집 안내',
@@ -22,8 +23,14 @@ const RecruitmentPage = async () => {
   // Prefetch activity data for SSR
   await queryClient.prefetchQuery(activitiesQueryOptions());
 
+  const eventSchema = generateEventSchema({
+    name: 'UMC 10기 모집',
+    description: 'UMC 10기 신입 부원 모집 안내. 대학생 연합 IT 벤처 창업 동아리에서 함께 성장할 기획자, 디자이너, 개발자를 찾습니다.',
+  });
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }} />
       <div className="flex flex-col overflow-x-hidden bg-black">
         <div className="container mx-auto px-6">
           <h1 className="sr-only">UMC Recruitment</h1>

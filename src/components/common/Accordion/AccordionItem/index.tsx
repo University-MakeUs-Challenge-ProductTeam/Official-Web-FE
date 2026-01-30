@@ -1,7 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoChevronDown } from 'react-icons/io5';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import Typography from '../../Typography';
@@ -61,12 +61,12 @@ const AccordionItem = ({ index, title = '제목', ariaLabel, children = '내용'
             initial={{ rotate: 0 }}
             animate={{ rotate: isActive ? 180 : 0 }}
             className={cn(
-              'flex size-8 items-center justify-center rounded-full border border-white/10 transition-colors',
+              'flex size-11 items-center justify-center rounded-full border border-white/10 transition-colors',
               isActive ? 'border-main-green bg-main-green text-black' : 'text-white/40 group-hover/accordion:text-white',
             )}
             aria-hidden="true"
           >
-            <IoIosArrowDown size={16} />
+            <IoChevronDown size={20} />
           </motion.div>
         </div>
 

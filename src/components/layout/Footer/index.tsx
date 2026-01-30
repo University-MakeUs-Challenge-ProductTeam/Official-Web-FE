@@ -1,6 +1,6 @@
 'use client';
 
-import { FaEnvelope, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaInstagram } from 'react-icons/fa6';
 
 const RedesignFooter = () => {
   return (

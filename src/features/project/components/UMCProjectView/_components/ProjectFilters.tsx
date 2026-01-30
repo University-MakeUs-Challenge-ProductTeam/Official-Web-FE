@@ -1,4 +1,4 @@
-import { IoIosSearch } from 'react-icons/io';
+import { IoSearch } from 'react-icons/io5';
 
 import type { TPlatformName } from '@/types/projectDto';
 
@@ -29,7 +29,7 @@ const ProjectFilters = ({ selectedGeneration, selectedPlatform, searchTerm, onGe
           <div className="hidden h-6 w-px bg-white/10 md:block" />
 
           <div className="flex min-w-[200px] flex-1 items-center gap-3 px-2 md:px-4">
-            <IoIosSearch size={18} className="text-main-green opacity-50 transition-opacity group-hover:opacity-100" />
+            <IoSearch size={18} className="text-main-green opacity-50 transition-opacity group-hover:opacity-100" />
             <input
               className="w-full bg-transparent text-xs font-black uppercase italic tracking-widest text-white outline-none placeholder:text-white/20"
               placeholder="Search Projects..."

@@ -5,6 +5,7 @@ import Typography from '@/components/common/Typography';
 import ActivityBox from '@/features/recruitment/components/ActivityBox';
 import FaqAccordions from '@/features/recruitment/components/FaqAccordions';
 import ScheduleBox from '@/features/recruitment/components/ScheduleBox';
+import { env } from '@/lib/env';
 import { activitiesQueryOptions, getQueryClient } from '@/lib/query';
 import { generateEventSchema } from '@/lib/schema';
 
@@ -21,11 +22,14 @@ const RecruitmentPage = async () => {
   const queryClient = getQueryClient();
 
   // Prefetch activity data for SSR
-  await queryClient.prefetchQuery(activitiesQueryOptions());
+  const activityData = await queryClient.fetchQuery(activitiesQueryOptions());
 
   const eventSchema = generateEventSchema({
     name: 'UMC 10기 모집',
     description: 'UMC 10기 신입 부원 모집 안내. 대학생 연합 IT 벤처 창업 동아리에서 함께 성장할 기획자, 디자이너, 개발자를 찾습니다.',
+    startDate: activityData.activityStartDate,
+    endDate: activityData.activityEndDate,
+    image: new URL('/opengraph-image', env.siteUrl).toString(),
   });
 
   return (

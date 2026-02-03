@@ -85,13 +85,14 @@ export const generateAboutPageSchema = () => ({
   },
 });
 
-export const generateEventSchema = (data: { description: string; endDate?: string; name: string; startDate?: string }) => ({
+export const generateEventSchema = (data: { description: string; endDate?: string; image?: string; name: string; startDate: string }) => ({
   '@context': 'https://schema.org',
   '@type': 'Event',
   'name': data.name,
   'description': data.description,
-  ...(data.startDate && { startDate: data.startDate }),
+  'startDate': data.startDate,
   ...(data.endDate && { endDate: data.endDate }),
+  ...(data.image && { image: data.image }),
   'eventStatus': 'https://schema.org/EventScheduled',
   'eventAttendanceMode': 'https://schema.org/MixedEventAttendanceMode',
   'organizer': {

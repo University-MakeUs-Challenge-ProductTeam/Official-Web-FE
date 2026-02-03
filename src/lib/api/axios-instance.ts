@@ -6,6 +6,8 @@ import axios from 'axios';
 export const axiosInstance = axios.create({
   baseURL: env.apiBaseUrl,
   timeout: 10000,
+  maxBodyLength: 10 * 1024 * 1024,
+  maxContentLength: 10 * 1024 * 1024,
   headers: {
     'Content-Type': 'application/json',
   },

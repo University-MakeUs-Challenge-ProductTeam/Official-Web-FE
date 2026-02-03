@@ -1,7 +1,3 @@
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import type { Metadata } from 'next';
-import Link from 'next/link';
-
 import { KAKAO_CHAT_LINK } from '@/constants/link';
 
 import Typography from '@/components/common/Typography';
@@ -11,6 +7,10 @@ import FaqAccordions from '@/features/recruitment/components/FaqAccordions';
 import ScheduleBox from '@/features/recruitment/components/ScheduleBox';
 import { activitiesQueryOptions, getQueryClient } from '@/lib/query';
 import { generateEventSchema } from '@/lib/schema';
+
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'UMC - 모집 안내',

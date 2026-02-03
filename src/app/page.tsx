@@ -1,10 +1,10 @@
-import dynamic from 'next/dynamic';
-
 import KineticHero from '@/components/ui/KineticHero';
 import RedesignCurriculum from '@/components/ui/RedesignCurriculum';
 import UniversityMarquee from '@/components/ui/UniversityMarquee';
 
 import { generateWebSiteSchema } from '@/lib/schema';
+
+import dynamic from 'next/dynamic';
 
 // DiagonalMarquee를 Dynamic Import로 lazy load (SSR은 유지)
 const DiagonalMarquee = dynamic(() => import('@/components/ui/DiagonalMarquee'), {

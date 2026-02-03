@@ -1,17 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 
-import type { EventKRList, EventList } from '@/types/dtos/academy';
-import { EventType } from '@/types/dtos/academy';
-
-import useGetMainActivity from '@/hooks/queries/useGetMainActivity';
+import type { EventKRList, EventList } from '@/types/academy/event';
+import { EventType } from '@/types/academy/event';
 
 import Button from '@/components/common/Button';
 import Flex from '@/components/common/Flex';
 import Spacing from '@/components/common/Spacing';
 import Typography from '@/components/common/Typography';
+
+import useMainActivityQuery from '@/features/home/hooks/useMainActivityQuery';
+
+import Image from 'next/image';
 
 const FourthBannerSkeleton = () => {
   return (
@@ -24,8 +25,8 @@ const FourthBannerSkeleton = () => {
 
 const FourthBanner = () => {
   const [selectedEventType, setSelectedEventType] = useState<EventList>('PM_DAY');
-  const { data: activities, isPending } = useGetMainActivity({ eventType: selectedEventType });
-  const eventKeys = Object.keys(EventType) as EventKRList[];
+  const { data: mainActivity, isPending } = useMainActivityQuery({ eventType: selectedEventType });
+  const eventTypeKeys = Object.keys(EventType) as EventKRList[];
 
   const handleEventTypeClick = (eventKey: EventKRList) => {
     const eventValue = EventType[eventKey];
@@ -46,7 +47,7 @@ const FourthBanner = () => {
       </Typography>
       <Spacing direction="vertical" size={128} />
       <Flex direction="row" justify="center" align="center" className="w-[90%] flex-wrap gap-4">
-        {eventKeys.map((eventKey) => (
+        {eventTypeKeys.map((eventKey) => (
           <Button
             key={eventKey}
             variant={selectedEventType === EventType[eventKey] ? 'outline' : 'disabled'}
@@ -65,20 +66,20 @@ const FourthBanner = () => {
           <FourthBannerSkeleton />
         ) : (
           <>
-            {activities?.result.eventImageUrl ? (
+            {mainActivity?.result.eventImageUrl ? (
               <Image
                 className="rounded-lg bg-neutral-800"
-                src={activities.result.eventImageUrl}
+                src={mainActivity.result.eventImageUrl}
                 width={2000}
                 height={700}
                 layout="contain"
-                alt={`${activities.result.eventType}의 이미지`}
+                alt={`${mainActivity.result.eventType}의 이미지`}
               />
             ) : (
               <div className="h-[700px] w-full rounded-lg bg-neutral-800" />
             )}
             <Typography as="p" size="text-sm" className="mt-5 w-full whitespace-pre-wrap text-neutral-200">
-              {activities?.result.description}
+              {mainActivity?.result.description}
             </Typography>
           </>
         )}

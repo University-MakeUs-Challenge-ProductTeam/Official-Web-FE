@@ -1,11 +1,4 @@
-import '@/styles';
-
-import React from 'react';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import type { Metadata, Viewport } from 'next';
-import { Roboto } from 'next/font/google';
-import localFont from 'next/font/local';
+import type React from 'react';
 
 import { isMocking } from '@/constants/constants';
 
@@ -17,8 +10,19 @@ import CustomCursor from '@/components/ui/CustomCursor';
 // Redesign Components
 import Preloader from '@/components/ui/Preloader';
 
+import { env } from '@/lib/env';
 import { initMocking } from '@/lib/mocks';
 import { generateOrganizationSchema } from '@/lib/schema';
+
+import '@/styles/reset.css';
+import '@/styles/globals.css';
+import '@/styles/swiper.css';
+
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import type { Metadata, Viewport } from 'next';
+import { Roboto } from 'next/font/google';
+import localFont from 'next/font/local';
 
 const pretendard = localFont({
   src: '../../src/app/fonts/PretendardVariable.woff2',
@@ -34,7 +38,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://umc.makeus.in'),
+  metadataBase: new URL(env.siteUrl),
   title: {
     default: 'UMC - University MakeUs Challenge',
     template: '%s | UMC',
@@ -71,16 +75,25 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'UMC - University MakeUs Challenge',
     description: '대학생 연합 IT 벤처 창업 동아리 UMC. 당신의 도전을 현실로 만들어보세요.',
-    url: 'https://umc.makeus.in/',
+    url: env.siteUrl,
     siteName: 'UMC - University MakeUs Challenge',
     locale: 'ko_KR',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'UMC - University MakeUs Challenge',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'UMC - University MakeUs Challenge',
     description: '대학생 연합 IT 벤처 창업 동아리 UMC. 새로운 세대의 혁신을 이끌어갈 당신을 기다립니다.',
     creator: '@umc_makeus',
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { useScroll } from 'framer-motion';
 
 interface IUseNavbarScrollReturn {

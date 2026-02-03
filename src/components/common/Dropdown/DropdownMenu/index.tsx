@@ -1,7 +1,8 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import { useDropdownContext } from '../dropdown-context';
+
+import { AnimatePresence, motion } from 'framer-motion';
 
 type TDropdownMenuProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;

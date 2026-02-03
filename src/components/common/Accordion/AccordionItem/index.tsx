@@ -2,12 +2,12 @@
 
 import type { ReactNode } from 'react';
 import { IoChevronDown } from 'react-icons/io5';
-import { AnimatePresence, motion } from 'framer-motion';
 
+import cn from '@/lib/utils/style';
 import Typography from '../../Typography';
 import { useAccordionContext } from '../accordion-context';
 
-import cn from '@/lib/utils/style';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type TAccordionItemProps = {
   ariaLabel?: string;

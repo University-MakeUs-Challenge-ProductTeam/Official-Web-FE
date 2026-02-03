@@ -2,17 +2,18 @@
 
 import { FaAndroid, FaApple } from 'react-icons/fa6';
 import { TbWorld } from 'react-icons/tb';
-import { cva } from 'class-variance-authority';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
-import type { TProjectDTO } from '@/types/projectDto';
+import type { TProjectDTO } from '@/types/project/dto';
 import { PLATFORM_NAME } from '@/constants/Platforms';
 
 import Typography from '@/components/common/Typography';
 
 import cn from '@/lib/utils/style';
+
+import { cva } from 'class-variance-authority';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const ProjectCardVariants = cva(
   'group relative flex w-full mx-auto gap-6 border border-white/5 bg-white/5 backdrop-blur-3xl rounded-[32px] p-6 cursor-pointer overflow-hidden transition-all hover:border-main-green/30 hover:bg-main-green/5',

@@ -1,17 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+
+import { useNavbarScroll } from '@/hooks/use-navbar-scroll';
+
+import { MobileMenu } from './MobileMenu';
+import { usePreloaderStore } from '@/store/usePreloaderStore';
+
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-import { useNavbarScroll } from '@/hooks/use-navbar-scroll';
-
-import { MobileMenu } from './MobileMenu';
-
-import { usePreloaderStore } from '@/store/usePreloaderStore';
 
 const NAV_ITEMS = [
   { label: '소개', href: '/introduction' },

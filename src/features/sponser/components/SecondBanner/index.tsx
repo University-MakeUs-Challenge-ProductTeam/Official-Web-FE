@@ -1,13 +1,13 @@
 'use client';
 
+import Typography from '@/components/common/Typography';
+
+import { sponsorListQueryOptions } from '@/lib/query';
+
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-
-import Typography from '@/components/common/Typography';
-
-import { sponsorListQueryOptions } from '@/lib/query';
 
 const SecondBanner = () => {
   const { data, isLoading } = useQuery(sponsorListQueryOptions());

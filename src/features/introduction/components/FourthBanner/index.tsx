@@ -1,16 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 
-import type { TCentralEventDTO } from '@/types/eventDtos';
+import type { TCentralEventDTO } from '@/types/event/dto';
 import { CENTRAL_EVENT_CONTENT } from '@/constants/activityContent';
 
 import Typography from '@/components/common/Typography';
 
 import { centralEventQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 
 const FourthBanner = () => {
   const [selectedEvent, setSelectedEvent] = useState<TCentralEventDTO>('UNION_OT');

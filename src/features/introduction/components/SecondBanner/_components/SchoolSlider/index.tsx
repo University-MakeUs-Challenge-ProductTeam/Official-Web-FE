@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-
-import type { TSchoolDataDTO } from '@/types/schoolDto';
+import type { TSchoolDataDTO } from '@/types/school/dto';
 
 import Typography from '@/components/common/Typography';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 type TSchoolSliderProps = {
   reverse?: boolean;

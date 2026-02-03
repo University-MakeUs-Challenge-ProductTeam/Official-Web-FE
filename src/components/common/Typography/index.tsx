@@ -1,10 +1,11 @@
 import type { ElementType, HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-import { cva } from 'class-variance-authority';
 
 import cn from '@/lib/utils/style';
 import type { ColorKey } from '@/models/color';
 import type { FontKey } from '@/models/font';
+
+import { cva } from 'class-variance-authority';
 
 export const TypographyVariants = cva<{
   color: Record<ColorKey, string>;

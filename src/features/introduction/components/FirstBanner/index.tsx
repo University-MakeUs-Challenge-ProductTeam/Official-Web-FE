@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { animate, motion, useInView } from 'framer-motion';
 
 import Typography from '@/components/common/Typography';
 
 import { projectListQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { animate, motion, useInView } from 'framer-motion';
 
 const Counter = ({ from, to }: { from: number; to: number }) => {
   const ref = useRef<HTMLSpanElement>(null);

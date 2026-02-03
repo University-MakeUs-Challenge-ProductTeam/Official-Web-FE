@@ -1,5 +1,5 @@
-import type { ApiResponse } from '@/types/api/projectTypes';
-import type { TSchoolListData } from '@/types/api/schoolTypes';
+import type { ApiResponse } from '@/types/common/response';
+import type { TSchoolListData } from '@/types/school/api';
 
 import { axiosInstance } from './axios-instance';
 

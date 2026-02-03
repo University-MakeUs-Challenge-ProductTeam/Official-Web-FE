@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 
 import { usePreloaderStore } from '@/store/usePreloaderStore';
+
+import { AnimatePresence, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const words = ['UNIVERSITY', 'MAKEUS', 'CHALLENGE', 'UMC'];
 

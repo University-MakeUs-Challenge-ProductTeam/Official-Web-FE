@@ -1,8 +1,8 @@
-import Image from 'next/image';
-
 import Flex from '@/components/common/Flex';
 import Spacing from '@/components/common/Spacing';
 import Typography from '@/components/common/Typography';
+
+import Image from 'next/image';
 
 const coreValues = [
   { id: 1, name: '컴공선배', path: '/images/컴공선배.jpg' },

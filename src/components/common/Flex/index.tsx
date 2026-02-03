@@ -1,8 +1,9 @@
-import React from 'react';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
+import type React from 'react';
 
 import cn from '@/lib/utils/style';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 const FlexVariants = cva('flex', {
   variants: {

@@ -1,3 +1,3 @@
-const MOCKING = process.env.NEXT_PUBLIC_MOCKING ?? 'false';
+import { env } from '@/lib/env';
 
-export const isMocking = () => MOCKING === 'true';
+export const isMocking = () => env.mocking === 'true';

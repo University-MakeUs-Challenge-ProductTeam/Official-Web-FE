@@ -1,9 +1,8 @@
-import type { ApiResponse } from '@/types/api/projectTypes';
-import type { TCentralStaffType } from '@/types/api/staff';
-import type { TGenerationsDTO } from '@/types/projectDto';
+import type { ApiResponse } from '@/types/common/response';
+import type { TGenerationsDTO } from '@/types/project/dto';
+import type { TCentralStaffListData } from '@/types/staff/api';
 
 import { axiosInstance } from './axios-instance';
-
 import { buildUrl } from '@/lib/utils/url-builder';
 
 export async function getCentralStaff({ generation, page, size = 9 }: { generation: number | 'ALL'; page: number; size: number }) {
@@ -12,7 +11,7 @@ export async function getCentralStaff({ generation, page, size = 9 }: { generati
     size,
     generation: generation !== 'ALL' ? generation : undefined,
   });
-  const { data } = await axiosInstance.get<ApiResponse<TCentralStaffType>>(url);
+  const { data } = await axiosInstance.get<ApiResponse<TCentralStaffListData>>(url);
 
   return data.result;
 }

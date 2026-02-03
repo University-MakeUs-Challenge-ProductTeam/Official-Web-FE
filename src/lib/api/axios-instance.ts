@@ -1,8 +1,10 @@
+import { env } from '@/lib/env';
+
 import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  baseURL: env.apiBaseUrl,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

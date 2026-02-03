@@ -1,11 +1,7 @@
 'use client';
 
-import React from 'react';
+import type React from 'react';
 import { IoChevronDown } from 'react-icons/io5';
-import { useQuery } from '@tanstack/react-query';
-import { motion } from 'framer-motion';
-
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Dropdown from '@/components/common/Dropdown';
 import DropdownItem from '@/components/common/Dropdown/DropdownItem';
@@ -14,6 +10,10 @@ import DropdownTrigger from '@/components/common/Dropdown/DropdownTrigger';
 import Typography from '@/components/common/Typography';
 
 import { getSchoolListData } from '@/lib/api/school';
+import { queryKeys } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
 
 type TScheduleDropdownProps = {
   selectedSchool: string;
@@ -22,7 +22,7 @@ type TScheduleDropdownProps = {
 
 const ScheduleDropdown = ({ selectedSchool, setSelectedSchool }: TScheduleDropdownProps) => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.schools],
+    queryKey: queryKeys.recruitment.schools(),
     queryFn: () => getSchoolListData(),
   });
   return (

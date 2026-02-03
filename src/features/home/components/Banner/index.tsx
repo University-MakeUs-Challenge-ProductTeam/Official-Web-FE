@@ -1,10 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-
 import Flex from '@/components/common/Flex';
 import Typography from '@/components/common/Typography';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const Banner = () => {
   return (

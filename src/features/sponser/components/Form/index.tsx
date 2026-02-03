@@ -1,18 +1,21 @@
 'use client';
 
-import type { FieldValues, SubmitHandler } from 'react-hook-form';
+import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { motion } from 'framer-motion';
-
-import usePostSponsorResponse from '@/hooks/queries/usePostSponsorResponse';
 
 import Input from '@/components/common/Input';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import TextArea from '@/components/common/TextArea';
 import Typography from '@/components/common/Typography';
 
+import useSubmitSponsorMutation from '@/features/sponser/hooks/useSubmitSponsorMutation';
 import { sponsorFormSchema } from '../../schemas/sponsor-form.schema';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { motion } from 'framer-motion';
+import type { z } from 'zod';
+
+type SponsorFormValues = z.infer<typeof sponsorFormSchema>;
 
 const Form = () => {
   const {
@@ -20,7 +23,7 @@ const Form = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FieldValues>({
+  } = useForm<SponsorFormValues>({
     resolver: zodResolver(sponsorFormSchema),
     defaultValues: {
       applicationName: '',
@@ -32,11 +35,11 @@ const Form = () => {
     },
   });
 
-  const { mutate: applySponsor, isPending } = usePostSponsorResponse();
+  const { mutate: submitSponsor, isPending } = useSubmitSponsorMutation();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues, event) => {
+  const onSubmit: SubmitHandler<SponsorFormValues> = (data, event) => {
     event?.preventDefault();
-    applySponsor(
+    submitSponsor(
       {
         applicationName: data.applicationName,
         contactInfo: data.contactInfo,

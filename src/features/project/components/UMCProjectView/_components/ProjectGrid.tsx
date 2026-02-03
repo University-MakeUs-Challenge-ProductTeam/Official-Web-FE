@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-
-import type { TProjectDTO } from '@/types/projectDto';
+import type { TProjectDTO } from '@/types/project/dto';
 
 import EmptyState from '@/components/ui/EmptyState';
 import SkeletonLoader from '@/components/ui/SkeletonLoader';
 
 import ProjectCard from '../../ProjectCard';
+
+import { motion } from 'framer-motion';
 
 type TProjectGridProps = {
   currentPage: number;

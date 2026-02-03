@@ -1,6 +1,6 @@
-import type { ApiResponse } from '@/types/api/projectTypes';
-import type { TSponsorType } from '@/types/api/sponsor';
-import type { TPostSponsorResponse, TSponsorApplicationDTO } from '@/types/dtos/sponsor';
+import type { ApiResponse } from '@/types/common/response';
+import type { TSponsorListData } from '@/types/sponsor/api';
+import type { TPostSponsorResponse, TSponsorApplicationDTO } from '@/types/sponsor/dto';
 
 import { axiosInstance } from '@/lib/api/axios-instance';
 
@@ -27,7 +27,7 @@ export const postSponsor = async ({
 
 export const getSponsor = async () => {
   const url = '/api/sponsors';
-  const { data } = await axiosInstance.get<ApiResponse<TSponsorType>>(url);
+  const { data } = await axiosInstance.get<ApiResponse<TSponsorListData>>(url);
 
   return data.result;
 };

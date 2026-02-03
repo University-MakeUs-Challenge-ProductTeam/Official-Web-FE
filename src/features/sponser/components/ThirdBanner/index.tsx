@@ -1,9 +1,9 @@
 'use client';
 
+import Typography from '@/components/common/Typography';
+
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-
-import Typography from '@/components/common/Typography';
 
 const ThirdBanner = () => {
   return (

@@ -1,10 +1,10 @@
 import { type ReactNode, useCallback, useRef } from 'react';
-import { cva } from 'class-variance-authority';
-import { motion } from 'framer-motion';
-
-import { useDropdownContext } from '../dropdown-context';
 
 import cn from '@/lib/utils/style';
+import { useDropdownContext } from '../dropdown-context';
+
+import { cva } from 'class-variance-authority';
+import { motion } from 'framer-motion';
 
 const DropdownTriggerVariants = cva('flex flex-row items-center gap-3 bg-white/5 px-6 py-3 rounded-full backdrop-blur-3xl transition-all hover:bg-white/10', {
   variants: {

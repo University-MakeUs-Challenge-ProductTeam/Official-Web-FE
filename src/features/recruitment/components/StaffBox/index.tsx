@@ -1,4 +1,4 @@
-import type { TStaffDTOList } from '@/types/recruitmentDto';
+import type { TStaffDTOList } from '@/types/recruitment/dto';
 import { STAFF_ROLE_CONTENT } from '@/constants/recruitment';
 
 import Typography from '@/components/common/Typography';

@@ -1,9 +1,9 @@
 'use client';
 
+import Typography from '@/components/common/Typography';
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
-import Typography from '@/components/common/Typography';
 
 const mainSponsors = [
   { id: 1, name: '컴공선배', path: '/images/컴공선배.jpg' },

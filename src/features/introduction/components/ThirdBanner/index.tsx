@@ -1,22 +1,23 @@
 'use client';
 
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
 
-import type { TProjectPart } from '@/types/projectDto';
+import type { TProjectPart } from '@/types/project/dto';
 import { PART_NAME } from '@/constants/Parts';
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Typography from '@/components/common/Typography';
 
 import { getPartCurriculums } from '@/lib/api/part';
+import { queryKeys } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
 
 const ThirdBanner = () => {
   const [selectedPart, setSelectedPart] = useState<TProjectPart>('AOS');
   const partList = Object.keys(PART_NAME) as Array<keyof typeof PART_NAME>;
 
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.curriculum, selectedPart],
+    queryKey: queryKeys.introduction.curriculum(selectedPart),
     queryFn: () => getPartCurriculums({ part: selectedPart }),
   });
 

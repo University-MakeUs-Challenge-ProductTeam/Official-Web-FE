@@ -1,14 +1,14 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { motion } from 'framer-motion';
-
-import type { TActivity } from '@/types/recruitmentDto';
+import type { TActivity } from '@/types/recruitment/dto';
 import { ACTIVITY_CONTENT } from '@/constants/activityContent';
 
 import Typography from '@/components/common/Typography';
 
 import { activitiesQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
 
 const ActivityBox = () => {
   const { data: activities, isLoading } = useQuery(activitiesQueryOptions());

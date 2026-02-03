@@ -1,11 +1,11 @@
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import type { Metadata } from 'next';
-
 import Container from '@/components/common/Container';
 
 import ReleasedProjectView from '@/features/project/components/ReleasedProjectView';
 import UMCProjectView from '@/features/project/components/UMCProjectView';
 import { getQueryClient, projectGenerationsQueryOptions, projectListQueryOptions, releasedProjectQueryOptions } from '@/lib/query';
+
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'UMC - 프로젝트',

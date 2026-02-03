@@ -1,24 +1,35 @@
-import type { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
+import type { FieldErrors, FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import type { IconType } from 'react-icons';
 
 import Typography from '@/components/common/Typography';
 
 import cn from '@/lib/utils/style';
 
-type TInputProps = {
+type TInputProps<TFieldValues extends FieldValues = FieldValues> = {
   className?: string;
   disabled?: boolean;
-  errors: FieldErrors;
+  errors: FieldErrors<TFieldValues>;
   formatPrice?: boolean;
   icon?: IconType;
-  id: string;
+  id: Path<TFieldValues>;
   label: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<TFieldValues>;
   required?: boolean;
   type?: string;
 };
 
-const Input = ({ className, formatPrice, disabled, errors, icon: Icon, id, label, register, required, type }: TInputProps) => {
+const Input = <TFieldValues extends FieldValues = FieldValues>({
+  className,
+  formatPrice,
+  disabled,
+  errors,
+  icon: Icon,
+  id,
+  label,
+  register,
+  required,
+  type,
+}: TInputProps<TFieldValues>) => {
   return (
     <div className={cn(`relative w-full`, className)}>
       {Icon && <Icon size={24} className="absolute left-2 top-5 text-neutral-700" aria-hidden="true" />}

@@ -1,16 +1,15 @@
 'use client';
 
+import { getSchoolListData } from '@/lib/api/school';
+import { queryKeys } from '@/lib/query';
+
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import { QUERY_KEYS } from '@/constants/querykeys/project';
-
-import { getSchoolListData } from '@/lib/api/school';
-
 const UniversityMarquee = () => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.schools],
+    queryKey: queryKeys.recruitment.schools(),
     queryFn: () => getSchoolListData(),
   });
 

@@ -1,4 +1,4 @@
-import type { TPlatformName } from '@/types/projectDto';
+import type { TPlatformName, TProjectPart } from '@/types/project/dto';
 
 /**
  * Type-safe query key factory.
@@ -39,12 +39,12 @@ export const queryKeys = {
 
   // Introduction
   introduction: {
-    curriculum: () => ['introduction', 'curriculum'] as const,
+    curriculum: (part: TProjectPart) => ['introduction', 'curriculum', part] as const,
     events: (eventType: string) => ['introduction', 'events', eventType] as const,
   },
 
   // Main
   main: {
-    activity: () => ['main', 'activity'] as const,
+    activity: (eventType: string) => ['main', 'activity', eventType] as const,
   },
 } as const;

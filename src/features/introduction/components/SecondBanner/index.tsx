@@ -1,14 +1,14 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { animate, motion } from 'framer-motion';
 
 import Typography from '@/components/common/Typography';
 
 import SchoolSlider from './_components/SchoolSlider';
-
 import { schoolListQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { animate, motion } from 'framer-motion';
 
 const Counter = ({ value }: { value: number }) => {
   const ref = useRef<HTMLSpanElement>(null);

@@ -1,4 +1,4 @@
-import type { TRequirementPartDTO } from '@/types/recruitmentDto';
+import type { TRequirementPartDTO } from '@/types/recruitment/dto';
 import { PART_NAME } from '@/constants/Parts';
 
 import Typography from '@/components/common/Typography';

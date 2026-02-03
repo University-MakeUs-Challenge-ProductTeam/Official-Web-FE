@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-
 import Typography from '@/components/common/Typography';
+
+import { motion } from 'framer-motion';
 
 type TEmptyStateProps = {
   icon?: React.ReactNode;

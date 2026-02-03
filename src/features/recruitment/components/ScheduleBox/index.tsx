@@ -2,17 +2,17 @@
 
 import { useState } from 'react';
 import { IoSchool } from 'react-icons/io5';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import Typography from '@/components/common/Typography';
 
+import { requirementsQueryOptions } from '@/lib/query';
 import PartAndSkill from '../PartAndSkill';
 import RecruitmentSchedule from '../RecruitmentSchedule';
 import ScheduleDropdown from '../SchoolDropdown';
 import StaffBox from '../StaffBox';
 
-import { requirementsQueryOptions } from '@/lib/query';
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ScheduleBox = () => {
   const [selectedSchool, setSelectedSchool] = useState('');

@@ -2,15 +2,15 @@
 
 import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import Typography from '@/components/common/Typography';
 
 import StaffProfile from './_components/StaffProfile';
-
 import StaffGenerationDropdown from '@/features/project/components/StaffGenerationDropdown';
 import { staffListQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const FifthBanner = () => {
   const [selectedGeneration, setSelectedGeneration] = useState<number | 'ALL'>('ALL');

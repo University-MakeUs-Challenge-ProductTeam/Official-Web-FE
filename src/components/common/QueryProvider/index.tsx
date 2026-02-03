@@ -2,6 +2,9 @@
 
 import type React from 'react';
 import { useState } from 'react';
+
+import { env } from '@/lib/env';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
@@ -24,7 +27,7 @@ export const QueryProvider = ({ children }: Props) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
+      {env.isDev && <ReactQueryDevtools initialIsOpen={false} />}
       <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
     </QueryClientProvider>
   );

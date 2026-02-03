@@ -1,8 +1,9 @@
-import type { ApiResponse, TProjectListResultType, TReleasedProjectListResultType } from '@/types/api/projectTypes';
-import type { TGenerationsDTO, TPlatformName, TProjectDetailDTO } from '@/types/projectDto';
+import type { ApiResponse } from '@/types/common/response';
+import type { TProjectListResponse } from '@/types/project/api';
+import type { TProjectListResult, TReleasedProjectListResult } from '@/types/project/api-types';
+import type { TGenerationsDTO, TPlatformName, TProjectDetailDTO, TProjectDTO } from '@/types/project/dto';
 
 import { axiosInstance } from './axios-instance';
-
 import { buildUrl } from '@/lib/utils/url-builder';
 
 export async function getProjectList({
@@ -17,7 +18,7 @@ export async function getProjectList({
   platformName?: TPlatformName | 'ALL';
   searchTerm?: string;
   size?: number;
-}): Promise<TProjectListResultType> {
+}): Promise<TProjectListResult> {
   const url = buildUrl('/api/projects/umc', {
     page,
     size,
@@ -26,9 +27,21 @@ export async function getProjectList({
     searchTerm,
   });
 
-  const { data } = await axiosInstance.get<ApiResponse<TProjectListResultType>>(url);
+  const { data } = await axiosInstance.get<ApiResponse<TProjectListResult>>(url);
 
-  return data.result;
+  const result = data.result as TProjectListResult & { umcProjectList?: TProjectDTO[] };
+
+  return {
+    ...result,
+    content: result.content ?? result.umcProjectList ?? [],
+  };
+}
+
+export async function getAllProjects(): Promise<TProjectListResponse> {
+  const url = '/api/projects';
+  const { data } = await axiosInstance.get<TProjectListResponse>(url);
+
+  return data;
 }
 
 export async function getProjectDetail({ id }: { id: number }) {
@@ -40,9 +53,14 @@ export async function getProjectDetail({ id }: { id: number }) {
 
 export async function getReleasedProjectList({ page, size }: { page: number; size: number }) {
   const url = buildUrl('/api/projects/released', { page, size });
-  const { data } = await axiosInstance.get<ApiResponse<TReleasedProjectListResultType>>(url);
+  const { data } = await axiosInstance.get<ApiResponse<TReleasedProjectListResult>>(url);
 
-  return data.result;
+  const result = data.result as TReleasedProjectListResult & { releasedProjectDTOList?: TProjectDTO[] };
+
+  return {
+    ...result,
+    content: result.content ?? result.releasedProjectDTOList ?? [],
+  };
 }
 
 export async function getGenerations() {

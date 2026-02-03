@@ -1,9 +1,10 @@
+import { getProjectList } from '@/lib/api/project';
+import { env } from '@/lib/env';
+
 import type { MetadataRoute } from 'next';
 
-import { getProjectList } from '@/lib/api/project';
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://umc.it.kr';
+  const baseUrl = env.siteUrl;
 
   // 정적 페이지
   const staticPages: MetadataRoute.Sitemap = [
@@ -54,7 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       platformName: 'ALL',
     });
 
-    const projectPages: MetadataRoute.Sitemap = projectsData.umcProjectList.map((project) => ({
+    const projectPages: MetadataRoute.Sitemap = projectsData.content.map((project) => ({
       url: `${baseUrl}/project/${project.projectId}`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

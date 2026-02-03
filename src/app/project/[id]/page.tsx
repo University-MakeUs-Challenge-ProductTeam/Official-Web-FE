@@ -1,6 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-
 import Container from '@/components/common/Container';
 import Typography from '@/components/common/Typography';
 
@@ -8,17 +5,25 @@ import DescriptionBox from '@/features/project/components/DescriptionBox';
 import ProjectContentBox from '@/features/project/components/ProjectContentBox';
 import ProjectMemberBox from '@/features/project/components/ProjectMemberBox';
 import { getProjectDetail } from '@/lib/api/project';
+import { env } from '@/lib/env';
 import { generateSoftwareApplicationSchema } from '@/lib/schema';
+
+import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const generateMetadata = async ({
   params,
 }: {
-  params: {
-    id: number;
-  };
+  params: Promise<{
+    id: string;
+  }>;
 }): Promise<Metadata> => {
-  const { id } = params;
-  const projectData = await getProjectDetail({ id });
+  const { id } = await params;
+  const projectId = Number(id);
+  const projectData = await getProjectDetail({ id: projectId });
+
+  const landingImageUrl = projectData.projectLandingImageUrl || '/nav_logo.png';
+  const resolvedLandingImageUrl = landingImageUrl.startsWith('http') ? landingImageUrl : new URL(landingImageUrl, env.siteUrl).toString();
 
   return {
     title: projectData.projectName ? projectData.projectName : 'UMC 프로젝트',
@@ -26,16 +31,21 @@ export const generateMetadata = async ({
     openGraph: {
       images: [
         {
-          url: projectData.projectLandingImageUrl ? projectData.projectLandingImageUrl : '/nav_logo.png',
+          url: resolvedLandingImageUrl,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [resolvedLandingImageUrl],
     },
   };
 };
 
-const ProjectDetailPage = async ({ params }: { params: { id: number } }) => {
-  const { id } = params;
-  const projectData = await getProjectDetail({ id });
+const ProjectDetailPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
+  const projectId = Number(id);
+  const projectData = await getProjectDetail({ id: projectId });
 
   const softwareSchema = generateSoftwareApplicationSchema({
     name: projectData.projectName,

@@ -1,32 +1,50 @@
 'use client';
 
 import { useRef } from 'react';
+
 import { motion, useScroll, useTransform } from 'framer-motion';
+
+const getShapeConfig = (index: number) => {
+  const rand = (seed: number) => {
+    const value = Math.sin(seed) * 10000;
+    return value - Math.floor(value);
+  };
+
+  return {
+    x: `${rand(index + 1) * 100}%`,
+    y: `${rand(index + 101) * 100}%`,
+    duration: rand(index + 1001) * 10 + 10,
+  };
+};
 
 const FloatingShapes = () => {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      {[...Array(20)].map((_, index) => (
-        <motion.div
-          key={index}
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: `${Math.random() * 100}%`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [null, '-20%', '20%'],
-            opacity: [0, 0.2, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            delay: index * 0.2,
-          }}
-          className="absolute size-1 bg-main-green shadow-[0_0_10px_#52E560]"
-        />
-      ))}
+      {[...Array(20)].map((_, index) => {
+        const shape = getShapeConfig(index);
+
+        return (
+          <motion.div
+            key={index}
+            initial={{
+              x: shape.x,
+              y: shape.y,
+              opacity: 0,
+            }}
+            animate={{
+              y: [null, '-20%', '20%'],
+              opacity: [0, 0.2, 0],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: shape.duration,
+              repeat: Infinity,
+              delay: index * 0.2,
+            }}
+            className="absolute size-1 bg-main-green shadow-[0_0_10px_#52E560]"
+          />
+        );
+      })}
     </div>
   );
 };

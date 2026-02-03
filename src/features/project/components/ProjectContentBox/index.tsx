@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
-import type { TProjectDetailDTO } from '@/types/projectDto';
+import type { TProjectDetailDTO } from '@/types/project/dto';
 import { PLATFORM_NAME } from '@/constants/Platforms';
 
 import Typography from '@/components/common/Typography';
 
 import { formatDateRange } from '@/lib/utils/date';
+
+import { motion } from 'framer-motion';
 
 type TProjectContentBoxProps = {
   projectData: TProjectDetailDTO;

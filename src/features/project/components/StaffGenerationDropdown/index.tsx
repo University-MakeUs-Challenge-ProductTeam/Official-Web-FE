@@ -1,10 +1,7 @@
 'use client';
 
-import React from 'react';
+import type React from 'react';
 import { IoChevronDown } from 'react-icons/io5';
-import { useQuery } from '@tanstack/react-query';
-
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Dropdown from '@/components/common/Dropdown';
 import DropdownItem from '@/components/common/Dropdown/DropdownItem';
@@ -13,6 +10,9 @@ import DropdownTrigger from '@/components/common/Dropdown/DropdownTrigger';
 import Typography from '@/components/common/Typography';
 
 import { getCentralStaffGenerations } from '@/lib/api/staff';
+import { queryKeys } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
 
 type TStaffGenerationDropdownProps = {
   selected: 'ALL' | number;
@@ -21,7 +21,7 @@ type TStaffGenerationDropdownProps = {
 
 const StaffGenerationDropdown = ({ selected, setSelected }: TStaffGenerationDropdownProps) => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.staffGenerations],
+    queryKey: queryKeys.staffs.generations(),
     queryFn: () => getCentralStaffGenerations(),
   });
   const generationList = ['ALL', ...(data?.generationList ?? [])] as Array<'ALL' | number>;

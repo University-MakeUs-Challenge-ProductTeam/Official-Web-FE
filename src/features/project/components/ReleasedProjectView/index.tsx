@@ -2,14 +2,14 @@
 
 import { useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
 
 import Typography from '@/components/common/Typography';
 
+import { releasedProjectQueryOptions } from '@/lib/query';
 import ProjectCard from '../ProjectCard';
 
-import { releasedProjectQueryOptions } from '@/lib/query';
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const ReleasedProjectView = () => {
   const [page, setPage] = useState(0);
@@ -42,7 +42,7 @@ const ReleasedProjectView = () => {
               <div key={index} className="h-48 animate-pulse rounded-4xl bg-white/5" />
             ))}
           </div>
-        ) : projectData?.releasedProjectDTOList.length === 0 ? (
+        ) : projectData?.content.length === 0 ? (
           <div className="flex h-[300px] w-full items-center justify-center rounded-4xl border border-white/5 bg-white/5">
             <Typography size="text-sm" className="font-bold uppercase italic tracking-widest text-white/20">
               No released projects yet
@@ -50,7 +50,7 @@ const ReleasedProjectView = () => {
           </div>
         ) : (
           <motion.div key={page} initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="grid grid-cols-1 gap-8 2xl:grid-cols-2">
-            {projectData?.releasedProjectDTOList.map((project, idx) => (
+            {projectData?.content.map((project, idx) => (
               <motion.div key={project.projectId} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: idx * 0.1 }}>
                 <ProjectCard projectData={project} type="released" />
               </motion.div>

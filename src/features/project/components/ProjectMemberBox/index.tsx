@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
-import type { TProjectMemberDTO } from '@/types/projectDto';
+import type { TProjectMemberDTO } from '@/types/project/dto';
 import { PART_NAME } from '@/constants/Parts';
 
 import Typography from '@/components/common/Typography';
+
+import { motion } from 'framer-motion';
 
 type TProjectMemberBoxProps = {
   projectMember: TProjectMemberDTO[];

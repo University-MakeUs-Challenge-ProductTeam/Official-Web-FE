@@ -1,6 +1,6 @@
 import { IoSearch } from 'react-icons/io5';
 
-import type { TPlatformName } from '@/types/projectDto';
+import type { TPlatformName } from '@/types/project/dto';
 
 import PlatformDropdown from '../../PlatformDropdown';
 import ProjectGenerationDropdown from '../../ProjectGenerationDropdown';

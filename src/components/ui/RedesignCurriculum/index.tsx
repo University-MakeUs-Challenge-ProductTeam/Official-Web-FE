@@ -1,21 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
 
-import type { TProjectPart } from '@/types/projectDto';
+import type { TProjectPart } from '@/types/project/dto';
 import { PART_NAME } from '@/constants/Parts';
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import { getPartCurriculums } from '@/lib/api/part';
+import { queryKeys } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const RedesignCurriculum = () => {
   const [selectedPart, setSelectedPart] = useState<TProjectPart>('WEB');
   const partList = Object.keys(PART_NAME) as Array<keyof typeof PART_NAME>;
 
   const { data, isLoading } = useQuery({
-    queryKey: [QUERY_KEYS.curriculum, selectedPart],
+    queryKey: queryKeys.introduction.curriculum(selectedPart),
     queryFn: () => getPartCurriculums({ part: selectedPart }),
   });
 

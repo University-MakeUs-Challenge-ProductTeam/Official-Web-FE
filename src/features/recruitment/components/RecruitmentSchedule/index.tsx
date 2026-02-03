@@ -1,4 +1,4 @@
-import type { TRecruitmentScheduleDTO, TShcoolScheduleType } from '@/types/recruitmentDto';
+import type { TRecruitmentScheduleDTO, TShcoolScheduleType } from '@/types/recruitment/dto';
 import { SCHEDULE_CONTENT } from '@/constants/recruitment';
 
 import Typography from '@/components/common/Typography';

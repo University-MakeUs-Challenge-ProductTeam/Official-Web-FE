@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-
 import Container from '@/components/common/Container';
 import LoadingSpinner from '@/components/common/LoadingSpinner';
 import Spacing from '@/components/common/Spacing';
 import Typography from '@/components/common/Typography';
+
+import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
 // Form 컴포넌트를 Dynamic Import (react-hook-form + zod 최적화)
 const Form = dynamic(() => import('@/features/sponser/components/Form'), {

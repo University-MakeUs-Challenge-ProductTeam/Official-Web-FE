@@ -1,12 +1,12 @@
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import type { Metadata } from 'next';
-
 import Container from '@/components/common/Container';
 
 import FirstBanner from '@/features/sponser/components/FirstBanner';
 import SecondBanner from '@/features/sponser/components/SecondBanner';
 import ThirdBanner from '@/features/sponser/components/ThirdBanner';
 import { getQueryClient, sponsorListQueryOptions } from '@/lib/query';
+
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'UMC - 후원사 목록',

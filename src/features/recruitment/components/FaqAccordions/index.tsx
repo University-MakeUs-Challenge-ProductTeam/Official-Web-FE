@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { FAQ_CONTENT } from '@/constants/FaqContent';
 
 import Accordion from '@/components/common/Accordion';

@@ -1,10 +1,7 @@
 'use client';
 
-import React from 'react';
+import type React from 'react';
 import { IoChevronDown } from 'react-icons/io5';
-import { useQuery } from '@tanstack/react-query';
-
-import { QUERY_KEYS } from '@/constants/querykeys/project';
 
 import Dropdown from '@/components/common/Dropdown';
 import DropdownItem from '@/components/common/Dropdown/DropdownItem';
@@ -13,6 +10,9 @@ import DropdownTrigger from '@/components/common/Dropdown/DropdownTrigger';
 import Typography from '@/components/common/Typography';
 
 import { getGenerations } from '@/lib/api/project';
+import { queryKeys } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
 
 type TProjectGenerationDropdownProps = {
   selected: 'ALL' | number;
@@ -21,7 +21,7 @@ type TProjectGenerationDropdownProps = {
 
 const ProjectGenerationDropdown = ({ selected, setSelected }: TProjectGenerationDropdownProps) => {
   const { data } = useQuery({
-    queryKey: [QUERY_KEYS.projectGenerations],
+    queryKey: queryKeys.projects.generations(),
     queryFn: () => getGenerations(),
   });
   const generationList = ['ALL', ...(data?.generationList ?? [])] as Array<'ALL' | number>;

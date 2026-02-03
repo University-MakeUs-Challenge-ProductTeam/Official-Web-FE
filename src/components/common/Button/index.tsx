@@ -1,9 +1,10 @@
-import React from 'react';
+import type React from 'react';
 import type { IconType } from 'react-icons';
-import type { VariantProps } from 'class-variance-authority';
-import { cva } from 'class-variance-authority';
 
 import cn from '@/lib/utils/style';
+
+import type { VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 
 const ButtonVariants = cva('flex w-full items-center justify-center rounded-lg transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70', {
   variants: {

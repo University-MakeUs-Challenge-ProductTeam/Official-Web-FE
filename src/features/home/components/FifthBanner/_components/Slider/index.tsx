@@ -1,6 +1,7 @@
+import type { ReactNode } from 'react';
+
 import 'swiper/css';
 
-import type { ReactNode } from 'react';
 import { Autoplay } from 'swiper/modules';
 import { Swiper } from 'swiper/react';
 

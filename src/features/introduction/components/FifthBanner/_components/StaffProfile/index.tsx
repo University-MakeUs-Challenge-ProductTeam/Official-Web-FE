@@ -1,11 +1,12 @@
 import { FaGithub } from 'react-icons/fa6';
 import { MdAlternateEmail } from 'react-icons/md';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-import type { TCentralStaffDTO } from '@/types/staffDto';
+import type { TCentralStaffDTO } from '@/types/staff/dto';
 
 import Typography from '@/components/common/Typography';
+
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 type TStaffProfileProps = {
   profileData: TCentralStaffDTO;

@@ -1,4 +1,4 @@
-import type { TShcoolScheduleType, TStaffRoleType } from '../types/recruitmentDto';
+import type { TShcoolScheduleType, TStaffRoleType } from '../types/recruitment/dto';
 
 export const SCHEDULE_CONTENT: { label: TShcoolScheduleType }[] = [
   { label: '서류 접수' },

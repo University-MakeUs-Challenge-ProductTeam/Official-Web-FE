@@ -1,16 +1,15 @@
-import { queryOptions } from '@tanstack/react-query';
-
-import type { TCentralEventDTO } from '@/types/eventDtos';
-import type { TPlatformName } from '@/types/projectDto';
+import type { TCentralEventDTO } from '@/types/event/dto';
+import type { TPlatformName } from '@/types/project/dto';
 
 import { queryKeys } from './query-keys';
-
 import { getCentralEvent } from '@/lib/api/event';
 import { getGenerations, getProjectDetail, getProjectList, getReleasedProjectList } from '@/lib/api/project';
 import { getActivities, getRequirements } from '@/lib/api/recruitment';
 import { getSchoolListData } from '@/lib/api/school';
 import { getSponsor } from '@/lib/api/sponsor';
 import { getCentralStaff, getCentralStaffGenerations } from '@/lib/api/staff';
+
+import { queryOptions } from '@tanstack/react-query';
 
 // ─────────────────────────────────────────────────────────────
 // Project Queries

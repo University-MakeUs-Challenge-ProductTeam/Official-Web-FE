@@ -1,11 +1,12 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 
 import Button from '@/components/common/Button';
 import Spacing from '@/components/common/Spacing';
 import Typography from '@/components/common/Typography';
+
+import { motion, useInView } from 'framer-motion';
 
 const textVariants = {
   hidden: { opacity: 0, y: -100 },

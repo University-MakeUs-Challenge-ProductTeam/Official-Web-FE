@@ -1,7 +1,9 @@
-import React, { type ReactNode, useCallback, useRef } from 'react';
-import { motion } from 'framer-motion';
+import type React from 'react';
+import { type ReactNode, useCallback, useRef } from 'react';
 
 import { useDropdownContext } from '../dropdown-context';
+
+import { motion } from 'framer-motion';
 
 type TDropdownItemProps = {
   children: ReactNode;

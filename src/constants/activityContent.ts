@@ -1,4 +1,4 @@
-import type { TActivity } from '../types/recruitmentDto';
+import type { TActivity } from '../types/recruitment/dto';
 
 export const ACTIVITY_CONTENT: { label: TActivity }[] = [
   { label: '활동기간' },

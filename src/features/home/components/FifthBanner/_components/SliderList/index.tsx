@@ -1,17 +1,16 @@
 'use client';
 
+import Slider from '@/features/home/components/FifthBanner/_components/Slider';
+import useAllProjectsQuery from '@/features/project/hooks/useAllProjectsQuery';
+
 import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
 
-import useGetAllProjects from '@/hooks/queries/useGetAllProjects';
-
-import Slider from '@/features/home/components/FifthBanner/_components/Slider';
-
 const SliderList = () => {
-  const { data: projects } = useGetAllProjects();
+  const { data: projectList } = useAllProjectsQuery();
   return (
     <Slider>
-      {projects?.result?.projectList.map((project, index) => (
+      {projectList?.result?.projectList.map((project, index) => (
         <SwiperSlide key={index}>
           <div className="size-[128px]">
             <Image

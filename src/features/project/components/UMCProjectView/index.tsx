@@ -1,16 +1,15 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
-import { AnimatePresence, motion } from 'framer-motion';
-
 import Pagination from '@/components/ui/Pagination';
 
 import ProjectFilters from './_components/ProjectFilters';
 import ProjectGrid from './_components/ProjectGrid';
-
 import { useProjectFilters } from '@/features/project/hooks/use-project-filters';
 import { useProjectPagination } from '@/features/project/hooks/use-project-pagination';
 import { projectListQueryOptions } from '@/lib/query';
+
+import { useQuery } from '@tanstack/react-query';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const UMCProjectView = () => {
   const { selectedGeneration, selectedPlatform, searchTerm, debouncedSearchTerm, setSelectedGeneration, setSelectedPlatform, setSearchTerm } =
@@ -60,7 +59,7 @@ const UMCProjectView = () => {
 
       <AnimatePresence mode="wait">
         <ProjectGrid
-          projects={projectData?.umcProjectList || []}
+          projects={projectData?.content || []}
           isLoading={isLoading}
           selectedGeneration={selectedGeneration}
           selectedPlatform={String(selectedPlatform)}

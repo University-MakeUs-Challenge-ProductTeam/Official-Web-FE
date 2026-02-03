@@ -22,6 +22,5 @@ export const MSWProvider = ({ children }: { children: React.ReactNode }) => {
 
   if (!isReady) return null;
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  return <>{children}</>;
+  return children;
 };

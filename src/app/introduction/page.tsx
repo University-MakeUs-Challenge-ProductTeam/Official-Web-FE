@@ -1,6 +1,3 @@
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import type { Metadata } from 'next';
-
 import RedesignCurriculum from '@/components/ui/RedesignCurriculum';
 
 import FifthBanner from '@/features/introduction/components/FifthBanner';
@@ -9,6 +6,9 @@ import FourthBanner from '@/features/introduction/components/FourthBanner';
 import SecondBanner from '@/features/introduction/components/SecondBanner';
 import { getQueryClient, projectListQueryOptions, schoolListQueryOptions } from '@/lib/query';
 import { generateAboutPageSchema } from '@/lib/schema';
+
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'UMC - 소개',

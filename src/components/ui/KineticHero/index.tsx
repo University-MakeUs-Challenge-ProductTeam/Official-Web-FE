@@ -110,10 +110,11 @@ const KineticHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 1 }}
-            className="max-w-xl text-lg font-medium text-white/40 md:text-xl"
+            className="max-w-2xl text-lg font-medium text-white/40 md:text-xl"
           >
-            대학생들이 직접 서비스를 기획하고 개발하며 <br />
-            세상에 없던 가치를 만들어내는 도전의 여정.
+            대학생들이 직접 서비스를 기획하고 개발하며, <br />
+            함께 배우고 성장하는 세상에 없던 가치를 만들어내는 도전의 여정. <br />
+            지금, 이 여정에 함께할 신규 학교를 모집합니다.
           </motion.p>
 
           <motion.div
@@ -122,21 +123,23 @@ const KineticHero = () => {
             transition={{ delay: 1.5, duration: 0.5 }}
             className="mt-8 flex gap-4"
           >
-            <button
-              type="button"
-              disabled
-              className="group relative cursor-not-allowed overflow-hidden rounded-full bg-main-green/50 px-8 py-3 font-bold text-black/50"
+            <a
+              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2PARzgseoEgXFhK9_hAcXAuJvnon5qaEjZYmSSKBD0ysDoNznAS8zUcvRh7afPLk5nRc_D08wQ"
+              target="_blank"
+              rel="noreferrer"
+              className="group relative overflow-hidden rounded-full bg-main-green px-8 py-3 font-bold text-black transition-all hover:brightness-110"
             >
-              WAITING FOR 10TH
-              {/* <div className="absolute inset-x-0 bottom-0 h-1 bg-white/20 transition-all group-hover:h-full" /> */}
-            </button>
-            <motion.button
+              새롭게 합류하기
+            </a>
+            <motion.a
               whileTap={{ scale: 0.95 }}
-              type="button"
+              href="https://www.notion.so/makeus-challenge/UMC-10-2fcb57f4596b80d08fd5d16d5d5eaf7c"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full border border-white/20 bg-white/5 px-8 py-3 font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10"
             >
               LEARN MORE
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 
